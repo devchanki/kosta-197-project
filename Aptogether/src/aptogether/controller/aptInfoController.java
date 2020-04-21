@@ -29,19 +29,15 @@ import org.xml.sax.InputSource;
 
 import aptogether.security.ApiKeys;
 
-/**
- * Servlet implementation class aptInfoController
- */
+
 @WebServlet("/apt/*")
 public class aptInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public aptInfoController() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
     
     public void doProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {

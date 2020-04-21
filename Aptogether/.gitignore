@@ -3,3 +3,5 @@
 # api 키 모음
 /src/aptogether/security/*
 .tern-project
+
+/src/mybatis-config.xml

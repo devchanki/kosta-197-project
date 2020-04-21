@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="aptogether.mapper.Manage_Fee_Mapper">
+	<cache />
+	
+	<insert id="insert	ManageFee" parameterType="Manage_Fee">
+		insert into Manage_Fee values(manage_fee_seq.nextval, 1, #{general_fee}, #{security_fee}, #{cleaning_fee},
+									#{fumigation_fee}, #{lift_maintenance_fee}, #{electricity_fee}, #{water_fee}, #{heating_fee})
+	</insert>
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
