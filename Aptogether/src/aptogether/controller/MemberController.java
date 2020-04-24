@@ -30,7 +30,7 @@ public class MemberController extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String url = request.getRequestURI();
 		String[] requestStringArray = url.split("/");
 		ActionForward forward = null;
@@ -76,7 +76,12 @@ public class MemberController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doProcess(request, response);
+		try {
+			doProcess(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -86,7 +91,12 @@ public class MemberController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doProcess(request, response);
+		try {
+			doProcess(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
