@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace = "kosta.mapper.BoardMapper">
+	
+	<insert id = "insertBoard" parameterType = "board">
+		insert into COMP_BOARD values (compboard_seq.nextval, #{NO_COMP},#{TITLE},#{EMAIL},
+			#{TEL),#{CONTENT},#{FNAME});
+	
+	</insert>
+	
+	<insert id = "insertProcess" parameter type = "String">
+		insert into COMP_BOARD values (#{PROCESS});
+	</insert>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

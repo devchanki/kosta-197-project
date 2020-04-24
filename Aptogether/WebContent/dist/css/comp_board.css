@@ -1,0 +1,41 @@
+@charset "EUC-KR";
+
+#maintitle{
+	font-size: 44px;
+	text-align: center;
+	height:70px;
+	font-weight:bold;
+	color: #C0C0C0;
+	margin-top: 40px;
+}
+#category{
+	width: 1160px;
+    min-height: 175px;
+    padding: 40px 0 40px 0;
+   	margin-left: auto;
+   margin-right: auto;
+   
+}	
+.item{
+	position: relative;
+    float: left;
+    min-height: 60px;
+    width: 269px;
+    text-align: center;
+}
+
+ dl dt{
+	line-height:50px;
+	top:50%;
+	 background-color: #DDDDDD;
+	 border-top: solid 2px #BBBBBB;
+	 border-bottom: solid 1	px #CCCCCC;
+}
+	dd{
+	line-height:50px;
+	top:50%;
+	 background-color: #FFFFFF;
+	 line-height: 50px;
+	 top:50%;
+	 border-bottom: solid 1px #CCCCCC;
+}
