@@ -10,5 +10,5 @@
 .metadata/
 .setting/*
 
-.classpath
-.project
+/.classpath
+/.project
