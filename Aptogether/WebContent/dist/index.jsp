@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +34,7 @@
 				생성하기</button>
 		</div>
 	</nav>
-	<div class="container-fluid main-section">
+		<div class="container-fluid main-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-5 select-box">
@@ -40,25 +42,11 @@
 					<a href="/Aptogether/member/joinPage.do">바로가기 </a>
 				</div>
 				<div class="offset-xl-2 col-xl-5 select-box">
-					<div class="user">회원이십니까?</div>
+					<div class="user"> 회원이십니까?</div>
 					<a href="/Aptogether/dist/signin.html">바로가기</a>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div id="layoutAuthentication_footer">
-		<footer class="py-4 bg-light mt-auto">
-			<div class="container-fluid">
-				<div class="d-flex align-items-center justify-content-between small">
-					<div class="text-muted">Aptogether KOSTA 3조</div>
-					<div>
-						<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-							&amp; Conditions</a>
-					</div>
-				</div>
-			</div>
-		</footer>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		crossorigin="anonymous"></script>
