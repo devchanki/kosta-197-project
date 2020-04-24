@@ -7,11 +7,18 @@
 <mapper namespace="aptogether.mapper.Manage_Fee_Mapper">
 	<cache />
 	
-	<insert id="insert	ManageFee" parameterType="Manage_Fee">
-		insert into Manage_Fee values(manage_fee_seq.nextval, 1, #{general_fee}, #{security_fee}, #{cleaning_fee},
-									#{fumigation_fee}, #{lift_maintenance_fee}, #{electricity_fee}, #{water_fee}, #{heating_fee})
+	<select id="findMemberSeq" parameterType="Member" resultType="Member">
+		select * from member where dong=#{dong} and ho=#{ho}
+	</select>
+	
+	<insert id="insertManageFee" parameterType="Manage_Fee">
+		insert into manage_fee values(manage_fee_seq.nextval, #{member_seq}, #{general_fee}, #{security_fee}, #{cleaning_fee}, 
+																#{fumigation_fee}, #{lift_maintenance_fee}, #{electricity_fee}, #{water_fee}, #{heating_fee})
 	</insert>
 	
+	<select id="listManageFee" parameterType="Integer" resultType="Manage_Fee">
+		select ma.* from manage_fee ma left join member me  on ma.member_seq = me.member_seq where me.apt_seq = #{apt_seq} order by ma.fee_seq
+	</select>
 	
 	
 </mapper>
