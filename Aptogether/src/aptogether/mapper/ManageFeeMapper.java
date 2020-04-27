@@ -5,7 +5,7 @@ import java.util.List;
 import aptogether.model.ManageFee;
 import aptogether.model.Member;
 
-public interface Manage_Fee_Mapper {
+public interface ManageFeeMapper {
 	Member findMemberSeq(Member member);
 	int insertManageFee(ManageFee manage_Fee);
 	List<ManageFee> listManageFee(int apt_seq);
