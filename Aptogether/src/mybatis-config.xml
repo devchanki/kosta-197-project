@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="aptogether.model.AptInfo" alias="AptInfo"/>
+		<typeAlias type="aptogether.model.Member" alias="Member"/>
+		<typeAlias type="aptogether.model.ManageFee" alias="ManageFee"/>
+	</typeAliases>
+	
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+				<dataSource type="JNDI">
+					<property name="data_source" value="java:comp/env/jdbc/oracle"/>
+				</dataSource>
+		</environment>		
+	</environments>
+	
+	<mappers>
+		<mapper resource="aptogether/mapper/Apt.xml"/>
+		<mapper resource="aptogether/mapper/Member.xml"/>
+		<mapper resource="aptogether/mapper/ManageFee.xml"/>
+	</mappers>
+	
+</configuration>

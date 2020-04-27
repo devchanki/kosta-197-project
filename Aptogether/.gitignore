@@ -4,11 +4,10 @@
 /src/aptogether/security/*
 .tern-project
 
-/src/mybatis-config.xml
 
 .project/
 .metadata/
 .setting/*
 
-/.classpath
-/.project
+.classpath
+.project

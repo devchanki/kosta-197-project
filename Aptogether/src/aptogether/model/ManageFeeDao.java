@@ -10,9 +10,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import aptogether.mapper.Manage_Fee_Mapper;
 
-public class Manage_Fee_Dao {
-		private static Manage_Fee_Dao dao = new Manage_Fee_Dao();
-		public static Manage_Fee_Dao getInstance() {
+public class ManageFeeDao {
+		private static ManageFeeDao dao = new ManageFeeDao();
+		public static ManageFeeDao getInstance() {
 			return dao;
 		}
 		public SqlSessionFactory getSqlSessionFactory() {
@@ -43,7 +43,7 @@ public class Manage_Fee_Dao {
 		}
 
 
-		public int insertManageFee(Manage_Fee manage_Fee) {
+		public int insertManageFee(ManageFee manage_Fee) {
 			SqlSession sqlSession = getSqlSessionFactory().openSession();
 			int re = -1;
 			try {
@@ -63,9 +63,9 @@ public class Manage_Fee_Dao {
 			return re;
 		}
 		
-		public List<Manage_Fee> listManageFee(int apt_seq){
+		public List<ManageFee> listManageFee(int apt_seq){
 			SqlSession sqlSession = getSqlSessionFactory().openSession();
-			List<Manage_Fee> list = null;
+			List<ManageFee> list = null;
 			try {
 				list = sqlSession.getMapper(Manage_Fee_Mapper.class).listManageFee(apt_seq);
 			} catch (Exception e) {
