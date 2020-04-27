@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="aptogether.mapper.PollMapper">
+	<cache />
+	
+	<insert id="PollInsert" parameterType="Poll">
+		insert into poll values(poll_seq.nextval,#{question},sysdate,sysdate,0)
+	</insert>
+	
+<!-- 	<insert id="PollOption" parameterType="Option">
+		insert into poll_options values(poll_option_seq.nextval,#{option},poll_seq.currval)
+	</insert> -->
+	
+	<insert id="PollOption" parameterType="java.util.List">
+		insert into poll_options(option_seq, option_text, poll_seq) select poll_option_seq.nextval, A.* , poll_seq.currval From(
+        <foreach collection="list" item="item" index="index"  separator="UNION ALL "> 
+         	select #{item.option} From dual
+        </foreach>) A
+    </insert>
+    
+
+	<select id="PollList" resultType="Poll">
+		select * from poll order by poll_seq
+	</select>
+	
+	<select id="OptionList" resultType="Option" parameterType="int">
+		select * from poll_options where poll_seq = #{seq}
+	</select>
+	
+	<select id="PollSelectInsert" parameterType="PollSelect"> 
+	
+	<if test='member_seq != "1"'>
+		insert into poll_select values(poll_select_seq.nextval,1,sysdate,#{option_seq})
+	</if>
+	</select>
+	
+	<select id="PollDetailList" resultType="Detail" parameterType="int">
+	select mb.dong as dong, mb.ho as ho, mb.name as name, ps.poll_select_seq as poll_select_seq
+		from poll pl left join poll_options po
+			on pl.poll_seq = po.poll_seq
+		left join poll_select ps
+			on po.option_seq = ps.option_seq
+		left join member mb
+			on ps.member_seq = mb.member_seq
+			where pl.poll_seq = #{seq}
+	</select>
+
+</mapper>
