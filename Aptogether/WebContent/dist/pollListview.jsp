@@ -14,7 +14,7 @@
 <meta name="author" content="" />
 <title>Aptogether</title>
 <link href="../dist/css/styles.css" rel="stylesheet" />
-<link href="/Aptogether/Poll.css" rel="stylesheet" />
+<link href="/Aptogether/dist/css/Poll.css" rel="stylesheet" />
 <link
 	href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
 	rel="stylesheet" crossorigin="anonymous" />
@@ -35,7 +35,7 @@
 				success: function(data) {
 					for(let i =0; i < data.length; i++){
 						console.log(data[i]);
-						
+
 						$('.option_modal_body').append(
 						
 						'<div class="input-group"><div class="input-group-prepend">'

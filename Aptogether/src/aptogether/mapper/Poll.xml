@@ -18,7 +18,7 @@
 	<insert id="PollOption" parameterType="java.util.List">
 		insert into poll_options(option_seq, option_text, poll_seq) select poll_option_seq.nextval, A.* , poll_seq.currval From(
         <foreach collection="list" item="item" index="index"  separator="UNION ALL "> 
-         	select #{item.option} From dual
+         	select #{item.option_text} From dual
         </foreach>) A
     </insert>
     
