@@ -9,7 +9,7 @@ public class JoinAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		ActionForward action = new ActionForward();
-		action.setUrl("/Aptogether/dist/signup.jsp");
+		action.setUrl("/Aptogether/dist/signup.html");
 		action.setRedirect(true);
 		return action;
 	}

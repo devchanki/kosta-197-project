@@ -9,6 +9,7 @@ public class AptInfo implements Serializable{
 	private String location;
 	private String x;
 	private String y;
+	
 	public int getApt_seq() {
 		return apt_seq;
 	}
@@ -46,6 +47,9 @@ public class AptInfo implements Serializable{
 		this.y = y;
 	}
 	
+	public AptInfo() {
+		super();
+	}
 	public AptInfo(int apt_seq, String kaptCode, String aptName, String location, String x, String y) {
 		super();
 		this.apt_seq = apt_seq;
