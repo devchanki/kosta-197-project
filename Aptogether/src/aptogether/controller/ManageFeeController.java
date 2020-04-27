@@ -55,6 +55,7 @@ public class ManageFeeController extends HttpServlet {
 			
 			System.out.println(obj.toString());
 			out.print(obj.toString());
+			out.flush();
 		}
 		else if(command.equals("registerManageFee")) {
 			response.setCharacterEncoding("utf-8");
@@ -81,8 +82,10 @@ public class ManageFeeController extends HttpServlet {
 	         PrintWriter out = response.getWriter();
 	         if (result > 0) {
 	            out.write("success");
+	            out.flush();
 	         } else {
 	            out.write("false");
+	            out.flush();
 	         }
 					
 		
@@ -115,6 +118,7 @@ public class ManageFeeController extends HttpServlet {
 	         obj.put("data", arr);
 	         System.out.println(obj.toString());
 	         out.print(arr.toString());
+	         out.flush();
 		}
 	}
 
