@@ -2,6 +2,7 @@ package aptogether.model;
 
 import java.io.Serializable;
 
+<<<<<<< HEAD
 public class ManageFee implements Serializable {
 	private int fee_seq;
 	private int member_seq;
@@ -18,6 +19,24 @@ public class ManageFee implements Serializable {
 	
 
 	public ManageFee(int member_seq, int general_fee, int security_fee, int cleaning_fee, int fumigation_fee, int lift_maintenance_fee,
+=======
+public class Manage_Fee implements Serializable {
+	private int fee_seq;
+	private int member_seq;
+	private int general_fee;
+	private int security_fee;
+	private int cleaning_fee;
+	private int fumigation_fee;
+	private int lift_maintenance_fee;
+	private int electricity_fee;
+	private int water_fee;
+	private int heating_fee;
+	
+	public Manage_Fee() {}
+	
+
+	public Manage_Fee(int member_seq, int general_fee, int security_fee, int cleaning_fee, int fumigation_fee, int lift_maintenance_fee,
+>>>>>>> branch 'chanki' of https://github.com/devchanki/kosta-197-project.git
 			int electricity_fee, int water_fee, int heating_fee) {
 		super();
 		this.member_seq = member_seq;
