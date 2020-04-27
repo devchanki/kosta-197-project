@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Aptogether</title>
+        <title>Aptogether - 관리사무실</title>
         <link href="/Aptogether/dist/css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
@@ -99,7 +99,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h3 class="mt-4">반갑습니다 ${member.name} 님 </h3>
+                        <h3 class="mt-4">관리사무실 - ${member.name}님 반갑습니다.</h3>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>

@@ -31,16 +31,22 @@ public class SigninAction implements Action {
 
 		Member resultMember = service.signinService(member);
 		HttpSession session = request.getSession();
-		
+		System.out.println("member" + resultMember.getType());
 		if (resultMember == null) {
 			session.invalidate();
 			forward.setRedirect(true);
-			forward.setUrl("/Aptogether/dist/signin.jsp");
+			forward.setUrl("/Aptogether/dist/signin.html");
 		} else {
 			session.setAttribute("member", resultMember);
 			request.setAttribute("member", resultMember);
-			forward.setRedirect(false);
-			forward.setUrl("/dist/userDashboard.jsp");
+			if(resultMember.getType() == 1) {
+				forward.setRedirect(false);
+				forward.setUrl("/dist/userDashboard.jsp");
+			}else if(resultMember.getType() == 0) {
+				forward.setRedirect(false);
+				forward.setUrl("/dist/managerDashBoard.jsp");
+			}
+
 		}
 
 		return forward;
