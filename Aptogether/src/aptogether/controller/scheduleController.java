@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -111,10 +112,43 @@ public class scheduleController extends HttpServlet {
 			} else {
 				out.write("false");
 			}
-		}
+		}else if (command.equals("listScheduleAPT")) {
+			response.setCharacterEncoding("utf-8");
+			ScheduleService service = ScheduleService.getInstance();
+			//Schedule schedule = new Schedule();
+			PrintWriter out = response.getWriter();
+	        HttpSession session = request.getSession();
+	        
+	        try {
+				Schedule schedule = (Schedule) session.getAttribute("schedule");
+				List<Schedule> list = service.listSchedule_APT_Service(schedule.getApt_Seq());
 
+				JSONObject obj = new JSONObject();
+				JSONArray arr = new JSONArray();
+				
+				for (Schedule s : list) {
+					JSONObject tmp = new JSONObject();
+					tmp.put("_id", s.getSchedule_Seq());
+					tmp.put("contents", s.getContents());
+					tmp.put("start", s.getStart_Date());
+					tmp.put("end", s.getEnd_Date());
+					tmp.put("title", s.getTitle());
+					tmp.put("allDay", "false");
+					tmp.put("backgroundColor", s.getBackgroundColor());
+					arr.add(tmp);
+				}
+				obj.put("data", arr);
+				out.print(arr.toString());
+				out.flush();
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+				out.print("false");
+				out.flush();
+			}
+			
+			
 		
-
 
 			if (forward != null) {
 				if (forward.isRedirect()) {
@@ -124,6 +158,7 @@ public class scheduleController extends HttpServlet {
 					dispatcher.forward(request, response);
 				}
 			}
+		}
 
 		}
 	

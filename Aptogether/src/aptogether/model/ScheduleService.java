@@ -34,4 +34,7 @@ public class ScheduleService {
 	public int deleteScheduleService(int schedule_Seq) {
 		return dao.deleteSchedule(schedule_Seq);
 }
+	public List<Schedule> listSchedule_APT_Service(int apt_Seq)throws Exception{
+		return dao.listSchedule_APT(apt_Seq);
+	}
 }

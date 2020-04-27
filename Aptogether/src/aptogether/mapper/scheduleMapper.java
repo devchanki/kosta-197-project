@@ -14,5 +14,6 @@ int insertSchedule(Schedule schedule);
 List<Schedule> listSchedule();
 int updateSchedule(Schedule schedule);
 int deleteSchedule(int schedule_Seq);
+List<Schedule> listSchedule_APT(int apt_Seq);
 }
        

@@ -22,6 +22,8 @@ update schedule set contents=#{contents}, title=#{title}, start_Date= to_date(#{
 delete from schedule where schedule_Seq=#{schedule_Seq}
 </delete>
 
-
+<select id="listSchedule_APT" resultType="Schedule" parameterType="Integer" >
+select sc.* from schedule schedule sc left join member me on sc.apt_seq = me.apt_seq where me.apt_seq = #{apt_seq}
+</select>
 
 </mapper>

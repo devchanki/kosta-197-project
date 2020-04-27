@@ -111,11 +111,6 @@ public class ScheduleDao {
 		try {
 			re = sqlSession.getMapper(scheduleMapper.class).deleteSchedule(schedule_Seq);
 
-			if (re > 0) {
-				sqlSession.commit();
-			} else {
-				sqlSession.rollback();
-			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -126,6 +121,27 @@ public class ScheduleDao {
 		}
 		return re;
 	}
+	
+	public List<Schedule> listSchedule_APT(int apt_Seq) {
+	
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		List<Schedule> list = null;
+		
+		try {
+			list = sqlSession.getMapper(scheduleMapper.class).listSchedule_APT(apt_Seq);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return list;
+	}
+	
+	
+	
 	
 	
 	

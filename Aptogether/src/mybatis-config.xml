@@ -9,6 +9,7 @@
 		<typeAlias type="aptogether.model.AptInfo" alias="AptInfo"/>
 		<typeAlias type="aptogether.model.Member" alias="Member"/>
 		<typeAlias type="aptogether.model.ManageFee" alias="ManageFee"/>
+		<typeAlias type="aptogether.model.Schedule" alias="Schedule"/>
 	</typeAliases>
 	
 	
@@ -25,6 +26,7 @@
 		<mapper resource="aptogether/mapper/Apt.xml"/>
 		<mapper resource="aptogether/mapper/Member.xml"/>
 		<mapper resource="aptogether/mapper/ManageFee.xml"/>
+		<mapper resource="aptogether/mapper/schedule.xml"/>
 	</mappers>
 	
 </configuration>
