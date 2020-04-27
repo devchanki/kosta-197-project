@@ -28,6 +28,12 @@ public class Member implements Serializable {
 		this.name = name;
 	}
 
+	public Member(String dong, String ho) {
+		super();
+		this.dong = dong;
+		this.ho = ho;
+	}
+
 	public int getMember_seq() {
 		return member_seq;
 	}

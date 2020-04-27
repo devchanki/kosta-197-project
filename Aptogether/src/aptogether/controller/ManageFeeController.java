@@ -15,35 +15,37 @@ import org.json.simple.JSONObject;
 
 import aptogether.action.Action;
 import aptogether.action.ActionForward;
-import aptogether.model.Manage_Fee;
-import aptogether.model.Manage_Fee_Service;
+import aptogether.model.ManageFee;
+import aptogether.model.ManageFeeService;
 import aptogether.model.Member;
 
-@WebServlet(asyncSupported = true, urlPatterns = { "/Manage_Fee/*" })
-public class Manage_Fee_Controller extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/manageFee/*" })
+public class ManageFeeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public Manage_Fee_Controller() {
+	public ManageFeeController() {
 		super();
 	}
 
 	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
-		String command = requestURI.substring(contextPath.length() + 12);
+		String command = requestURI.substring(contextPath.length() + 11);
 
 		Action action = null;
 		ActionForward forward = null;
-
+		System.out.println(command);
 		if(command.equals("findMemberSeq")) {
-			Manage_Fee_Service service = Manage_Fee_Service.getInstance();
+			ManageFeeService service = ManageFeeService.getInstance();
 			response.setCharacterEncoding("utf-8");
-			
+			System.out.println("in");
 			String dong = request.getParameter("dong");
 			String ho = request.getParameter("ho");
+			System.out.println(dong + ho);
 			Member member = new Member(dong, ho);
 			Member m = service.findMemberSeqService(member);
 			
+			System.out.println(m);
 			PrintWriter out = response.getWriter();
 			
 			JSONObject obj = new JSONObject();
@@ -55,10 +57,11 @@ public class Manage_Fee_Controller extends HttpServlet {
 			
 			System.out.println(obj.toString());
 			out.print(obj.toString());
+			out.flush();
 		}
 		else if(command.equals("registerManageFee")) {
 			response.setCharacterEncoding("utf-8");
-			Manage_Fee_Service service = Manage_Fee_Service.getInstance();
+			ManageFeeService service = ManageFeeService.getInstance();
 			
 			String member_seq = request.getParameter("member_seq");
 			String general_fee = request.getParameter("general_fee");
@@ -70,7 +73,7 @@ public class Manage_Fee_Controller extends HttpServlet {
 			String water_fee = request.getParameter("water_fee");
 			String heating_fee = request.getParameter("heating_fee");
 			
-			Manage_Fee manage_Fee = new Manage_Fee(Integer.parseInt(member_seq), Integer.parseInt(general_fee) , 
+			ManageFee manage_Fee = new ManageFee(Integer.parseInt(member_seq), Integer.parseInt(general_fee) , 
 																							Integer.parseInt(security_fee), Integer.parseInt(cleaning_fee), 
 																							Integer.parseInt(fumigation_fee), Integer.parseInt(lift_maintenance_fee), 
 																							Integer.parseInt(electricity_fee), Integer.parseInt(water_fee),
@@ -81,25 +84,27 @@ public class Manage_Fee_Controller extends HttpServlet {
 	         PrintWriter out = response.getWriter();
 	         if (result > 0) {
 	            out.write("success");
+	            out.flush();
 	         } else {
 	            out.write("false");
+	            out.flush();
 	         }
 					
 		
 		}
 		else if(command.equals("showListManageFee")) {
 			response.setCharacterEncoding("utf-8");
-			Manage_Fee_Service service = Manage_Fee_Service.getInstance();
-			Manage_Fee manage_Fee = new Manage_Fee();
+			ManageFeeService service = ManageFeeService.getInstance();
+			ManageFee manage_Fee = new ManageFee();
 			
-			List<Manage_Fee> list = service.listManageFeeService(1);
+			List<ManageFee> list = service.listManageFeeService(1);
 			
 	         PrintWriter out = response.getWriter();
 
 	         JSONObject obj = new JSONObject();
 	         JSONArray arr = new JSONArray();
 	         
-	         for (Manage_Fee mf : list) {
+	         for (ManageFee mf : list) {
 	            JSONObject tmp = new JSONObject();
 	            tmp.put("member_seq", mf.getMember_seq());
 	            tmp.put("general_fee", mf.getGeneral_fee());
@@ -115,6 +120,7 @@ public class Manage_Fee_Controller extends HttpServlet {
 	         obj.put("data", arr);
 	         System.out.println(obj.toString());
 	         out.print(arr.toString());
+	         out.flush();
 		}
 	}
 
