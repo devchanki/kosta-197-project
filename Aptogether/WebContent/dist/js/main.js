@@ -60,8 +60,8 @@ function calDateWhenResize(event) {
 function calDateWhenDragnDrop(event) {
   // 드랍시 수정된 날짜반영
   var newDates = {
-    startDate: event.start.d,
-    endDate: event.end.d
+    startDate:moment(event.start._d).format('YYYY-MM-DD HH:mm'),
+    endDate: moment(event.end._d).subtract(1, 'days').format('YYYY-MM-DD HH:mm')
   }
 
   // 날짜 & 시간이 모두 같은 경우
@@ -72,14 +72,14 @@ function calDateWhenDragnDrop(event) {
   //하루짜리 all day
   if (event.allDay && event.end === event.start) {
     console.log('1111')
-    newDates.startDate = moment(event.start._d).format('YYYY-MM-DD');
+    newDates.startDate = moment(event.start._d).format('YYYY-MM-DD HH:mm');
     newDates.endDate = newDates.startDate;
   }
 
   //2일이상 all day
   else if (event.allDay && event.end !== null) {
-    newDates.startDate = moment(event.start._d).format('YYYY-MM-DD');
-    newDates.endDate = moment(event.end._d).subtract(1, 'days').format('YYYY-MM-DD');
+    newDates.startDate = moment(event.start._d).format('YYYY-MM-DD HH:mm');
+    newDates.endDate = moment(event.end._d).subtract(1, 'days').format('YYYY-MM-DD HH:mm');
   }
 
   //all day가 아님
@@ -204,10 +204,15 @@ var calendar = $('#calendar').fullCalendar({
     //리사이즈한 일정 업데이트
     $.ajax({
       type: "get",
-      url: "/Aptogether/schedule/",
+      url: "/Aptogether/schedule/updateSchedule",
       data: {
-        //id: event._id,
-        //....
+        id: event._id,
+        title: event.title,
+		contents:  event.contents,
+		start_Date: moment(event.start._d).format('YYYY-MM-DD HH:mm'),
+		end_Date: moment(event.end._d).format('YYYY-MM-DD HH:mm'),
+		apt_Seq: 3,
+		backgroundColor: event.backgroundColor
       },
       
       success: function (response) {
@@ -239,21 +244,22 @@ var calendar = $('#calendar').fullCalendar({
 
     //드롭한 일정 업데이트
     $.ajax({
-    	url: "/Aptogether/schedule/updateShowSchedule",
+    	url: "/Aptogether/schedule/updateSchedule",
 			type: "get",
 			dataType: "text",
 			data: {
-				id: event.id,
-				title: event.title,
-				contents:  event.contents,
-				start_Date: event.start.d,
-				end_Date: event.end.d,
-				apt_Seq: 3
+				  id: event._id,
+			        title: event.title,
+					contents:  event.contents,
+					start_Date: moment(event.start._d).format('YYYY-MM-DD HH:mm'),
+					end_Date: moment(event.end._d).format('YYYY-MM-DD HH:mm'),
+					apt_Seq: 3,
+					backgroundColor: event.backgroundColor
 			},
         success: function (data) {
         	console.log(data)
             alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);
-          //  location.reload();
+        	location.reload();
         }
     });
 
