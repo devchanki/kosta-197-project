@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aptogether.mapper.scheduleMapper">
+
+<cache/>
+
+<insert id="insertSchedule" parameterType="Schedule" >
+insert into schedule values(schedule_Seq.nextval, #{contents}, to_date(#{start_Date}, 'YYYY-MM-DD HH24:MI'), to_date(#{end_Date}, 'YYYY-MM-DD HH24:MI'), 3, #{title}, #{backgroundColor})
+</insert>
+
+<select id="listSchedule" resultType="Schedule" >
+select * from schedule
+</select>
+
+<update id="updateSchedule" parameterType="Schedule">
+update schedule set contents=#{contents}, title=#{title}, start_Date= to_date(#{start_Date}, 'YYYY-MM-DD HH24:MI'), end_Date= to_date(#{end_Date}, 'YYYY-MM-DD HH24:MI'), backgroundColor=#{backgroundColor} where schedule_Seq=#{schedule_Seq}
+</update>
+
+<delete id="deleteSchedule" parameterType="Schedule">
+delete from schedule where schedule_Seq=#{schedule_Seq}
+</delete>
+
+
+</mapper>
