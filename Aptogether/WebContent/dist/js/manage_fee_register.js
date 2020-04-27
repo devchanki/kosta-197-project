@@ -13,7 +13,7 @@ $(function() {
 	createTable();
 	function createTable() {
 		$.ajax({
-			url : "/Aptogether/Manage_Fee/showListManageFee",
+			url : "/Aptogether/manageFee/showListManageFee",
 			type : "GET",
 			dataType : "text",
 			success : function(response) {
@@ -51,7 +51,7 @@ $(function() {
 					
 					$.ajax({
 						type : "get",
-						url : "/Aptogether/Manage_Fee/findMemberSeq",
+						url : "/Aptogether/manageFee/findMemberSeq",
 						data : {
 							dong : $('#dong').val(),
 							ho : $('#ho').val()
@@ -84,7 +84,7 @@ $(function() {
 		    	  등록 : function(start, end, timezone, callback) {
 						$.ajax({
 							type : "get",
-							url : "/Aptogether/Manage_Fee/registerManageFee",
+							url : "/Aptogether/manageFee/registerManageFee",
 							data : {
 								"member_seq" : member_seq.val(),
 								"general_fee" : general_fee.val(),

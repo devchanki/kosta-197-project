@@ -30,20 +30,22 @@ public class ManageFeeController extends HttpServlet {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
-		String command = requestURI.substring(contextPath.length() + 12);
+		String command = requestURI.substring(contextPath.length() + 11);
 
 		Action action = null;
 		ActionForward forward = null;
-
+		System.out.println(command);
 		if(command.equals("findMemberSeq")) {
 			ManageFeeService service = ManageFeeService.getInstance();
 			response.setCharacterEncoding("utf-8");
-			
+			System.out.println("in");
 			String dong = request.getParameter("dong");
 			String ho = request.getParameter("ho");
+			System.out.println(dong + ho);
 			Member member = new Member(dong, ho);
 			Member m = service.findMemberSeqService(member);
 			
+			System.out.println(m);
 			PrintWriter out = response.getWriter();
 			
 			JSONObject obj = new JSONObject();
