@@ -1,6 +1,5 @@
 var draggedEventIsAllDay;
 var activeInactiveWeekends = true;
-${member.dong}
 function getDisplayEventDate(event) {
 
   var displayEventDate;

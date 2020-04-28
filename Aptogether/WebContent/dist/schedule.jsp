@@ -260,7 +260,7 @@
                 
 						<div class="col-lg-6">
 								<div class="custom-control custom-switch">
-									<input type="checkbox" class="custom-control-input" id="customSwitch1" value= ${member.dong} > 
+									<input type="checkbox" class="custom-control-input" id="customSwitch1" > 
 										<label class="custom-control-label" for="customSwitch1">우리 동만보기</label>
 								</div>
 						</div>
