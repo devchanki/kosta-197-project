@@ -183,13 +183,10 @@
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid">
-				<h1 class="mt-4">반갑습니다 ~님</h1>
-				<ol class="breadcrumb mb-4">
-					<li class="breadcrumb-item active">Dashboard</li>
-				</ol>
+				<h4 class="mb-4 mt-4">반갑습니다 ~님</h4>
 				<div class="row">
-
-					<!-- pollList -->
+				
+					<!-- pollList 출력 -->
 					<c:forEach var="poll" items="${list}">
 						<div class="col-xl-7 col-md-7">
 							<button class="card bg-dark text-white mb-4 col-xl-7 col-md-7"
@@ -212,8 +209,33 @@
 						</div>
 					</c:forEach>
 				</div>
+				
+<!-- 				투표내용 모달 시작
+				<div class="modal fade" id="contents_modal" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title" id="myModalLabel"></h4>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">×</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="contents_modal_body"></div>
+									<div class="modal-footer">
+										<input type="submit" class="btn btn-outline-info" value="저장">
+										<button type="button" class="btn btn-outline-dark"
+											data-dismiss="modal">취소</button>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				투표내용 모달 끝 -->
 
-
+				<!-- 투표선택 모달 시작 -->
 				<div class="modal fade" id="option_modal" tabindex="-1"
 					role="dialog" aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
@@ -238,6 +260,7 @@
 						</form>
 					</div>
 				</div>
+				<!-- 투표선택 모달 끝 -->
 			</div>
 
 			</main>

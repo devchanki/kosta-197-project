@@ -8,7 +8,7 @@
 	<cache />
 	
 	<insert id="PollInsert" parameterType="Poll">
-		insert into poll values(poll_seq.nextval,#{question},sysdate,sysdate,0)
+		insert into poll values(poll_seq.nextval,#{question},sysdate,sysdate,0,#{contents})
 	</insert>
 	
 <!-- 	<insert id="PollOption" parameterType="Option">

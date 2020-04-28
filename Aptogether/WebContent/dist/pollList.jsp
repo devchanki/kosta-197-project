@@ -64,81 +64,80 @@
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading">Core</div>
-						<a class="nav-link" href="index.html"><div
+						<a class="nav-link" href="index.html"> <!-- <div
 								class="sb-nav-link-icon">
 								<i class="fas fa-tachometer-alt"></i>
-							</div> Dashboard</a>
-						<div class="sb-sidenav-menu-heading">Interface</div>
-						<a class="nav-link collapsed" href="#" data-toggle="collapse"
+							</div> Dashboard</a> -->
+							<div class="sb-sidenav-menu-heading">Interface</div> <a
+							class="nav-link collapsed" href="#" data-toggle="collapse"
 							data-target="#collapseLayouts" aria-expanded="false"
 							aria-controls="collapseLayouts"><div class="sb-nav-link-icon">
-								<i class="fas fa-columns"></i>
-							</div> Layouts
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div></a>
-						<div class="collapse" id="collapseLayouts"
-							aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="layout-static.html">Static
-									Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light
-									Sidenav</a>
-							</nav>
-						</div>
-						<a class="nav-link collapsed" href="#" data-toggle="collapse"
+									<i class="fas fa-columns"></i>
+								</div> Layouts
+								<div class="sb-sidenav-collapse-arrow">
+									<i class="fas fa-angle-down"></i>
+								</div></a>
+							<div class="collapse" id="collapseLayouts"
+								aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+								<nav class="sb-sidenav-menu-nested nav">
+									<a class="nav-link" href="layout-static.html">Static
+										Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light
+										Sidenav</a>
+								</nav>
+							</div> <a class="nav-link collapsed" href="#" data-toggle="collapse"
 							data-target="#collapsePages" aria-expanded="false"
 							aria-controls="collapsePages"><div class="sb-nav-link-icon">
-								<i class="fas fa-book-open"></i>
-							</div> Pages
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div></a>
-						<div class="collapse" id="collapsePages"
-							aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav accordion"
-								id="sidenavAccordionPages">
-								<a class="nav-link collapsed" href="#" data-toggle="collapse"
-									data-target="#pagesCollapseAuth" aria-expanded="false"
-									aria-controls="pagesCollapseAuth">Authentication
-									<div class="sb-sidenav-collapse-arrow">
-										<i class="fas fa-angle-down"></i>
+									<i class="fas fa-book-open"></i>
+								</div> Pages
+								<div class="sb-sidenav-collapse-arrow">
+									<i class="fas fa-angle-down"></i>
+								</div></a>
+							<div class="collapse" id="collapsePages"
+								aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+								<nav class="sb-sidenav-menu-nested nav accordion"
+									id="sidenavAccordionPages">
+									<a class="nav-link collapsed" href="#" data-toggle="collapse"
+										data-target="#pagesCollapseAuth" aria-expanded="false"
+										aria-controls="pagesCollapseAuth">Authentication
+										<div class="sb-sidenav-collapse-arrow">
+											<i class="fas fa-angle-down"></i>
+										</div>
+									</a>
+									<div class="collapse" id="pagesCollapseAuth"
+										aria-labelledby="headingOne"
+										data-parent="#sidenavAccordionPages">
+										<nav class="sb-sidenav-menu-nested nav">
+											<a class="nav-link" href="login.html">Login</a><a
+												class="nav-link" href="register.html">Register</a><a
+												class="nav-link" href="password.html">Forgot Password</a>
+										</nav>
 									</div>
-								</a>
-								<div class="collapse" id="pagesCollapseAuth"
-									aria-labelledby="headingOne"
-									data-parent="#sidenavAccordionPages">
-									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login.html">Login</a><a
-											class="nav-link" href="register.html">Register</a><a
-											class="nav-link" href="password.html">Forgot Password</a>
-									</nav>
-								</div>
-								<a class="nav-link collapsed" href="#" data-toggle="collapse"
-									data-target="#pagesCollapseError" aria-expanded="false"
-									aria-controls="pagesCollapseError">Error
-									<div class="sb-sidenav-collapse-arrow">
-										<i class="fas fa-angle-down"></i>
+									<a class="nav-link collapsed" href="#" data-toggle="collapse"
+										data-target="#pagesCollapseError" aria-expanded="false"
+										aria-controls="pagesCollapseError">Error
+										<div class="sb-sidenav-collapse-arrow">
+											<i class="fas fa-angle-down"></i>
+										</div>
+									</a>
+									<div class="collapse" id="pagesCollapseError"
+										aria-labelledby="headingOne"
+										data-parent="#sidenavAccordionPages">
+										<nav class="sb-sidenav-menu-nested nav">
+											<a class="nav-link" href="401.html">401 Page</a><a
+												class="nav-link" href="404.html">404 Page</a><a
+												class="nav-link" href="500.html">500 Page</a>
+										</nav>
 									</div>
-								</a>
-								<div class="collapse" id="pagesCollapseError"
-									aria-labelledby="headingOne"
-									data-parent="#sidenavAccordionPages">
-									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="401.html">401 Page</a><a
-											class="nav-link" href="404.html">404 Page</a><a
-											class="nav-link" href="500.html">500 Page</a>
-									</nav>
-								</div>
-							</nav>
-						</div>
-						<div class="sb-sidenav-menu-heading">Addons</div>
-						<a class="nav-link" href="charts.html"><div
-								class="sb-nav-link-icon">
-								<i class="fas fa-chart-area"></i>
-							</div> Charts</a><a class="nav-link" href="tables.html"><div
-								class="sb-nav-link-icon">
-								<i class="fas fa-table"></i>
-							</div> Tables</a>
+								</nav>
+							</div>
+							<div class="sb-sidenav-menu-heading">Addons</div> <a
+							class="nav-link" href="charts.html"><div
+									class="sb-nav-link-icon">
+									<i class="fas fa-chart-area"></i>
+								</div> Charts</a><a class="nav-link" href="tables.html"><div
+									class="sb-nav-link-icon">
+									<i class="fas fa-table"></i>
+								</div> Tables</a>
 					</div>
 				</div>
 				<div class="sb-sidenav-footer">
@@ -150,68 +149,88 @@
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid">
-				<h1 class="mt-4">반갑습니다 ~님</h1>
 				<ol class="breadcrumb mb-4">
-					<li class="breadcrumb-item active">Dashboard</li>
+					<li class="breadcrumb-item active">투표 생성</li>
 				</ol>
-				<div class="row">
+
+				<div class="flex-column">
+					<!-- 투표생성 모달 열기 -->
+					<div class="mb-4">
+						<button type="button" class="margin-auto btn btn-dark btn-lg"
+							data-toggle="modal" data-target="#poll_modal">생성조지기</button>
+					</div>
 
 
 
-
-
-					<!-- pollList -->
+					<!-- pollList 출력 -->
 					<c:forEach var="poll" items="${list}">
-						<div class="col-xl-7 col-md-7">
-							<button class="card bg-dark text-white mb-4 col-xl-7 col-md-7"
-								onclick="location.href='/Aptogether/poll/PollDetailListAction.do?seq=${poll.poll_seq }'">
-								<div class="card-body">
-									<p class="small text-white stretched-link">${poll.question }</p>
-								</div>
-								<div
-									class="card-footer d-flex align-items-center justify-content-between">
-									<div class="small text-white">
-										<img  id="poll_hitcount" src="/Aptogether/eye.png">
-										조회수 : ${poll.hitcount}
-										<fmt:parseDate var="date" value="${poll.end_date}"
-											pattern="yyyy-MM-dd HH:mm:ss" />
-										<fmt:formatDate value="${date }" pattern="yyyy년 MM월 dd일 마감" />
-									</div>
-								</div>
-							</button>
+						<div class="card bg-dark mb-4 margin-auto"
+							style="max-width: 30rem;">
+
+							<div class="card-body text-white">
+								<h5 class="card-title">${poll.question }</h5>
+								<p class="small text-white">contents</p>
+
+							</div>
+							<div class="card-footer small text-white">
+								<img id="poll_hitcount" src="/Aptogether/eye.png"> 조회수
+								:${poll.hitcount}
+								<fmt:parseDate var="date" value="${poll.end_date}"
+									pattern="yyyy-MM-dd HH:mm:ss" />
+								<fmt:formatDate value="${date }" pattern="yyyy년 MM월 dd일 마감" />
+								<button class="bg-dark text-white btn btn-outline-light"
+									onclick="location.href='/Aptogether/poll/PollDetailListAction.do?seq=${poll.poll_seq }'">
+									상세보기</button>
+							</div>
 						</div>
 					</c:forEach>
 				</div>
 
 
-				<button type="button" class="btn btn-dark btn-lg"
-					data-toggle="modal" data-target="#myModal">생성조지기</button>
-
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				<!-- 투표생성 모달 시작 -->
+				<div class="modal fade" id="poll_modal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
 						<form action="PollInsertAction.do" method="post">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title" id="myModalLabel">
-										제목 : <input class="input_title" type="text" name="question">
-									</h4>
+									<div class="modal-title" id="myModalLabel">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text">제목</span>
+											</div>
+											<input class="form-control" type="text" name="question">
+										</div>
+									</div>
+
 									<button type="button" class="close" data-dismiss="modal"
 										aria-label="Close">
 										<span aria-hidden="true">×</span>
 									</button>
 								</div>
 								<div class="modal-body">
-									<div class="inputs">
-										항목 : <input id="options" type="text" name="options">
-										<button type="button" onclick="add()" id="create">
-											<span>+</span>
-										</button>
+									<div class="input-group margin-bottom-button">
+										<div class="input-group-prepend">
+											<span class="input-group-text">내용</span>
+										</div>
+										<textarea name="contents" class="form-control"
+											aria-label="With textarea"></textarea>
 									</div>
+									<div class="ch">
+										<div class="inputs input-group-prepend margin-bottom-button">
+											<span class="input-group-text">항목</span> <input id="options"
+												class="form-control" type="text" name="options">
+											<button type="button" class="btn btn-outline-dark"
+												onclick="add()" id="create">
+												<span>Add</span>
+											</button>
+										</div>
+									</div>
+
 
 									<div class="modal-footer">
 										<input type="submit" class="btn btn-outline-info" value="저장">
-										<button type="button" class="btn btn-outline-dark"
+										<button id="c" type="button" class="btn btn-outline-dark"
 											data-dismiss="modal">취소</button>
 									</div>
 								</div>
@@ -219,6 +238,9 @@
 						</form>
 					</div>
 				</div>
+				<!-- 투표생성 모달 끝 -->
+
+
 			</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
@@ -240,16 +262,21 @@
 		crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		var i = 1;
-		
+
 		function add() {
-			$('.inputs').append(
-					'<div class="input' + i +  ' " >항목 : <input id="options" type="text" name="options"><button type="button" onclick="del(' + i + ')" id="create_form"> <span> X </span> </button> </div>');
-				i++;
+			$('.ch')
+					.append(
+							'<div class="input' + i +  ' input-group-prepend margin-bottom-button" ><span class="input-group-text">항목</span><input id="options" type="text" class="form-control" name="options"><button type="button" class="btn btn-outline-dark" onclick="del('
+									+ i
+									+ ')" id="create_form"> <span aria-hidden="true">Del</span> </button></div>');
+			i++;
 		}
-		
+
 		function del(el) {
 			$(".input" + el).remove();
 		}
+		
+
 	</script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
