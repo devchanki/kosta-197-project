@@ -2,6 +2,8 @@ package aptogether.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
+
 import aptogether.model.ManageFee;
 import aptogether.model.Member;
 

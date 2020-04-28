@@ -136,25 +136,46 @@
 	                    </div>
 					
                     
-                    <!-- 입주민번호 찾기 모달폼 -->
-                    <div id="dialog-message" title="[AparTogether] 입주민번호 등록">
-					  	<br>
-					    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 150px 0;"></span>
-					    동 호수를 입력해주세요.<br><br>
-					    <form action="" method="">
-					    	<label for="dong">동</label>
-					    	<input type="text" id="dong" name="dong" placeholder="101"/><br>
-					    	<label for="ho">호</label>
-					    	<input type="text" id="ho" name="ho" placeholder="1101"/>
-					    </form>
+                <!-- 입주민번호 찾기 모달폼 -->
+				<div class="modal" id="dialog-message" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">[AparTogether] 입주민번호 등록</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="form-group row">
+									<label for="dong" class="col-sm-2 col-form-label">동</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="dong" name="dong" placeholder="101">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="ho" class="col-sm-2 col-form-label">호</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="ho" name="ho" placeholder="1101">
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" id="find_mq" class="btn btn-primary">등록</button>
+									<button type="button" id="cancle_mq" class="btn btn-secondary" data-dismiss="modal">취소</button>
+								</div>
+							</div>
+						</div>
 					</div>
+				</div>
+				
 					
 					<!-- 관리비등록 모달폼 -->
 					<div id="dialog-fee" title="[AparTogether] 관리비 청구">
 					  	<br>
 					    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 320px 0;"></span>
 					    관리비 항목을 입력해주세요.<br><br>
-					    <form action="/" method="">
+                            <label for="pay_date">납입일자</label>
+                            <input type="date" class="inputFee" id="pay_date" name="pay_date"/><br>
 					    	<label for="general">일반관리비</label>
 					    	<input type="text"   class="inputFee" id="general_fee" name="general"/><br>
 					    	<label for="security">경비비</label>
@@ -171,7 +192,6 @@
 					    	<input type="text" class="inputFee"  id="water_fee" name="water"/><br>
 					    	<label for="heating">난방비</label>
 					    	<input type="text" class="inputFee" id="heating_fee" name="heating"/>
-					    </form>
 					</div>
 					
                 </main>
@@ -192,6 +212,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="js/manage_fee_register.js"></script>

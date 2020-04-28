@@ -7,8 +7,15 @@ var lift_maintenance_fee = $('#lift_maintenance_fee');
 var electricity_fee = $('#electricity_fee');
 var water_fee = $('#water_fee');
 var heating_fee = $('#heating_fee');
+var pay_date = $('#pay_date');
+
+
 
 $(function() {
+	//숫자 세자리 수 마다 콤마 붙는 정규표현식 함수
+	function AmountCommas(val){
+	    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
+	}
 	
 	createTable();
 	function createTable() {
@@ -20,19 +27,22 @@ $(function() {
 				console.log(response);
 				data = JSON.parse(response);
 				console.log(response);
-				 $('.fee-table').html('<tr><td>입주민번호</td><td>일반관리비</td><td>경비비</td><td>청소비</td><td>소독비</td><td>승강기유지비</td><td>전기세</td><td>수도세</td><td>난방비</td></tr>');
+				 $('.fee-table').html('<tr><td>입주민번호</td><td>납부일자</td><td>일반관리비</td><td>경비비</td><td>청소비</td><td>소독비</td><td>승강기유지비</td><td>전기세</td><td>수도세</td><td>난방비</td><td>합계</td></tr>');
 				for (var i = 0; i < data.length; i++) {
 					$('.fee-table').append(
 									'<tr>'
-										+'<td>'+ data[i].member_seq + '</td>'
-										+'<td>'+ data[i].general_fee + '</td>'
-										+'<td>'+ data[i].security_fee + '</td>'
-										+'<td>'+ data[i].cleaning_fee + '</td>'
-										+'<td>'+ data[i].fumigation_fee + '</td>'
-										+'<td>'+ data[i].lift_maintenance_fee + '</td>'
-										+'<td>'+ data[i].electricity_fee + '</td>'
-										+'<td>'+ data[i].water_fee + '</td>'
-										+'<td>'+ data[i].heating_fee + '</td>'
+										+'<td>'+ data[i].member_seq +'</td>'
+										+'<td>'+ moment(data[i].pay_date).format('YYYY-MM') + '</td>'
+										+'<td>'+ AmountCommas(data[i].general_fee) + '원'+ '</td>'
+										+'<td>'+ AmountCommas(data[i].security_fee) + '원'+ '</td>'
+										+'<td>'+ AmountCommas(data[i].cleaning_fee) + '원'+ '</td>'
+										+'<td>'+ AmountCommas(data[i].fumigation_fee) + '원'+ '</td>'
+										+'<td>'+ AmountCommas(data[i].lift_maintenance_fee) + '원'+ '</td>'
+										+'<td>'+ AmountCommas(data[i].electricity_fee) + '원'+ '</td>'
+										+'<td>'+ AmountCommas(data[i].water_fee) + '원'+ '</td>'
+										+'<td>'+ AmountCommas(data[i].heating_fee) + '원'+ '</td>'
+										+'<td>'+ AmountCommas(data[i].general_fee + data[i].security_fee + + data[i].cleaning_fee + 
+								data[i].fumigation_fee + data[i].lift_maintenance_fee + data[i].electricity_fee+ data[i].water_fee + data[i].heating_fee) + '원'+ '</td>'
 								+ '</tr>');
 								}
 							}
@@ -40,38 +50,39 @@ $(function() {
 				}
 	
 	
-	$("#memberSeq_finder").click(function() {
-		$("#dialog-message").dialog({
-			height : "auto",
-			width : 400,
-			modal : true,
-			buttons : {
-				등록 : function(start, end, timezone, callback) {
-					console.log("등록")
-					
-					$.ajax({
-						type : "get",
-						url : "/Aptogether/manageFee/findMemberSeq",
-						data : {
-							dong : $('#dong').val(),
-							ho : $('#ho').val()
-						},
-						success : function(response) {
-								console.log(response);
-								response = JSON.parse(response);
-								member_seq.val(response.member_seq);
-						}
-					});
-					$(this).dialog("close");
-					},
-				취소 : function() {
+	
+	
+	
+		$("#memberSeq_finder").click(function() {
+			$("#dialog-message").modal('show');
+		});
+		
+		$("#find_mq").on('click', function(start, end, callback) {
+			console.log("등록");
+			
+			$.ajax({
+				type : "get",
+				url : "/Aptogether/Manage_Fee/findMemberSeq",
+				data : {
+					dong : $('#dong').val(),
+					ho : $('#ho').val()
+				},
+				success : function(response) {
+						console.log(response);
+						response = JSON.parse(response);
+						member_seq.val(response.member_seq);
+				}
+			});
+			$("#dialog-message").modal('hide');
+		});
+		
+		
+		$("#cancle_mq").on('click', function() {
 					$('#dong').val('');
 					$('#ho').val('');
-					$(this).dialog("close");
-				}
-			}
+					$("#dialog-message").modal('hide');
 		});
-	});
+	
 	
 	
 	
@@ -94,7 +105,8 @@ $(function() {
 								"lift_maintenance_fee" : lift_maintenance_fee.val(),
 								"electricity_fee" : electricity_fee.val(),
 								"water_fee" : water_fee.val(),
-								"heating_fee" : heating_fee.val()
+								"heating_fee" : heating_fee.val(),
+								"pay_date" : pay_date.val()
 							},
 							success : function(data) {
 							if (data == "success") {
