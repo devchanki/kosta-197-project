@@ -1,6 +1,8 @@
 package aptogether.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,12 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import aptogether.action.Action;
 import aptogether.action.ActionForward;
 import aptogether.action.CompBoard;
 import aptogether.action.CompMain;
 import aptogether.action.CompWrite;
 import aptogether.action.WriteForm;
+import aptogether.model.BoardService;
+import aptogether.model.Showcomp;
+import aptogether.action.InsertAction;
 
 @WebServlet("/apto/*")
 public class CompController extends HttpServlet{
@@ -54,15 +62,43 @@ public class CompController extends HttpServlet{
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	}  else if (command.equals("compBoard.do")) {
+	} else if(command.equals("insertAction.do")) {
+		action=new InsertAction();
+		try {
+			forward=action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	} else if (command.equals("Compboard.do")) {
 		action = new CompBoard();
 		try {
-			forward = action.execute(request, response);
-		} catch(Exception e) {
+			forward=action.execute(request, response);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 		
+		/*
+		 * else if (command.equals("compBoard.do")) { action = new CompBoard();
+		 * request.setCharacterEncoding("utf-8");
+		 * 
+		 * BoardService service = BoardService.getInstance();
+		 * 
+		 * Showcomp showcomp = new Showcomp();
+		 * 
+		 * List<Showcomp> list = service.listBoardService(no_comp);
+		 * 
+		 * PrintWriter out = response.getWriter();
+		 * 
+		 * JSONObject obj = new JSONObject(); JSONArray arr = new JSONArray();
+		 * 
+		 * for(Showcomp s: list) { JSONObject tmp = new JSONObject();
+		 * tmp.compute("no_comp", s.getNo_comp()); } obj.put("data", arr);
+		 * System.out.println(obj.toString()); out.print(arr.toString()); out.flush();
+		 * 
+		 * }
+		 */
+	
 		if(forward!=null) {
     		if(forward.isRedirect()) {
     			

@@ -23,33 +23,33 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form action = "../apto/WriteForm.do" method="post" class="form-horizontal">
+                <form action = "../apto/insertAction.do" method="post" class="form-horizontal">
                     <fieldset>
                         <legend class="text-center header">Contact us</legend>
 						<div class="mustdo">상세 내용작성(*는 필수 입력 사항입니다.)</div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="title" name="title" type="text" placeholder="*제목" class="form-control">
+                            <div class="createtitle">
+                                <input id="Title" name="Title" type="text" placeholder="*제목" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="이메일" class="form-control">
+                            <div class="createemail">
+                                <input id="Email" name="Email" type="text" placeholder="이메일" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="tel" name="tel" type="text" placeholder="연락처" class="form-control">
+                            <div class="createtel">
+                                <input id="Tel" name="Tel" type="text" placeholder="연락처" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="content" name="content" placeholder="*상세 내용을 작성해주세요." rows="7"></textarea>
+                            <div class="createcontent">
+                                <textarea class="form-control" id="Content" name="Content" placeholder="*상세 내용을 작성해주세요." rows="7"></textarea>
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@
 			</div>
 			<div id="quickline2"> 
 			<span class="quick2">
-			 <a style="text-decoration:none"	>
+			 <a style="text-decoration:none">
 			<img src="./img/trash.png"></a>
 					<dl>
 						<dt>쓰레기 무단투기</dt>

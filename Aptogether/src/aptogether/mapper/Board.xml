@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "kosta.mapper.BoardMapper">
+<mapper namespace = "aptogether.mapper.BoardMapper">
 	
 	<insert id = "insertBoard" parameterType = "board">
-		insert into COMP_BOARD values (compboard_seq.nextval, #{NO_COMP},#{TITLE},#{EMAIL},
-			#{TEL),#{CONTENT},#{FNAME});
-	
+		insert into comp_board values ( #{Title},#{Email}, #{Tel}, #{Content},
+		#{Fname,jdbcType = VARCHAR}, sysdate, compboard_seq.nextval)
 	</insert>
 	
-	<insert id = "insertProcess" parameter type = "String">
-		insert into COMP_BOARD values (#{PROCESS});
-	</insert>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<select id = "listBoard" resultType="board">
+		select * from comp_board order by seq
+	</select>
+	
+	<delete id = "deleteBoard" parameterType="int">
+	delete from board where seq = #{seq} 
+	</delete>
 
 </mapper>
