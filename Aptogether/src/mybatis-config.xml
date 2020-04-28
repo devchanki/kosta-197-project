@@ -4,25 +4,32 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+
 	<typeAliases>
-		<typeAlias type="aptogether.model.Market_Product" alias="Market_Product"/>
+		<typeAlias type="aptogether.model.AptInfo" alias="AptInfo" />
+		<typeAlias type="aptogether.model.Member" alias="Member" />
+		<typeAlias type="aptogether.model.ManageFee"
+			alias="ManageFee" />
+		<typeAlias type="aptogether.model.Market_Product"
+			alias="Market_Product" />
 	</typeAliases>
-	
+
+
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC"/>
+			<transactionManager type="JDBC" />
 			<dataSource type="JNDI">
-				<property name="data_source" 
-					value="java:comp/env/jdbc/oracle"/>
+				<property name="data_source"
+					value="java:comp/env/jdbc/oracle" />
 			</dataSource>
-		</environment>		
+		</environment>
 	</environments>
-	
+
 	<mappers>
-		<mapper resource="aptogether/mapper/Market_Product.xml"/>
+		<mapper resource="aptogether/mapper/Apt.xml" />
+		<mapper resource="aptogether/mapper/Member.xml" />
+		<mapper resource="aptogether/mapper/ManageFee.xml" />
+		<mapper resource="aptogether/mapper/Market_Product.xml" />
 	</mappers>
-	
+
 </configuration>
-
-
- 
