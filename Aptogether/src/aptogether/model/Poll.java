@@ -9,7 +9,7 @@ public class Poll implements Serializable{
 	private String start_date;
 	private String end_date;
 	private int hitcount;
-//	private String contents;
+	private String contents;
 	
 	public Poll() {}
 
@@ -55,12 +55,12 @@ public class Poll implements Serializable{
 		this.hitcount = hitcount;
 	}
 
-//	public String getContents() {
-//		return contents;
-//	}
-//
-//	public void setContents(String contents) {
-//		this.contents = contents;
-//	}
+	public String getContents() {
+		return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
 	
 }

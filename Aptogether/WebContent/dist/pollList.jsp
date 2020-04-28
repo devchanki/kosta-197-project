@@ -155,7 +155,7 @@
 
 				<div class="flex-column">
 					<!-- 투표생성 모달 열기 -->
-					<div class="mb-4">
+					<div class="mb-4 margin-auto" style="max-width: 28rem;">
 						<button type="button" class="margin-auto btn btn-dark btn-lg"
 							data-toggle="modal" data-target="#poll_modal">생성조지기</button>
 					</div>
@@ -165,7 +165,7 @@
 					<!-- pollList 출력 -->
 					<c:forEach var="poll" items="${list}">
 						<div class="card bg-dark mb-4 margin-auto"
-							style="max-width: 30rem;">
+							style="max-width: 28rem;">
 
 							<div class="card-body text-white">
 								<h5 class="card-title">${poll.question }</h5>
@@ -173,14 +173,13 @@
 
 							</div>
 							<div class="card-footer small text-white">
-								<img id="poll_hitcount" src="/Aptogether/eye.png"> 조회수
-								:${poll.hitcount}
-								<fmt:parseDate var="date" value="${poll.end_date}"
+								<img id="poll_hitcount" src="/Aptogether/eye.png"> 조회수 : ${poll.hitcount}
+								<span class="margin-left-span"><fmt:parseDate var="date" value="${poll.end_date}"
 									pattern="yyyy-MM-dd HH:mm:ss" />
 								<fmt:formatDate value="${date }" pattern="yyyy년 MM월 dd일 마감" />
 								<button class="bg-dark text-white btn btn-outline-light"
 									onclick="location.href='/Aptogether/poll/PollDetailListAction.do?seq=${poll.poll_seq }'">
-									상세보기</button>
+									상세보기</button></span>
 							</div>
 						</div>
 					</c:forEach>
@@ -216,7 +215,7 @@
 										<textarea name="contents" class="form-control"
 											aria-label="With textarea"></textarea>
 									</div>
-									<div class="ch">
+									<div class="option_input">
 										<div class="inputs input-group-prepend margin-bottom-button">
 											<span class="input-group-text">항목</span> <input id="options"
 												class="form-control" type="text" name="options">
@@ -230,8 +229,8 @@
 
 									<div class="modal-footer">
 										<input type="submit" class="btn btn-outline-info" value="저장">
-										<button id="c" type="button" class="btn btn-outline-dark"
-											data-dismiss="modal">취소</button>
+										<button id="close" type="button" class="btn btn-outline-dark"
+											data-dismiss="modal" onclick="deloption()">취소</button>
 									</div>
 								</div>
 							</div>
@@ -264,16 +263,22 @@
 		var i = 1;
 
 		function add() {
-			$('.ch')
+			$('.option_input')
 					.append(
-							'<div class="input' + i +  ' input-group-prepend margin-bottom-button" ><span class="input-group-text">항목</span><input id="options" type="text" class="form-control" name="options"><button type="button" class="btn btn-outline-dark" onclick="del('
+							'<div id="input' + i + '" class="intputs input-group-prepend margin-bottom-button" ><span class="input-group-text">항목</span><input id="options" type="text" class="form-control" name="options"><button type="button" class="btn btn-outline-dark" onclick="del('
 									+ i
 									+ ')" id="create_form"> <span aria-hidden="true">Del</span> </button></div>');
 			i++;
 		}
 
 		function del(el) {
-			$(".input" + el).remove();
+			$("#input" + el).remove();
+		}
+		
+		function deloption() {
+			$('#close').on('click',function(){
+				$('.intputs').remove();
+			})
 		}
 		
 

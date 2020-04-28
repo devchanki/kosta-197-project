@@ -27,6 +27,7 @@ public class PollInsertAction implements Action {
 		}
 		
 		poll.setQuestion(request.getParameter("question"));
+		poll.setContents(request.getParameter("contents"));
 		
 		service.PollInsertService(poll,option);
 		
