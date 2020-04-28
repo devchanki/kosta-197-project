@@ -27,11 +27,14 @@ var editEvent = function (event, element, view) {
     modalTitle.html('일정 수정');
     editId.val(event._id);
     editTitle.val(event.title);
+    editDong.val(event.dong);
     editStart.val(moment(event.start).format('YYYY-MM-DD HH:mm'));
     editEnd.val(moment(event.end).format('YYYY-MM-DD HH:mm'));
     editType.val(event.type);
     editDesc.val(event.contents);
     editColor.val(event.backgroundColor).css('color', event.backgroundColor);
+    editAptSeq.val(event.apt_seq);
+
 
     addBtnContainer.hide();
     modifyBtnContainer.show();
@@ -72,11 +75,13 @@ var editEvent = function (event, element, view) {
 
         event.allDay = statusAllDay;
         event.title = editTitle.val();
+        event.dong = editDong.val();
         event.start = startDate;
         event.end = displayDate;
         event.type = editType.val();
         event.backgroundColor = editColor.val();
         event.contents = editDesc.val();
+        event.apt_seq = editAptSeq.val();
 
         $("#calendar").fullCalendar('updateEvent', event);
 
@@ -88,11 +93,12 @@ var editEvent = function (event, element, view) {
  			data: {
  				"id": editId.val(),
  				"title": editTitle.val(),
+ 				"dong" : editDong.val(),
  				"contents":  editDesc.val(),
  				"start_Date": moment(editStart.val()).format('YYYY-MM-DD HH:mm'),
  				"end_Date": moment(editEnd.val()).format('YYYY-MM-DD HH:mm'),
  				"backgroundColor": editColor.val(),
- 				"apt_Seq": 3
+ 				"apt_Seq": editAptSeq.val()
  			},
             success: function (response) {
                 alert('수정되었습니다.');
@@ -117,6 +123,7 @@ $('#deleteEvent').on('click', function () {
         url: "/Aptogether/schedule/deleteSchedule",
         data: {
         		"id": editId.val(),
+        		"apt_Seq": editAptSeq.val()
         },
         success: function (response) {
             alert('삭제되었습니다.');

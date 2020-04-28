@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- <var myDong = ${mem}
+ -->
+ <!DOCTYPE html>
+<html lang="ko">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,42 +104,13 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-          
-            <!-- Button trigger modal -->
-			<button type="button" class="btn btn-outline-light" data-toggle="modal"
-				data-target="#exampleModal">아파트별 일정 조회</button>
-
-			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">아파트 번호를 입력하세요.</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">번호
-					    <input class='IdAptSeq' id="list_seq" type="text"></label>
-						
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">취소</button>
-							<button type="button" class="btn btn-primary">찾기
-								</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
+     
 
 			<!-- 스케줄 시작 -->
      <main>
-  		<div class="container">
+
+				
+				<div class="container">
         <!-- 일자 클릭시 메뉴오픈 -->
         <div id="contextMenu" class="dropdown clearfix">
             <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
@@ -173,6 +146,12 @@
                             </div>
                         </div>
                         
+                        	<div class="row">
+                            <div class="col-xs-12">
+                                <input class='SeqNewEvent' id="edit-Apt-Seq" type="hidden"></label>
+                            </div>
+                        </div>
+                        
                        <!--  <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-allDay">하루종일</label>
@@ -187,6 +166,15 @@
                                     required="required" />
                             </div>
                         </div>
+                        
+                         <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-dong">동</label>
+                                <input class="inputModal" type="text" name="edit-dong" id="edit-dong"
+                                    required="required" />
+                            </div>
+                        </div>
+                        
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-start">시작</label>
@@ -246,7 +234,7 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
-      <!--   <div class="panel panel-default">
+       <div class="panel panel-default">
 
             <div class="panel-heading">
                 <h3 class="panel-title">필터</h3>
@@ -264,11 +252,17 @@
                             <option value="카테고리4">카테고리4</option>
                         </select>
                     </div>
-                </div>
-
-                 <div class="col-lg-6">
+                </div> 
+                
+						<div class="col-lg-6">
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="customSwitch1"> 
+										<label class="custom-control-label" for="customSwitch1">우리 동만보기</label>
+								</div>
+						</div>
+							<div class="col-lg-6">
                     <label for="calendar_view">등록자별</label>
-                    <div class="input-group">
+                 <!--    <div class="input-group">
                         <label class="checkbox-inline"><input class='filter' type="checkbox" value="정연"
                                 checked>정연</label>
                         <label class="checkbox-inline"><input class='filter' type="checkbox" value="다현"
@@ -279,16 +273,17 @@
                                 checked>나연</label>
                         <label class="checkbox-inline"><input class='filter' type="checkbox" value="현정"
                                 checked>현정</label>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
-        </div> -->
+        </div> 
         <!-- /.filter panel -->
     </div>
     <!-- /.container -->
 
                 </main>
+                
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">

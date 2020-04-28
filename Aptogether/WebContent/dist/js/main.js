@@ -1,6 +1,6 @@
 var draggedEventIsAllDay;
 var activeInactiveWeekends = true;
-
+${member.dong}
 function getDisplayEventDate(event) {
 
   var displayEventDate;
@@ -17,26 +17,27 @@ function getDisplayEventDate(event) {
 }
 
 function filtering(event) {
-//  var show_username = true;
-//  var show_type = true;
-//
-//  var username = $('input:checkbox.filter:checked').map(function () {
-//    return $(this).val();
-//  }).get();
-//  var types = $('#type_filter').val();
-//
-//  show_username = username.indexOf(event.username) >= 0;
-//
-//  if (types && types.length > 0) {
-//    if (types[0] == "all") {
-//      show_type = true;
-//    } else {
-//      show_type = types.indexOf(event.type) >= 0;
-//    }
-//  }
-//
-//  return show_username && show_type;
-	return true;
+/*  var show_dong = true;
+
+ console.log(event);
+  var dong = $('input:checkbox.custom-control-input:checked').map(function () {
+   return $(this).val();
+    }).get();
+
+
+  show_dong = event.dong;
+
+  if (types && types.length > 0) {
+    if (types[0] == "all") {
+      show_type = true;
+   } else {
+      show_type = types.indexOf(event.type) >= 0;
+    }
+  }*/
+
+ // return show_dong;
+//	return true;
+	return sessionDong == event.dong ? true : false; 
 }
 
 function calDateWhenResize(event) {
@@ -166,7 +167,7 @@ var calendar = $('#calendar').fullCalendar({
   events: function (start, end, timezone, callback) {
     $.ajax({
       type: "get",
-      url: "/Aptogether/schedule/showSchedule",
+      url: "/Aptogether/schedule/listScheduleAPT_Dong",
       data: {
         
       },
@@ -208,10 +209,11 @@ var calendar = $('#calendar').fullCalendar({
       data: {
         id: event._id,
         title: event.title,
+        dong: event.dong,
 		contents:  event.contents,
 		start_Date: moment(event.start._d).format('YYYY-MM-DD HH:mm'),
 		end_Date: moment(event.end._d).format('YYYY-MM-DD HH:mm'),
-		apt_Seq: 3,
+		apt_Seq: event.apt_seq,
 		backgroundColor: event.backgroundColor
       },
       
@@ -250,10 +252,11 @@ var calendar = $('#calendar').fullCalendar({
 			data: {
 				  id: event._id,
 			        title: event.title,
+			        dong: event.dong,
 					contents:  event.contents,
 					start_Date: moment(event.start._d).format('YYYY-MM-DD HH:mm'),
 					end_Date: moment(event.end._d).format('YYYY-MM-DD HH:mm'),
-					apt_Seq: 3,
+					apt_Seq: event.apt_seq,
 					backgroundColor: event.backgroundColor
 			},
         success: function (data) {

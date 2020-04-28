@@ -21,11 +21,9 @@ public class ScheduleService {
 		return dao.insertSchedule(schedule);
 	}
 	
-	
-	public List<Schedule> listScheduleService(){
-		return dao.listSchedule();
-	}
-
+	/*
+	 * public List<Schedule> listScheduleService(){ return dao.listSchedule(); }
+	 */
 	
 	public int updateScheduleService(Schedule schedule) {
 		return dao.updateSchedule(schedule);
@@ -34,7 +32,11 @@ public class ScheduleService {
 	public int deleteScheduleService(int schedule_Seq) {
 		return dao.deleteSchedule(schedule_Seq);
 }
-	public List<Schedule> listSchedule_APT_Service(int apt_Seq)throws Exception{
-		return dao.listSchedule_APT(apt_Seq);
+	public List<Schedule> listScheduleAPTService(int apt_Seq)throws Exception{
+		return dao.listScheduleAPT(apt_Seq);
+	}
+	
+	public List<Schedule> listScheduleApt_Dong_Service(Member member)throws Exception{
+		return dao.listScheduleAPT_Dong(member);
 	}
 }

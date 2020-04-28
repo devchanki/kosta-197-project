@@ -10,10 +10,11 @@ public class Schedule implements Serializable{
 	private String end_Date;
 	private int apt_Seq;
 	private String backgroundColor;
+	private String dong;
 	
 	public Schedule() {}
 
-	public Schedule(int schedule_Seq, String title, String contents, String start_Date, String end_Date, int apt_Seq, String backgroundColor) {
+	public Schedule(int schedule_Seq, String title, String contents, String start_Date, String end_Date, int apt_Seq, String backgroundColor,String dong) {
 		super();
 		this.schedule_Seq = schedule_Seq;
 		this.title = title;
@@ -22,6 +23,7 @@ public class Schedule implements Serializable{
 		this.end_Date = end_Date;
 		this.apt_Seq = apt_Seq;
 		this.backgroundColor=backgroundColor;
+		this.dong=dong;
 	}
 
 	public int getSchedule_Seq() {
@@ -80,12 +82,21 @@ public class Schedule implements Serializable{
 		this.backgroundColor = backgroundColor;
 	}
 
+	public String getDong() {
+		return dong;
+	}
+
+	public void setDong(String dong) {
+		this.dong = dong;
+	}
+
 	@Override
 	public String toString() {
 		return "Schedule [schedule_Seq=" + schedule_Seq + ", title=" + title + ", contents=" + contents
 				+ ", start_Date=" + start_Date + ", end_Date=" + end_Date + ", apt_Seq=" + apt_Seq
-				+ ", backgroundColor=" + backgroundColor + "]";
+				+ ", backgroundColor=" + backgroundColor + ", dong=" + dong + "]";
 	}
+
 	
 
 

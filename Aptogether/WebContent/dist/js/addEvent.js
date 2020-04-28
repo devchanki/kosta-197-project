@@ -4,11 +4,13 @@ var modalTitle = $('.modal-title');
 var editId = $('#edit-Id');
 var editAllDay = $('#edit-allDay');
 var editTitle = $('#edit-title');
+var editDong = $('#edit-dong');
 var editStart = $('#edit-start');
 var editEnd = $('#edit-end');
 var editType = $('#edit-type');
 var editColor = $('#edit-color');
 var editDesc = $('#edit-desc');
+var editAptSeq = $('#edit-Apt-Seq');
 
 
 var addBtnContainer = $('.modalBtnContainer-addEvent');
@@ -25,9 +27,11 @@ var newEvent = function (start, end, eventType) {
     modalTitle.html('새로운 일정');
     editType.val(eventType).prop('selected', true);
     editTitle.val('');
+    editDong.val('');
     editStart.val(start);
     editEnd.val(end);
     editDesc.val('');
+    editAptSeq.val();
     
     addBtnContainer.show();
     modifyBtnContainer.hide();
@@ -40,13 +44,12 @@ var newEvent = function (start, end, eventType) {
         var eventData = {
                 title : editTitle.val(),
             	contents : editDesc.val(),
+            	dong : editDong.val(),
             	start_Date : moment(editStart.val()).format('YYYY-MM-DD HH:mm'),
             	end_Date : moment(editEnd.val()).format('YYYY-MM-DD HH:mm'),
-            	apt_Seq : 3,
+            	apt_Seq : editAptSeq.val(),
             	type: editType.val(),
-           // 	username: '사나',
                 backgroundColor: editColor.val(),
-                textColor: '#ffffff',
             	allDay: false
         };
         
@@ -80,10 +83,11 @@ var newEvent = function (start, end, eventType) {
  			dataType: "text",
  			data: {
  				"title": editTitle.val(),
+ 				"dong" : editDong.val(),
  				"contents":  editDesc.val(),
  				"start_Date": moment(editStart.val()).format('YYYY-MM-DD HH:mm'),
  				"end_Date": moment(editEnd.val()).format('YYYY-MM-DD HH:mm'),
- 				"apt_Seq": 3,
+ 				"apt_Seq": editAptSeq.val(),
  				"backgroundColor": editColor.val()
  			},
  			  

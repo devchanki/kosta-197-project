@@ -7,23 +7,26 @@
 <cache/>
 
 <insert id="insertSchedule" parameterType="Schedule" >
-insert into schedule values(schedule_Seq.nextval, #{contents}, to_date(#{start_Date}, 'YYYY-MM-DD HH24:MI'), to_date(#{end_Date}, 'YYYY-MM-DD HH24:MI'), 3, #{title}, #{backgroundColor})
+insert into schedule values(schedule_Seq.nextval, #{contents}, to_date(#{start_Date}, 'YYYY-MM-DD HH24:MI'), to_date(#{end_Date}, 'YYYY-MM-DD HH24:MI'), #{apt_Seq}, #{title}, #{backgroundColor}, #{dong})
 </insert>
 
-<select id="listSchedule" resultType="Schedule" >
+<!-- <select id="listSchedule" resultType="Schedule" >
 select * from schedule
-</select>
+</select> -->
 
 <update id="updateSchedule" parameterType="Schedule">
-update schedule set contents=#{contents}, title=#{title}, start_Date= to_date(#{start_Date}, 'YYYY-MM-DD HH24:MI'), end_Date= to_date(#{end_Date}, 'YYYY-MM-DD HH24:MI'), backgroundColor=#{backgroundColor} where schedule_Seq=#{schedule_Seq}
+update schedule set contents=#{contents}, title=#{title}, start_Date= to_date(#{start_Date}, 'YYYY-MM-DD HH24:MI'), end_Date= to_date(#{end_Date}, 'YYYY-MM-DD HH24:MI'), backgroundColor=#{backgroundColor}, #{dong} where schedule_Seq=#{schedule_Seq}
 </update>
 
-<delete id="deleteSchedule" parameterType="Schedule">
+<delete id="deleteSchedule" parameterType="int">
 delete from schedule where schedule_Seq=#{schedule_Seq}
 </delete>
 
-<select id="listSchedule_APT" resultType="Schedule" parameterType="Integer" >
-select sc.* from schedule schedule sc left join member me on sc.apt_seq = me.apt_seq where me.apt_seq = #{apt_seq}
+<select id="listScheduleAPT" resultType="Schedule" parameterType="Integer" >
+select sc.* from schedule sc left join member me on sc.apt_seq = me.apt_seq where me.apt_seq = #{apt_seq}
 </select>
 
+<select id="listScheduleAPT_Dong" resultType="Schedule" parameterType="Member" >
+select sc.* from schedule sc left join member me on sc.apt_seq = me.apt_seq where me.apt_seq = #{apt_seq} and me.dong = #{dong}
+</select>
 </mapper>
