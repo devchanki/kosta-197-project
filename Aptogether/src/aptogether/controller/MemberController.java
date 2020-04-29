@@ -17,6 +17,7 @@ import aptogether.action.JoinAction;
 import aptogether.action.LogoutAction;
 import aptogether.action.SigninAction;
 import aptogether.action.SignupAction;
+import aptogether.action.UserLoginAction;
 import aptogether.service.MemberService;
 
 /**
@@ -79,7 +80,15 @@ public class MemberController extends HttpServlet {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-		} else if(requestString.equals("admitUser.do")) {
+		} else if(requestString.equals("userLogin.do")) {
+			action = new UserLoginAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(requestString.equals("admitUser.do")) {
 			System.out.println("admit");
 			MemberService service = MemberService.getService();
 			int seq = Integer.parseInt(request.getParameter("seq"));

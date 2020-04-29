@@ -16,7 +16,7 @@ public class UserLoginAction implements Action{
 		
 		
 		forward.setRedirect(false);
-		forward.setUrl("/dist/userDashboard.jsp");
+		forward.setUrl("/userDashboard.jsp");
 		return forward;
 	}
 }

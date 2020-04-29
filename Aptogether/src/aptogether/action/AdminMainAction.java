@@ -24,7 +24,7 @@ public class AdminMainAction implements Action {
 		request.setAttribute("waiting", waiting);
 		
 		forward.setRedirect(false);
-		forward.setUrl("/dist/managerDashBoard.jsp");
+		forward.setUrl("/managerDashBoard.jsp");
 		
 		return forward;
 	}
