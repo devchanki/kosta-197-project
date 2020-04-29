@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="aptogether.mapper.MarketMapper">
+	<cache />
+
+	<insert id="insertmarketproduct" parameterType="Market_Product">
+		insert into
+		Market_Product values(Market_Product_seq.nextval,
+		#{writer},#{product_name},
+		#{price},
+		
+		
+		<if test="fname!= null">
+		#{fname}
+		</if>
+
+		,#{contents},
+		sysdate,
+		#{isSale}
+		)
+	</insert>
+
+<!-- <if test="fname==null">
+		dog6.jpg
+		</if> -->
+	<!-- <select id="detailBoard" resultType="Board" parameterType="int"> select 
+		* from board where seq = #{seq} </select> -->
+
+	<select id="listMarket" resultType="Market_Product">
+		select * from Market_Product order by seq desc
+	</select>
+
+	<select id="countmarketproduct" resultType="int">
+		select count(*) from Market_Product order by seq desc
+	</select>
+	
+	<delete id="deletemarketproduct" parameterType="int"> 
+	delete from Market_Product where seq=#{seq} 
+	</delete>
+		<!-- 
+		 <insert id="insertReply" parameterType="Reply"> insert 
+		into reply values(reply_seq.nextval,#{r_title},#{r_writer},#{r_contents} 
+		,sysdate,#{seq}) </insert> <select id="listReply" parameterType="int" resultType="Reply"> 
+		select * from reply where seq=#{seq} </select> <update id="updateBoard" parameterType="Board"> 
+		update board set title=#{title}, contents=#{contents} where seq=#{seq} </update> -->
+		
+		
+		<select id="detailmarketproduct" parameterType="int" resultType="Market_Product">
+		select * from Market_Product where seq=#{seq}
+		</select>
+		
+		
+		   <insert id="MarketOption" parameterType="java.util.List">
+      insert into files select files_fseq.nextval, A.* , Market_Product_seq.nextval.currval From(
+        <foreach collection="list" item="item" index="index"  separator="UNION ALL "> 
+            select #{item.filename} From dual
+        </foreach>) A
+        </insert>
+        
+        <update id="updatemarketproduct" parameterType="Market_Product">
+        update Market_Product set writer=#{writer}, product_name=#{product_name}, price=#{price}, fname=#{fname}, contents=#{contents}, 
+        isSale=#{isSale} where seq=#{seq}
+        </update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

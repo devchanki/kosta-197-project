@@ -19,6 +19,13 @@
 		SELECT count(*) FROM MEMBER WHERE ID = #{id} AND password = #{password}
 	</select>
 
+	<select id="showWaitingMember" parameterType="Integer" resultType="Member">
+		SELECT * FROM MEMBER WHERE ADMIT = 0 AND apt_seq = #{id} and type = 1
+	</select>
+	
+	<update id="admitUser" parameterType="Integer">
+		UPDATE MEMBER SET ADMIT = 1 WHERE member_seq = #{seq}
+	</update>
 
 </mapper>
 

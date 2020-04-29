@@ -1,6 +1,7 @@
 package aptogether.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,10 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import aptogether.action.Action;
 import aptogether.action.ActionForward;
+import aptogether.action.AdminMainAction;
 import aptogether.action.JoinAction;
 import aptogether.action.LogoutAction;
 import aptogether.action.SigninAction;
 import aptogether.action.SignupAction;
+import aptogether.service.MemberService;
 
 /**
  * Servlet implementation class MemberController
@@ -68,6 +71,27 @@ public class MemberController extends HttpServlet {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
+		} else if(requestString.equals("signinAdmin.do")) {
+			action = new AdminMainAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		} else if(requestString.equals("admitUser.do")) {
+			System.out.println("admit");
+			MemberService service = MemberService.getService();
+			int seq = Integer.parseInt(request.getParameter("seq"));
+			System.out.println(seq);
+			int result = service.admitService(seq);
+			PrintWriter out = response.getWriter();
+			if(result > 0) {
+				out.write("success");
+			}else {
+				out.write("false");
+			}
+			out.flush();
 		}
 		
     	if(forward != null) {
