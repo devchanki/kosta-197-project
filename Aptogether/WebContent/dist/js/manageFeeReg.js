@@ -14,8 +14,6 @@ var pay_date = $('#pay_date');
 
 $(function() {
 	
-	
-	
 	//숫자 세자리 수 마다 콤마 붙는 정규표현식 함수
 	function AmountCommas(val){
 	    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
@@ -28,13 +26,13 @@ $(function() {
 			type : "GET",
 			dataType : "text",
 			data: {
-				"member_seq" : member_seq_init
+				"member_seq" : member_seq_init,
 			},
 			success : function(response) {
 				console.log(response);
 				data = JSON.parse(response);
 				console.log(response);
-				 $('.fee-table').html('<tr><td>입주민번호</td><td>납부일자</td><td>일반관리비</td><td>경비비</td><td>청소비</td><td>소독비</td><td>승강기유지비</td><td>전기세</td><td>수도세</td><td>난방비</td><td>합계</td></tr>');
+				 $('.fee-table').html('<tr><td>입주민번호</td><td>청구일자</td><td>일반관리비</td><td>경비비</td><td>청소비</td><td>소독비</td><td>승강기유지비</td><td>전기세</td><td>수도세</td><td>난방비</td><td>합계</td></tr>');
 				for (var i = 0; i < data.length; i++) {
 					$('.fee-table').append(
 									'<tr>'

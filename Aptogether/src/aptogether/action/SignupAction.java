@@ -27,7 +27,7 @@ public class SignupAction implements Action {
 		
 		if(re == 1) {
 			action.setRedirect(true);
-			action.setUrl("/Aptogether/dist/index.jsp");
+			action.setUrl("/Aptogether/signin.html");
 		}else {
 			action.setRedirect(true);
 			action.setUrl("/Aptogether/dist/404.html");

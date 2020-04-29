@@ -3,6 +3,7 @@ package aptogether.model;
 import java.io.InputStream;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
@@ -79,11 +80,11 @@ public class ManageFeeDao {
 		return list;
 	}
 
-	public List<ManageFee> listManageFeePart(int apt_seq) {
+	public List<ManageFee> listManageFeePart(@Param("member") Member member ,@Param("row") int row) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<ManageFee> list = null;
 		try {
-			list = sqlSession.getMapper(ManageFeeMapper.class).listManageFeePart(apt_seq);
+			list = sqlSession.getMapper(ManageFeeMapper.class).listManageFeePart(member, row);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

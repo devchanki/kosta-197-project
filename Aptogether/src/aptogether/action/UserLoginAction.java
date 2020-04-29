@@ -13,6 +13,7 @@ public class UserLoginAction implements Action{
 		ActionForward forward = new ActionForward();
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
+
 		
 		
 		forward.setRedirect(false);

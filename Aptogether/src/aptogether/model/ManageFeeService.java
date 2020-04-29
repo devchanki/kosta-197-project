@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
+
 
 public class ManageFeeService {
 	private static ManageFeeService service = new ManageFeeService();
@@ -26,8 +28,8 @@ public class ManageFeeService {
 		List<ManageFee> list = dao.listManageFee(member);
 		return list;
 	}
-	public List<ManageFee> listManageFeePartService(int apt_seq) throws Exception{
-		List<ManageFee> list = dao.listManageFeePart(apt_seq);
+	public List<ManageFee> listManageFeePartService(Member member ,int row) throws Exception{
+		List<ManageFee> list = dao.listManageFeePart(member, row);
 		return list;
 	}
 }

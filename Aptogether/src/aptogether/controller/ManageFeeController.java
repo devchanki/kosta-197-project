@@ -44,7 +44,6 @@ public class ManageFeeController extends HttpServlet {
 			response.setCharacterEncoding("utf-8");
 			HttpSession session = request.getSession();
 			Member sessionMember = (Member) session.getAttribute("member");
-			System.out.println("in");
 			String dong = request.getParameter("dong");
 			String ho = request.getParameter("ho");
 			Member member = new Member(dong, ho);
@@ -146,11 +145,22 @@ public class ManageFeeController extends HttpServlet {
 			response.setCharacterEncoding("utf-8");
 			ManageFeeService service = ManageFeeService.getInstance();
 			ManageFee manage_Fee = new ManageFee();
-			PrintWriter out = response.getWriter();
 			HttpSession session = request.getSession();
+			Member sessionMember = (Member) session.getAttribute("member");
+			
+			PrintWriter out = response.getWriter();
+			
+			int apt_seq = sessionMember.getApt_seq();
+			int member_seq = Integer.parseInt(request.getParameter("member_seq"));
+			Member member = new Member(apt_seq, member_seq);
+			
+			System.out.println(member);
+			
+			int row = Integer.parseInt(request.getParameter("row"));
+			System.out.println(row);
 			try {
-//				Member member = (Member) session.getAttribute("member");
-				List<ManageFee> list = service.listManageFeePartService(1);
+				
+				List<ManageFee> list = service.listManageFeePartService(member, row);
 
 				JSONObject obj = new JSONObject();
 				JSONArray arr = new JSONArray();
