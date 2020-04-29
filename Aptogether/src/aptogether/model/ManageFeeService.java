@@ -22,8 +22,12 @@ public class ManageFeeService {
 		return dao.insertManageFee(manage_Fee);
 	}
 	
-	public List<ManageFee> listManageFeeService(int apt_seq) throws Exception{
-		List<ManageFee> list = dao.listManageFee(apt_seq);
+	public List<ManageFee> listManageFeeService(Member member) throws Exception{
+		List<ManageFee> list = dao.listManageFee(member);
+		return list;
+	}
+	public List<ManageFee> listManageFeePartService(int apt_seq) throws Exception{
+		List<ManageFee> list = dao.listManageFeePart(apt_seq);
 		return list;
 	}
 }

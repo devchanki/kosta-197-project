@@ -10,12 +10,12 @@
 		String payDate = fee.getPay_date();
 		int feeTotal = fee.getGeneral_fee()+fee.getSecurity_fee()+fee.getCleaning_fee()+fee.getFumigation_fee()+fee.getLift_maintenance_fee()+
 						fee.getElectricity_fee()+fee.getWater_fee()+fee.getHeating_fee();%>
+						
 		payDateArr.push(<%= payDate %>)
 		feeSum.push(<%= feeTotal %>)
 	<%= } %>
 
-	
-</script> --%>
+</script>  --%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -181,7 +181,7 @@
 											</div>
 										</div>
 										<br><br><br>                                    
-                                    <canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                    <canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
 						<div class="col-xl-6">

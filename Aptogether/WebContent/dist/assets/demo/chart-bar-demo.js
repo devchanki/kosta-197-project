@@ -13,7 +13,7 @@ var myLineChart = new Chart(ctx, {
       label: "총 금액",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [90000, 100000, 200000, 150000, 110000, 67000],
+      data: [90000, 10000, 20000, 15000, 11000, 6700],
     }],
   },
   options: {
@@ -33,7 +33,8 @@ var myLineChart = new Chart(ctx, {
         ticks: {
           min: 0,
           max: 500000,
-          maxTicksLimit: 5
+          stepSize: 50000,
+          maxTicksLimit: 10
         },
         gridLines: {
           display: true

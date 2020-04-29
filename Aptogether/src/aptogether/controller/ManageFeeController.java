@@ -36,6 +36,9 @@ public class ManageFeeController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 		System.out.println(command);
+		
+		
+		
 		if (command.equals("findMemberSeq")) {
 			ManageFeeService service = ManageFeeService.getInstance();
 			response.setCharacterEncoding("utf-8");
@@ -44,7 +47,6 @@ public class ManageFeeController extends HttpServlet {
 			System.out.println("in");
 			String dong = request.getParameter("dong");
 			String ho = request.getParameter("ho");
-			System.out.println(dong + ho);
 			Member member = new Member(dong, ho);
 			member.setApt_seq(sessionMember.getApt_seq());
 			
@@ -63,6 +65,7 @@ public class ManageFeeController extends HttpServlet {
 			System.out.println(obj.toString());
 			out.print(obj.toString());
 			out.flush();
+			
 		} else if (command.equals("registerManageFee")) {
 			response.setCharacterEncoding("utf-8");
 			ManageFeeService service = ManageFeeService.getInstance();
@@ -98,11 +101,56 @@ public class ManageFeeController extends HttpServlet {
 			response.setCharacterEncoding("utf-8");
 			ManageFeeService service = ManageFeeService.getInstance();
 			ManageFee manage_Fee = new ManageFee();
+			HttpSession session = request.getSession();
+			Member sessionMember = (Member) session.getAttribute("member");
+			
+			PrintWriter out = response.getWriter();
+			
+			int apt_seq = sessionMember.getApt_seq();
+			int member_seq = Integer.parseInt(request.getParameter("member_seq"));
+			Member member = new Member(apt_seq, member_seq);
+			
+			try {
+				
+				List<ManageFee> list = service.listManageFeeService(member);
+						
+
+				JSONObject obj = new JSONObject();
+				JSONArray arr = new JSONArray();
+
+				for (ManageFee mf : list) {
+					JSONObject tmp = new JSONObject();
+					tmp.put("member_seq", mf.getMember_seq());
+					tmp.put("general_fee", mf.getGeneral_fee());
+					tmp.put("security_fee", mf.getSecurity_fee());
+					tmp.put("cleaning_fee", mf.getCleaning_fee());
+					tmp.put("fumigation_fee", mf.getFumigation_fee());
+					tmp.put("lift_maintenance_fee", mf.getLift_maintenance_fee());
+					tmp.put("electricity_fee", mf.getElectricity_fee());
+					tmp.put("water_fee", mf.getWater_fee());
+					tmp.put("heating_fee", mf.getHeating_fee());
+					tmp.put("pay_date", mf.getPay_date());
+					arr.add(tmp);
+				}
+				obj.put("data", arr);
+				System.out.println(obj.toString());
+				out.print(arr.toString());
+				out.flush();
+			} catch (Exception e) {
+				e.printStackTrace();
+				out.print("false");
+				out.flush();
+			}
+
+		}else if (command.equals("showListManageFeePart")) {
+			response.setCharacterEncoding("utf-8");
+			ManageFeeService service = ManageFeeService.getInstance();
+			ManageFee manage_Fee = new ManageFee();
 			PrintWriter out = response.getWriter();
 			HttpSession session = request.getSession();
 			try {
-				Member member = (Member) session.getAttribute("member");
-				List<ManageFee> list = service.listManageFeeService(member.getApt_seq());
+//				Member member = (Member) session.getAttribute("member");
+				List<ManageFee> list = service.listManageFeePartService(1);
 
 				JSONObject obj = new JSONObject();
 				JSONArray arr = new JSONArray();
@@ -132,6 +180,7 @@ public class ManageFeeController extends HttpServlet {
 			}
 
 		}
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

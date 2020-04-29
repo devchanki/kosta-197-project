@@ -8,7 +8,7 @@
 	<cache />
 	<insert id="signup" parameterType="Member">
 		insert into Member
-			values(Member_SEQ.nextval, #{id}, #{password}, #{apt_seq}, #{dong}, #{ho}, 0, #{type} ,#{name})
+			values(Member_SEQ.nextval, #{id}, #{password}, #{apt_seq}, #{dong}, #{ho} , #{type}, 0 ,#{name})
 	</insert>
 	
 	<select id="signin" parameterType="Member" resultType="Member" >

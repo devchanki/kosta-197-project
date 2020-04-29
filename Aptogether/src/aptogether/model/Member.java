@@ -33,6 +33,14 @@ public class Member implements Serializable {
 		this.dong = dong;
 		this.ho = ho;
 	}
+	
+	public Member(int apt_seq, int member_seq) {
+		super();
+		this.apt_seq = apt_seq;
+		this.member_seq = member_seq;
+	}
+	
+	
 
 	public int getMember_seq() {
 		return member_seq;

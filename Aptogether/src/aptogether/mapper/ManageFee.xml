@@ -15,11 +15,14 @@
 																 to_date(#{pay_date}, 'YYYY-MM-DD'))
 	</insert>
 	
-	<select id="listManageFee" parameterType="Integer" resultType="ManageFee">
-		select ma.* from manage_fee ma left join member me  on ma.member_seq = me.member_seq where me.apt_seq = #{apt_seq} order by ma.pay_date desc, ma.fee_seq
+	<select id="listManageFee" parameterType="Member" resultType="ManageFee">
+		select ma.* from manage_fee ma left join member me  on ma.member_seq = me.member_seq where me.apt_seq = #{apt_seq} and me.member_seq = #{member_seq} order by ma.pay_date desc
 	</select>
 
-	
+	<select id="listManageFeePart" parameterType="Integer" resultType="ManageFee">
+		select * from (select ma.* from manage_fee ma left join member me  on ma.member_seq = me.member_seq where me.apt_seq = #{apt_seq} order by ma.pay_date desc) 
+		where rownum &lt;= 7
+	</select>
 	
 </mapper>
 

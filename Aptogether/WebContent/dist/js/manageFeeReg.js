@@ -11,7 +11,11 @@ var pay_date = $('#pay_date');
 
 
 
+
 $(function() {
+	
+	
+	
 	//숫자 세자리 수 마다 콤마 붙는 정규표현식 함수
 	function AmountCommas(val){
 	    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
@@ -23,6 +27,9 @@ $(function() {
 			url : "/Aptogether/manageFee/showListManageFee",
 			type : "GET",
 			dataType : "text",
+			data: {
+				"member_seq" : member_seq_init
+			},
 			success : function(response) {
 				console.log(response);
 				data = JSON.parse(response);
@@ -52,87 +59,41 @@ $(function() {
 	
 	
 	
-	
-		$("#memberSeq_finder").click(function() {
-			$("#dialog-message").modal('show');
-		});
-		
-		$("#find_mq").on('click', function(start, end, callback) {
-			console.log("등록");
-			
-			$.ajax({
-				type : "get",
-				url : "/Aptogether/Manage_Fee/findMemberSeq",
-				data : {
-					dong : $('#dong').val(),
-					ho : $('#ho').val()
-				},
-				success : function(response) {
-						console.log(response);
-						response = JSON.parse(response);
-						member_seq.val(response.member_seq);
-				}
-			});
-			$("#dialog-message").modal('hide');
-		});
-		
-		
-		$("#cancle_mq").on('click', function() {
-					$('#dong').val('');
-					$('#ho').val('');
-					$("#dialog-message").modal('hide');
-		});
-	
-	
-	
-	
 	$("#manage_fee_register").on('click', function() {
-		$( "#dialog-fee" ).dialog({
-			  height: "auto",
-			  width: 500,
-		      modal: true,
-		      buttons: {
-		    	  등록 : function(start, end, timezone, callback) {
-						$.ajax({
-							type : "get",
-							url : "/Aptogether/manageFee/registerManageFee",
-							data : {
-								"member_seq" : member_seq.val(),
-								"general_fee" : general_fee.val(),
-								"security_fee" : security_fee.val(),
-								"cleaning_fee" : cleaning_fee.val(),
-								"fumigation_fee" : fumigation_fee.val(),
-								"lift_maintenance_fee" : lift_maintenance_fee.val(),
-								"electricity_fee" : electricity_fee.val(),
-								"water_fee" : water_fee.val(),
-								"heating_fee" : heating_fee.val(),
-								"pay_date" : pay_date.val()
-							},
-							success : function(data) {
-							if (data == "success") {
-								alert("입력에 성공하셨습니다.");
-								location.reload();
-							} else {
-								alert("잠시후 다시 시도해주세요.");
-							}
+	    
+					$.ajax({
+						type : "get",
+						url : "/Aptogether/manageFee/registerManageFee",
+						data : {
+							"member_seq" : member_seq.val(),
+							"general_fee" : general_fee.val(),
+							"security_fee" : security_fee.val(),
+							"cleaning_fee" : cleaning_fee.val(),
+							"fumigation_fee" : fumigation_fee.val(),
+							"lift_maintenance_fee" : lift_maintenance_fee.val(),
+							"electricity_fee" : electricity_fee.val(),
+							"water_fee" : water_fee.val(),
+							"heating_fee" : heating_fee.val(),
+							"pay_date" : pay_date.val()
 						},
-						error : function(request, status, error) {
-							alert("요청에 실패하였습니다. 조금 있다 다시 요청해주세요.")
+						success : function(data) {
+						if (data == "success") {
+							alert("입력에 성공하셨습니다.");
+							location.reload();
+						} else {
+							alert("잠시후 다시 시도해주세요.");
 						}
-						});
-						$(this).dialog("close");
-						},
-					취소 : function() {
-						$(this).dialog("close");
+					},
+					error : function(request, status, error) {
+						alert("요청에 실패하였습니다. 조금 있다 다시 요청해주세요.")
 					}
-		      }
-		    });
-		return false;
-	});
+					});
+					
+	      
+	    
+	return false;
+});
 	
-	
-	
-
 	
 	
 });
