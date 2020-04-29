@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -109,7 +109,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Áß°í°Å·¡ </h1>
+                        <h1 class="mt-4">ì¤‘ê³ ê±°ë˜ </h1>
                         
                 
 
@@ -120,23 +120,23 @@
 <div class="card-body">
 <form action="/Aptogether/Market/insertaction.do" method="post" enctype="multipart/form-data">
 	<div class="card-body">
-	ÀÛ¼ºÀÚ: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="writer"><br><br>
-	ÆÇ¸Å¹°Ç° :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="product_name"><br><br>
-	°¡°İ:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="price"><br><br>
+	ì‘ì„±ì: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="writer"><br><br>
+	íŒë§¤ë¬¼í’ˆ :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="product_name"><br><br>
+	ê°€ê²©:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="price"><br><br>
 	</div>
 	
 	
 	<div class="card-body">
 	
-	»çÁø:<p></p><input type="file" name="fname"><p id="hey">
-	<button id="dd" onclick="addimg()">»çÁø ´õ Ãß°¡ÇÏ±â</button><br>
+	ì‚¬ì§„:<p></p><input type="file" name="fname"><p id="hey">
+	<button id="dd" onclick="addimg()">ì‚¬ì§„ ë” ì¶”ê°€í•˜ê¸°</button><br>
 	</div>
 	<div class="card-body">
-	³»¿ë <br>
+	ë‚´ìš© <br>
 	<textarea rows="6" cols="70" name="contents"></textarea>
 	<br>
-	ÆÇ¸ÅÁß:<input type="text" name="isSale">
-	<input type="submit" value="µî·Ï">
+	íŒë§¤ì¤‘:<input type="text" name="isSale">
+	<input type="submit" value="ë“±ë¡">
 	</div>
 </form>
             </div>

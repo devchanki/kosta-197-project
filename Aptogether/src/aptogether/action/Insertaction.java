@@ -1,5 +1,7 @@
 package aptogether.action;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,7 +24,12 @@ public class Insertaction implements Action {
 		 * product.setFname(request.getParameter("fname"));
 		 * product.setIsSale(request.getParameter("isSale"));
 		 */
-		
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 			try {
 				service.insertMarketService(request);
 			} catch (Exception e) {

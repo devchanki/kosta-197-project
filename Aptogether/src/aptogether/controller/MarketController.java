@@ -30,9 +30,9 @@ public class MarketController extends HttpServlet {
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public void doMarket(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String requestURI = request.getRequestURI(); // ÇöÀç uri¸¦ ±¸ÇØÁÖ´Â ¸Þ¼Òµå
-		String contextPath = request.getContextPath(); // ÄÁÅØ½ºÆ®ÀÇ °æ·Î¸¦ Ã£¾ÆÁÖ´Â ¸Þ¼Òµå
-		String command = requestURI.substring(contextPath.length() + 8); // insertFrom.do¸¦ »Ì±âÀ§ÇÑ ÀÛ¾÷ÀÔ´Ï´Ù.
+		String requestURI = request.getRequestURI(); // ï¿½ï¿½ï¿½ï¿½ uriï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Þ¼Òµï¿½
+		String contextPath = request.getContextPath(); // ï¿½ï¿½ï¿½Ø½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Î¸ï¿½ Ã£ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Þ¼Òµï¿½
+		String command = requestURI.substring(contextPath.length() + 8); // insertFrom.doï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½Ô´Ï´ï¿½.
 		System.out.println(command);
 
 		Action action = null;
@@ -93,13 +93,22 @@ public class MarketController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("insertReplyAction.do")) {
+			action = new Insertreplyaction();
+			try {
+				forward = action.execute(request, response);
+				System.out.println();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		/*
 		 * else if (command.equals("listAction.do")) {
-		 * System.out.println("listactionÀÛµ¿"); action = new ListAction(); try { forward
+		 * System.out.println("listactionï¿½Ûµï¿½"); action = new ListAction(); try { forward
 		 * = action.execute(request, response); } catch (Exception e) {
 		 * e.printStackTrace(); } } else if (command.equals("detailAction.do")) {
-		 * System.out.println("µðÅ×ÀÏ ¾×¼ÇÀÛµ¿"); action = new DetailAction(); try { forward =
+		 * System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ï¿½Ûµï¿½"); action = new DetailAction(); try { forward =
 		 * action.execute(request, response); } catch (Exception e) {
 		 * e.printStackTrace(); } } else if (command.equals("deleteAction.do")) { action
 		 * = new DeleteAction(); try { forward = action.execute(request, response); }
