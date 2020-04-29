@@ -8,12 +8,37 @@
 		#{Fname,jdbcType = VARCHAR}, sysdate, compboard_seq.nextval)
 	</insert>
 	
-	<select id = "listBoard" resultType="board">
-		select * from comp_board order by seq
+	<select id="listBoard" parameterType="Search" resultType="Board">
+	select * from comp_board 
+         <if test="area != null">
+            <where>
+               <foreach collection="area" item="item" open="(" separator="OR" close=")">
+                  ${item} LIKE #{searchKey}
+               </foreach>
+            </where>
+         </if>	
+      order by seq desc
+   </select>
+	
+	
+	
+	
+	
+	<select id="countBoard" resultType="int" parameterType="Search">
+	select count(*) from comp_board
+	 <if test="area != null">
+            <where>
+               <!-- title LIKE %aa% OR writer LIKE %aa% -->
+               <foreach collection="area" item="item" open="(" separator="OR" close=")">
+                  ${item} LIKE #{searchKey}
+               </foreach>
+            </where>
+         </if>
+      order by seq desc
 	</select>
 	
 	<delete id = "deleteBoard" parameterType="int">
-	delete from board where seq = #{seq} 
+	delete from comp_board where seq = #{seq} 
 	</delete>
 
 </mapper>

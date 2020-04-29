@@ -6,7 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="aptogether.model.Board" alias="Board"/>
-	
+		<typeAlias type="aptogether.model.Search" alias="Search"/>
 	</typeAliases>
 	
 	<environments default="development">

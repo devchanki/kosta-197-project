@@ -14,7 +14,7 @@ public class CompDelete implements Action{
 		service.deleteBoardService(request);
 		
 		forward.setRedirect(true);
-		forward.setUrl("CompBoard.do");
+		forward.setUrl("Compboard.do");
 		return forward;
 	}
 	

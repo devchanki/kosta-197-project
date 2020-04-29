@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import aptogether.model.Board;
 import aptogether.model.BoardService;
+import aptogether.model.CompListModel;
 
 public class CompBoard implements Action{
 
@@ -15,12 +16,11 @@ public class CompBoard implements Action{
 		ActionForward forward = new ActionForward();
 		BoardService service = BoardService.getInstance();
 		
-		List<Board> list = service.listBoardService(request);
-		
-		request.setAttribute("list", list);
+		CompListModel listModel =service.ComplistBoardService(request);
+		request.setAttribute("listModel", listModel);
 		
 		forward.setRedirect(false);
-		forward.setUrl("/dist/comp_board.jsp");
+		forward.setUrl("/dist/comp_board.jsp");	
 		
 		
 		return forward;

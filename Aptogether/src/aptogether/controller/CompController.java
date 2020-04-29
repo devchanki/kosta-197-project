@@ -17,6 +17,7 @@ import org.json.simple.JSONObject;
 import aptogether.action.Action;
 import aptogether.action.ActionForward;
 import aptogether.action.CompBoard;
+import aptogether.action.CompDelete;
 import aptogether.action.CompMain;
 import aptogether.action.CompWrite;
 import aptogether.action.WriteForm;
@@ -71,6 +72,13 @@ public class CompController extends HttpServlet{
 		}
 	} else if (command.equals("Compboard.do")) {
 		action = new CompBoard();
+		try {
+			forward=action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	} else if (command.equals("CompDelete.do")) {
+		action = new CompDelete();
 		try {
 			forward=action.execute(request, response);
 		} catch (Exception e) {

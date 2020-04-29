@@ -8,13 +8,64 @@
 	color: #C0C0C0;
 	margin-top: 40px;
 }
+.button{
+	width:120px;
+	height:55px;
+    background-color: #f8585b;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    position:absolute;
+    font-weight: "Nanum Gothic";
+    text-align: center;
+     display: inline-block;
+    margin-top: 32px;
+
+}
+.button a {
+	text-decoration: none;
+}
+#buttonArea{
+	
+	left: 85%;
+	margin-left: 85%;
+}
+#pageArea{
+	text-align: center;
+}
+#contenttext{
+	width: 80%;
+	text-align: left;
+	
+}
+#comptable{
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+}
+#accordion{
+	text-align: left;
+	margin-top: 20px;
+}
+#accotitle{
+background-color: #B0C4DE;
+border:solid 1px #ffffff;
+}
+.accocontent{
+	min-width: 28px;
+	min-height:260px;
+}
 #category{
 	width: 1160px;
     min-height: 175px;
     padding: 40px 0 40px 0;
    	margin-left: auto;
    margin-right: auto;
-   
 }	
 .item{
 	position: relative;
