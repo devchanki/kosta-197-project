@@ -40,7 +40,7 @@ public class loginFilter implements Filter {
 		HttpServletResponse response1 = (HttpServletResponse) response;
 
 		if (member == null) {
-			response1.sendRedirect("/Aptogether/dist/signin.html");
+			response1.sendRedirect("/signin.html");
 		}
 
 		chain.doFilter(request, response);

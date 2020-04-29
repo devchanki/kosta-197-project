@@ -43,8 +43,8 @@ public class SigninAction implements Action {
 				forward.setRedirect(false);
 				forward.setUrl("/dist/userDashboard.jsp");
 			}else if(resultMember.getType() == 0) {
-				forward.setRedirect(false);
-				forward.setUrl("/dist/managerDashBoard.jsp");
+				forward.setRedirect(true);
+				forward.setUrl("/Aptogether/member/signinAdmin.do");
 			}
 
 		}
