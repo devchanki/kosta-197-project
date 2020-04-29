@@ -299,3 +299,8 @@ select.filter {
 #edit-color {
   color: #d25565;
 }
+
+#wrapper #toggle_dong{
+	margin: 23px 5px 10px 7px;
+	float: right;
+}

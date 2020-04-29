@@ -15,29 +15,24 @@ function getDisplayEventDate(event) {
   return displayEventDate;
 }
 
+
+ 
+  
+
 function filtering(event) {
-/*  var show_dong = true;
 
- console.log(event);
-  var dong = $('input:checkbox.custom-control-input:checked').map(function () {
-   return $(this).val();
-    }).get();
+	
+	if($("#dong_toggle").prop('checked')){
+		 return (sessionDong == event.dong) ? true : false;
+	 }else{
+		 console.log("unclick");
+		 
+		 return true;
 
-
-  show_dong = event.dong;
-
-  if (types && types.length > 0) {
-    if (types[0] == "all") {
-      show_type = true;
-   } else {
-      show_type = types.indexOf(event.type) >= 0;
-    }
-  }*/
-
- // return show_dong;
-//	return true;
-	return sessionDong == event.dong ? true : false; 
+	 }
 }
+
+
 
 function calDateWhenResize(event) {
 

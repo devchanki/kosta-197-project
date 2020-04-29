@@ -19,6 +19,8 @@ import com.sun.scenario.effect.Merge;
 
 import aptogether.action.Action;
 import aptogether.action.ActionForward;
+import aptogether.action.ScheduleAction;
+import aptogether.action.SigninAction;
 import aptogether.model.Member;
 import aptogether.model.Schedule;
 import aptogether.model.ScheduleService;
@@ -38,7 +40,6 @@ public class scheduleController extends HttpServlet {
 		String command = requestURI.substring(contextPath.length() + 10);
 	//	System.out.println(requestURI);
 
-		Action action = null;
 		ActionForward forward = null;
 
 
@@ -182,10 +183,17 @@ public class scheduleController extends HttpServlet {
 					out.print("false");
 					out.flush();
 				}
-			
-			
-		
-
+		        } else if (request.equals("scheduelAction.do")) {
+					Action action = new ScheduleAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+		        
+		        
+		        
 			if (forward != null) {
 				if (forward.isRedirect()) {
 					response.sendRedirect(forward.getUrl());
@@ -196,8 +204,6 @@ public class scheduleController extends HttpServlet {
 			}
 		}
 
-		}
-	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

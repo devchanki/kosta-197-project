@@ -10,6 +10,7 @@
         <meta name="author" content="" />
         <title>schedule</title>
         <link href="css/styles.css" rel="stylesheet" />
+        
     <link rel=" shortcut icon" href="image/favicon.ico">
     <link rel="stylesheet" href="vendor/css/fullcalendar.min.css" />
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
@@ -18,9 +19,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/main.css">
+    
+    <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
+    <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script>
-        	var sessionDong = 101;
+        	var sessionDong = ${member.dong};
         </script>
     </head>
     
@@ -107,27 +113,26 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-     
+
 
 			<!-- 스케줄 시작 -->
      <main>
-     
 
-				
 				<div class="container">
         <!-- 일자 클릭시 메뉴오픈 -->
         <div id="contextMenu" class="dropdown clearfix">
             <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
                 style="display:block;position:static;margin-bottom:5px;">
                 <li><a tabindex="-1" href="#">등록</a></li>
-<!--            <li><a tabindex="-1" href="#">카테고리1</a></li>
-                <li><a tabindex="-1" href="#">카테고리4</a></li> -->
                 <li class="divider"></li>
                 <li><a tabindex="-1" href="#" data-role="close">Close</a></li>
             </ul>
         </div>
-
+        
+        		
+	
         <div id="wrapper">
+			<div id="toggle_dong"><input type="checkbox" class="filter" id="dong_toggle"  data-toggle="toggle" data-on="우리 동" data-off="전체 일정"  data-height="29" data-onstyle="dark"/>  </div>
             <div id="loading"></div>
             <div id="calendar"></div>
         </div>
@@ -237,52 +242,6 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-
-       <div class="panel panel-default">
-
-            <div class="panel-heading">
-                <h3 class="panel-title">필터</h3>
-            </div>
-
-            <div class="panel-body">
-
-<!--                 <div class="col-lg-6">
-                    <label for="calendar_view">구분별</label>
-                    <div class="input-group">
-                        <select class="filter" id="type_filter" multiple="multiple">
-                            <option value="카테고리1">카테고리1</option>
-                            <option value="카테고리2">카테고리2</option>
-                            <option value="카테고리3">카테고리3</option>
-                            <option value="카테고리4">카테고리4</option>
-                        </select>
-                    </div>
-                </div> -->
-                
-						<div class="col-lg-6">
-								<div class="custom-control custom-switch">
-									<input type="checkbox" class="custom-control-input" id="customSwitch1" > 
-										<label class="custom-control-label" for="customSwitch1">우리 동만보기</label>
-								</div>
-						</div>
-							<div class="col-lg-6">
-                    <label for="calendar_view">등록자별</label>
-                 <!--    <div class="input-group">
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="정연"
-                                checked>정연</label>
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="다현"
-                                checked>다현</label>
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="사나"
-                                checked>사나</label>
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="나연"
-                                checked>나연</label>
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="현정"
-                                checked>현정</label>
-                    </div> -->
-                </div>
-
-            </div>
-        </div> 
-        <!-- /.filter panel -->
     </div>
     <!-- /.container -->
 
@@ -309,8 +268,11 @@
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="assets/demo/chart-pie-demo.js"></script>  --> 
+        
             <script src="vendor/js/jquery.min.js"></script>
     <script src="vendor/js/bootstrap.min.js"></script>
+    <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">  
+	<script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
     <script src="vendor/js/moment.min.js"></script>
     <script src="vendor/js/fullcalendar.min.js"></script>
     <script src="vendor/js/ko.js"></script>
@@ -320,5 +282,6 @@
     <script src="js/addEvent.js"></script>
     <script src="js/editEvent.js"></script>
     <script src="js/etcSetting.js"></script>
+
     </body>
 </html>

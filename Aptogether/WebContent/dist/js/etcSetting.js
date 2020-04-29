@@ -4,7 +4,7 @@ $('#edit-color').change(function () {
 });
 
 //필터
-$('.filter').on('change', function () {
+$('#dong_toggle').on('change', function () {
     $('#calendar').fullCalendar('rerenderEvents');
 });
 
