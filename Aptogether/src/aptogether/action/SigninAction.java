@@ -31,11 +31,11 @@ public class SigninAction implements Action {
 
 		Member resultMember = service.signinService(member);
 		HttpSession session = request.getSession();
-		System.out.println("member" + resultMember.getType());
+		
 		if (resultMember == null) {
 			session.invalidate();
 			forward.setRedirect(true);
-			forward.setUrl("/Aptogether/dist/signin.html");
+			forward.setUrl("/Aptogether/signin.html");
 		} else {
 			session.setAttribute("member", resultMember);
 			request.setAttribute("member", resultMember);
@@ -46,10 +46,7 @@ public class SigninAction implements Action {
 				forward.setRedirect(true);
 				forward.setUrl("/Aptogether/member/signinAdmin.do");
 			}
-
 		}
-
 		return forward;
 	}
-
 }
