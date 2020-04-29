@@ -132,7 +132,7 @@
         		
 	
         <div id="wrapper">
-			<div id="toggle_dong"><input type="checkbox" class="filter" id="dong_toggle"  data-toggle="toggle" data-on="우리 동" data-off="전체 일정"  data-height="29" data-onstyle="dark"/>  </div>
+			<div id="toggle_dong"><input type="checkbox" class="filter" id="dong_toggle"  data-toggle="toggle" data-on="우리 동" data-off="전체 일정"  data-height="30" data-onstyle="dark"/>  </div>
             <div id="loading"></div>
             <div id="calendar"></div>
         </div>
