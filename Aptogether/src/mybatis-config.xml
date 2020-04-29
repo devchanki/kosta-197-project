@@ -10,23 +10,27 @@
 		<typeAlias type="aptogether.model.Member" alias="Member"/>
 		<typeAlias type="aptogether.model.ManageFee" alias="ManageFee"/>
 		<typeAlias type="aptogether.model.Schedule" alias="Schedule"/>
+				<typeAlias type="aptogether.model.Market_Product"
+			alias="Market_Product" />
 	</typeAliases>
-	
-	
+
+
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC"/>
-				<dataSource type="JNDI">
-					<property name="data_source" value="java:comp/env/jdbc/oracle"/>
-				</dataSource>
-		</environment>		
+			<transactionManager type="JDBC" />
+			<dataSource type="JNDI">
+				<property name="data_source"
+					value="java:comp/env/jdbc/oracle" />
+			</dataSource>
+		</environment>
 	</environments>
-	
+
 	<mappers>
 		<mapper resource="aptogether/mapper/Apt.xml"/>
 		<mapper resource="aptogether/mapper/Member.xml"/>
 		<mapper resource="aptogether/mapper/ManageFee.xml"/>
 		<mapper resource="aptogether/mapper/schedule.xml"/>
+		<mapper resource="aptogether/mapper/Market_Product.xml" />
 	</mappers>
-	
+
 </configuration>

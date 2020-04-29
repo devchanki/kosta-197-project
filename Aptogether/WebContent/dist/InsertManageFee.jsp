@@ -11,23 +11,10 @@
         <meta name="author" content="" />
         <title>Aptogether</title>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  		<!--<link rel="stylesheet" href="/resources/demos/style.css">-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-        <style>
-        	#dialog-message{
-        		display: none;
-        	}
-        	#dialog-fee{
-        		display: none;
-        	}
-        	.inputFee{
-        		position: absolute;
-        		left: 170px;
-        	}
-        	
-        </style>
+        
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -120,13 +107,69 @@
 							<i class="fas fa-table mr-1"></i>관리비 청구내역
 						</div>
 						<div class="card-body">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<button class="btn btn-outline-primary" type="button" id="memberSeq_finder">입주민번호</button>
-								</div>
-								<input type="text" class="form-control" id="member_seq" disabled aria-describedby="basic-addon1">
-							</div>
-							<button class="btn btn-outline-success" id="manage_fee_register">관리비 등록</button>
+							<form>
+							  <div class="form-group row">
+							    <label for="member_seq" class="col-sm-2 col-form-label">입주민번호</label>
+							    <div class="col-sm-10">
+							      <input type="text" readonly class="form-control-plaintext" id="member_seq">
+							    </div>
+							  </div>
+							  <div class="form-group row">
+							    <label for="pay_date" class="col-sm-2 col-form-label">청구일자</label>
+							    <div class="col-sm-10">
+							      <input type="date" class="form-control" id="pay_date">
+							    </div>
+							  </div>
+							  <div class="form-group row">
+							    <label for="general_fee" class="col-sm-2 col-form-label">일반관리비</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="general_fee">
+							    </div>
+							  </div>							  
+							  <div class="form-group row">
+							    <label for="security_fee" class="col-sm-2 col-form-label">경비비</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="security_fee">
+							    </div>
+							  </div>							  
+							  <div class="form-group row">
+							    <label for="cleaning_fee" class="col-sm-2 col-form-label">청소비</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="cleaning_fee">
+							    </div>
+							  </div>							  
+							  <div class="form-group row">
+							    <label for="fumigation_fee" class="col-sm-2 col-form-label">소독비</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="fumigation_fee">
+							    </div>
+							  </div>							  
+							  <div class="form-group row">
+							    <label for="lift_maintenance_fee" class="col-sm-2 col-form-label">승강기유지비</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="lift_maintenance_fee">
+							    </div>
+							  </div>							  
+							  <div class="form-group row">
+							    <label for="electricity_fee" class="col-sm-2 col-form-label">전기세</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="electricity_fee">
+							    </div>
+							  </div>							  
+							  <div class="form-group row">
+							    <label for="water_fee" class="col-sm-2 col-form-label">수도세</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="water_fee">
+							    </div>
+							  </div>							  
+							  <div class="form-group row">
+							    <label for="heating_fee" class="col-sm-2 col-form-label">난방비</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="heating_fee">
+							    </div>
+							  </div>							  
+							</form>				
+							<button class="btn btn-primary" id="manage_fee_register">관리비 등록</button>
 						</div>
 					</div>
 						<br><br>
@@ -134,46 +177,6 @@
 	                        	<table class="table table-bordered fee-table"></table>
 	                        </div>
 	                    </div>
-					
-                    
-                    <!-- 입주민번호 찾기 모달폼 -->
-                    <div id="dialog-message" title="[AparTogether] 입주민번호 등록">
-					  	<br>
-					    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 150px 0;"></span>
-					    동 호수를 입력해주세요.<br><br>
-					    <form action="" method="">
-					    	<label for="dong">동</label>
-					    	<input type="text" id="dong" name="dong" placeholder="101"/><br>
-					    	<label for="ho">호</label>
-					    	<input type="text" id="ho" name="ho" placeholder="1101"/>
-					    </form>
-					</div>
-					
-					<!-- 관리비등록 모달폼 -->
-					<div id="dialog-fee" title="[AparTogether] 관리비 청구">
-					  	<br>
-					    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 320px 0;"></span>
-					    관리비 항목을 입력해주세요.<br><br>
-					    <form action="/" method="">
-					    	<label for="general">일반관리비</label>
-					    	<input type="text"   class="inputFee" id="general_fee" name="general"/><br>
-					    	<label for="security">경비비</label>
-					    	<input type="text"   class="inputFee" id="security_fee" name="security"/><br>
-					    	<label for="cleaning">청소비</label>
-					    	<input type="text"   class="inputFee"id="cleaning_fee" name="cleaning"/><br>
-					    	<label for="fumigation">소독비</label>
-					    	<input type="text"  class="inputFee" id="fumigation_fee" name="fumigation"/><br>
-					    	<label for="lift">승강기유지비</label>
-					    	<input type="text"  class="inputFee" id="lift_maintenance_fee" name="lift"/><br>
-					    	<label for="electricity">전기세</label>
-					    	<input type="text"  class="inputFee" id="electricity_fee" name="electricity"/><br>
-					    	<label for="water">수도세</label>
-					    	<input type="text" class="inputFee"  id="water_fee" name="water"/><br>
-					    	<label for="heating">난방비</label>
-					    	<input type="text" class="inputFee" id="heating_fee" name="heating"/>
-					    </form>
-					</div>
-					
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
@@ -192,11 +195,20 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        var member_seq_init = <%= request.getParameter("member_seq") %>;
+        	$(function() {
+        		$('#member_seq').val( <%= request.getParameter("member_seq") %>);
+        	});
+        	
+        </script>
+        <script src="js/manageFeeReg.js"></script> 
         <script src="js/scripts.js"></script>
-        <script src="js/manage_fee_register.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
+
     </body>
 </html>

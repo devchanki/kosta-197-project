@@ -13,11 +13,12 @@ public class ManageFee implements Serializable {
 	private int electricity_fee;
 	private int water_fee;
 	private int heating_fee;
+	private String pay_date;
 	
 	public ManageFee() {}
 	
 
-	public ManageFee(int member_seq, int general_fee, int security_fee, int cleaning_fee, int fumigation_fee, int lift_maintenance_fee,int electricity_fee, int water_fee, int heating_fee) {
+	public ManageFee(int member_seq, int general_fee, int security_fee, int cleaning_fee, int fumigation_fee, int lift_maintenance_fee,int electricity_fee, int water_fee, int heating_fee, String pay_date) {
 		super();
 		this.member_seq = member_seq;
 		this.general_fee = general_fee;
@@ -28,6 +29,7 @@ public class ManageFee implements Serializable {
 		this.electricity_fee = electricity_fee;
 		this.water_fee = water_fee;
 		this.heating_fee = heating_fee;
+		this.pay_date = pay_date;
 	}
 
 	public int getFee_seq() {
@@ -110,12 +112,24 @@ public class ManageFee implements Serializable {
 		this.heating_fee = heating_fee;
 	}
 
+
+	public String getPay_date() {
+		return pay_date;
+	}
+
+
+	public void setPay_date(String pay_date) {
+		this.pay_date = pay_date;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Manage_Fee [fee_seq=" + fee_seq + ", member_seq=" + member_seq + ", general_fee=" + general_fee
+		return "ManageFee [fee_seq=" + fee_seq + ", member_seq=" + member_seq + ", general_fee=" + general_fee
 				+ ", security_fee=" + security_fee + ", cleaning_fee=" + cleaning_fee + ", fumigation_fee="
 				+ fumigation_fee + ", lift_maintenance_fee=" + lift_maintenance_fee + ", electricity_fee="
-				+ electricity_fee + ", water_fee=" + water_fee + ", heating_fee=" + heating_fee + "]";
+				+ electricity_fee + ", water_fee=" + water_fee + ", heating_fee=" + heating_fee + ", pay_date="
+				+ pay_date + "]";
 	}
 	
 	
