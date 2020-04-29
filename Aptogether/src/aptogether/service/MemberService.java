@@ -1,5 +1,7 @@
 package aptogether.service;
 
+import java.util.List;
+
 import aptogether.model.Member;
 import aptogether.model.MemberDao;
 
@@ -23,6 +25,14 @@ public class MemberService {
 			returnMember = dao.signin(member);
 		}
 		return returnMember;
+	}
+	
+	public List<Member> watingMemberService(int seq) {
+		return dao.waitingMember(seq);
+	}
+
+	public int admitService(int seq) {
+		return dao.admitUser(seq);
 	}
 	
 }

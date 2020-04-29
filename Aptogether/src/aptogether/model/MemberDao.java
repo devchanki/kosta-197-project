@@ -1,6 +1,7 @@
 package aptogether.model;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -78,5 +79,37 @@ public class MemberDao {
 			session.close();
 		}
 		return count;
+	}
+
+	public List<Member> waitingMember(int seq) {
+		SqlSession session = getSessionFactory().openSession();
+		List<Member> count = null;
+		try {
+			count = session.getMapper(MemberMapper.class).showWaitingMember(seq);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return count;
+	}
+
+	public int admitUser(int seq) {
+		SqlSession session = getSessionFactory().openSession();
+		int re = -1;
+		try {
+			re = session.getMapper(MemberMapper.class).admitUser(seq);
+			if(re > 0) {
+				session.commit();
+			}else {
+				session.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return re;
 	}
 }
