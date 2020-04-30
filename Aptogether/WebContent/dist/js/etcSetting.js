@@ -5,6 +5,7 @@ $('#edit-color').change(function () {
 
 //필터
 $('#dong_toggle').on('change', function () {
+	console.log("123");
     $('#calendar').fullCalendar('rerenderEvents');
 });
 
@@ -17,3 +18,7 @@ $("#type_filter").select2({
 $("#edit-start, #edit-end").datetimepicker({
     format: 'YYYY-MM-DD HH:mm'
 });
+
+function get_calendar_height() {
+    return $(window).height() - 30;
+}

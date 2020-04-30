@@ -20,15 +20,11 @@ function getDisplayEventDate(event) {
   
 
 function filtering(event) {
-
-	
 	if($("#dong_toggle").prop('checked')){
 		 return (sessionDong == event.dong) ? true : false;
 	 }else{
 		 console.log("unclick");
-		 
 		 return true;
-
 	 }
 }
 
@@ -88,7 +84,14 @@ function calDateWhenDragnDrop(event) {
 
 
 var calendar = $('#calendar').fullCalendar({
-
+	contentHeight: ()=>{
+	      console.log(screen.width);
+	      if(screen.width < 577) {
+	            return 600
+	        } else {
+	            return 1000
+	        }
+	      },
   eventRender: function (event, element, view) {
 
     //일정에 hover시 요약
