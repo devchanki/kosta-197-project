@@ -488,6 +488,7 @@
 														class="inputModal" type="text" name="edit-type"
 														id="edit-type">
 														<option value="등록">등록</option>
+														<option value="수정">수정</option>
 														</select>
 												</div>
 											</div>

@@ -30,7 +30,7 @@ var editEvent = function (event, element, view) {
     editDong.val(event.dong);
     editStart.val(moment(event.start).format('YYYY-MM-DD HH:mm'));
     editEnd.val(moment(event.end).format('YYYY-MM-DD HH:mm'));
-    editType.val(event.type);
+    editType.val('수정');
     editDesc.val(event.contents);
     editColor.val(event.backgroundColor).css('color', event.backgroundColor);
     editAptSeq.val(event.apt_seq);
