@@ -40,8 +40,8 @@ public class SigninAction implements Action {
 			session.setAttribute("member", resultMember);
 			request.setAttribute("member", resultMember);
 			if(resultMember.getType() == 1) {
-				forward.setRedirect(false);
-				forward.setUrl("/dist/userDashboard.jsp");
+				forward.setRedirect(true);
+				forward.setUrl("/Aptogether/member/userLogin.do");
 			}else if(resultMember.getType() == 0) {
 				forward.setRedirect(true);
 				forward.setUrl("/Aptogether/member/signinAdmin.do");
