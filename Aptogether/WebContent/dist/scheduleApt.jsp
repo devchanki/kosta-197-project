@@ -56,10 +56,7 @@
 	<script src="/Aptogether/vendor/jquery/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script>
-	var sessionDong = $
-	{
-		member.dong
-	};
+	var sessionDong = ${member.dong};
 </script>
 
 
@@ -386,13 +383,13 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<div
+<!-- 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 						<a href="#"
 							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 							class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-					</div>
+					</div> -->
 
 					<!-- Content Row -->
 					<div class="row">
@@ -401,10 +398,10 @@
 							<div id="contextMenu" class="dropdown clearfix">
 								<ul class="dropdown-menu dropNewEvent card" role="menu"
 									aria-labelledby="dropdownMenu"
-									style="display: block; position: static; margin-bottom: 5px;">
-									<li><a tabindex="-1" href="#">등록</a></li>
-									<li class="divider"></li>
-									<li><a tabindex="-1" href="#" data-role="close">Close</a></li>
+									style="display: block; position: static; margin-bottom: 4px;">
+									<li><a class="dropdown-item" href="#">등록</a></li>
+									  <div class="dropdown-divider"></div>
+									<li><a class="dropdown-item" href="#" data-role="close">Close</a></li>
 								</ul>
 							</div>
 		
@@ -499,15 +496,14 @@
 												<div class="col-12">
 													<label class="col-4" for="edit-color">색상</label> 
 													<select class="inputModal" name="Color" id="edit-color">
-														<option value="#D25565" style="color: #D25565;">빨간색</option>
-														<option value="#9775fa" style="color: #9775fa;">보라색</option>
-														<option value="#ffa94d" style="color: #ffa94d;">주황색</option>
-														<option value="#74c0fc" style="color: #74c0fc;">파란색</option>
-														<option value="#f06595" style="color: #f06595;">핑크색</option>
+														<option value="#D25565" style="color: #D25565;">주요일정</option>
+														<option value="#74c0fc" style="color: #74c0fc;">전체일정</option>
+														<option value="#a9e34b" style="color: #a9e34b;">동일정</option>
+<!-- 														<option value="#f06595" style="color: #f06595;">핑크색</option>
 														<option value="#63e6be" style="color: #63e6be;">연두색</option>
 														<option value="#a9e34b" style="color: #a9e34b;">초록색</option>
 														<option value="#4d638c" style="color: #4d638c;">남색</option>
-														<option value="#495057" style="color: #495057;">검정색</option>
+														<option value="#495057" style="color: #495057;">검정색</option> -->
 													</select>
 												</div>
 											</div>
