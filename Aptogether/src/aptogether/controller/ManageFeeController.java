@@ -161,6 +161,7 @@ public class ManageFeeController extends HttpServlet {
 			try {
 				
 				List<ManageFee> list = service.listManageFeePartService(member, row);
+//				request.setAttribute("list", list);
 
 				JSONObject obj = new JSONObject();
 				JSONArray arr = new JSONArray();

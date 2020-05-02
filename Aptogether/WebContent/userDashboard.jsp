@@ -1,9 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="aptogether.model.ManageFee"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
+<% List<ManageFee> manageFee = (List<ManageFee>) request.getAttribute("list") ;
+	ManageFee last = manageFee.get(0);
+	ManageFee beforeLast = manageFee.get(1);
+%>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -417,6 +421,178 @@
               </div>
             </div>
           </div>
+          
+          
+                                  <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header"><i class="fas fa-chart-area mr-1"></i>관리비 현황</div>
+                                    <div class="card-body">
+										<div class="card mb-3" style="max-width: 540px;">
+											<div class="row no-gutters">
+												<div class="col-md-4">
+													<img src="css/image/receipt.PNG" class="card-img" alt="관리비">
+												</div>
+												<div class="col-md-8">
+													<div class="card-body">
+														<h5 class="card-title"><%=last.getPay_date()%>월 관리비 고지서</h5>
+														<h3 class="card-text">
+															<b id="thisMonthFee">
+															<%= last.getGeneral_fee() + last.getSecurity_fee() + last.getCleaning_fee() + last.getFumigation_fee()
+															+ last.getLift_maintenance_fee() + last.getElectricity_fee() + last.getWater_fee() + last.getHeating_fee()
+																%>원
+															</b>
+														</h3>
+														<p class="card-text">
+															<small class="text-muted">전월대비</small>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<br><br><br>                                    
+                                    <canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+						<div class="col-xl-6">
+							<div class="card mb-4">
+								<div class="card-header">
+									<i class="fas fa-chart-bar mr-1"></i>
+								</div>
+								<div class="accordion" id="accordionExample">
+									<div class="card">
+										<div class="card-header" id="headingOne">
+											<h2 class="mb-0">
+												<button class="btn btn-link" type="button"
+													data-toggle="collapse" data-target="#collapseOne"
+													aria-expanded="true" aria-controls="collapseOne">
+													청구내역요약</button>
+											</h2>
+										</div>
+										<div id="collapseOne" class="collapse show"
+											aria-labelledby="headingOne" data-parent="#accordionExample">
+											<div class="card-body">
+												<ul class="list-group list-group-flush">
+													<li class="list-group-item">당월부과액</li>
+													<li class="list-group-item">미납액</li>
+													<li class="list-group-item">미납연체료</li>
+													<li class="list-group-item">납기내금액</li>
+													<li class="list-group-item">납기후연체료</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" id="headingTwo">
+											<h2 class="mb-0">
+												<button class="btn btn-link collapsed" type="button"
+													data-toggle="collapse" data-target="#collapseTwo"
+													aria-expanded="false" aria-controls="collapseTwo">
+													상세내역조회</button>
+											</h2>
+										</div>
+										<div id="collapseTwo" class="collapse"
+											aria-labelledby="headingTwo" data-parent="#accordionExample">
+											<div class="card-body">
+												<table class="table">
+													<thead>
+														<tr>
+															<th scope="row">항목</th>
+															<th scope="row">전월</th>
+															<th scope="row">당월</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>일반관리비</td>
+															<td><%=beforeLast.getGeneral_fee()%>원</td>
+															<td><%= last.getGeneral_fee()%>원</td>
+														</tr>
+														<tr>
+															<td>경비비</td>
+															<td><%= beforeLast.getSecurity_fee()%>원</td>
+															<td><%= last.getSecurity_fee()%>원</td>
+														</tr>
+														<tr>
+															<td>청소비</td>
+															<td><%= beforeLast.getCleaning_fee()%>원</td>
+															<td><%= last.getCleaning_fee()%>원</td>
+														</tr>
+														<tr>
+															<td>소독비</td>
+															<td><%= beforeLast.getFumigation_fee()%>원</td>
+															<td><%= last.getFumigation_fee()%>원</td>
+														</tr>
+														<tr>
+															<td>승강비유지비</td>
+															<td><%= beforeLast.getLift_maintenance_fee()%>원</td>
+															<td><%= last.getLift_maintenance_fee()%>원</td>
+														</tr>
+														<tr>
+															<td>전기세</td>
+															<td><%= beforeLast.getElectricity_fee()%>원</td>
+															<td><%= last.getElectricity_fee()%>원</td>
+														</tr>
+														<tr>
+															<td>수도세</td>
+															<td><%= beforeLast.getWater_fee()%>원</td>
+															<td><%= last.getWater_fee()%>원</td>
+														</tr>
+														<tr>
+															<td>난방비</td>
+															<td><%= beforeLast.getHeating_fee()%>원</td>
+															<td><%= last.getHeating_fee()%>원</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" id="headingThree">
+											<h2 class="mb-0">
+												<button class="btn btn-link collapsed" type="button"
+													data-toggle="collapse" data-target="#collapseThree"
+													aria-expanded="false" aria-controls="collapseThree">
+													월별청구내역</button>
+											</h2>
+										</div>
+										<div id="collapseThree" class="collapse"
+											aria-labelledby="headingThree"
+											data-parent="#accordionExample">
+											<div class="card-body">Anim pariatur cliche
+												reprehenderit, enim eiusmod high life accusamus terry
+												richardson ad squid. 3 wolf moon officia aute, non cupidatat
+												skateboard dolor brunch. Food truck quinoa nesciunt laborum
+												eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+												on it squid single-origin coffee nulla assumenda shoreditch
+												et. Nihil anim keffiyeh helvetica, craft beer labore wes
+												anderson cred nesciunt sapiente ea proident. Ad vegan
+												excepteur butcher vice lomo. Leggings occaecat craft beer
+												farm-to-table, raw denim aesthetic synth nesciunt you
+												probably haven't heard of them accusamus labore sustainable
+												VHS.</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>  
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
 
           <!-- Content Row -->
 
@@ -1040,6 +1216,8 @@
   <script src="/Aptogether/vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
+   <script src="/Aptogether/js/moment.min.js"></script>
+  <script src="/Aptogether/dist/js/checkManageFee.js"></script>
   <script src="/Aptogether/js/demo/chart-area-demo.js"></script>
   <script src="/Aptogether/js/demo/chart-pie-demo.js"></script>
     <script src="/Aptogether/vendor/datatables/jquery.dataTables.min.js"></script>
