@@ -19,13 +19,9 @@ public class PollListAction implements Action {
 		List<Poll> list = service.PollListService(request);
 		request.setAttribute("list", list);
 		
-		/*
-		 * List<Option> item = service.OptionListService(request);
-		 * request.setAttribute("item", item);
-		 */
 		
 		forward.setRedirect(false);
-		forward.setUrl("/dist/pollList.jsp");
+		forward.setUrl("/vendor/pollList.jsp");
 		
 		return forward;
 	}

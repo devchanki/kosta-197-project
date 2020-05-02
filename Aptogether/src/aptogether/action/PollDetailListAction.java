@@ -24,7 +24,7 @@ public class PollDetailListAction implements Action {
 		request.setAttribute("detail", detail);
 		
 		forward.setRedirect(false);
-		forward.setUrl("/dist/polldetail.jsp");
+		forward.setUrl("/vendor/polldetail.jsp");
 		
 		return forward;
 	}

@@ -74,6 +74,7 @@ public class PollDao {
 		
 		try {
 			item = sqlsession.getMapper(PollMapper.class).OptionList(seq);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -115,6 +116,25 @@ public class PollDao {
 			sqlsession.close();
 		}
 		return detail;
+	}
+	
+	public int PollHitCount(int seq) {
+		SqlSession sqlsession = getSqlSessionFactory().openSession();
+		int re = -1;
+		
+		try {
+			re = sqlsession.getMapper(PollMapper.class).PollHitCount(seq);
+			if(re > 0) {
+				sqlsession.commit();
+			}else {
+				sqlsession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlsession.close();
+		}
+		return re;
 	}
 	
 }

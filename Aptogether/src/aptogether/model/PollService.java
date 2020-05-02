@@ -38,5 +38,9 @@ public class PollService {
 		return dao.PollDetailList(seq);
 	}
 	
+	public int PollHitcountService(HttpServletRequest request){
+		int seq = Integer.parseInt(request.getParameter("poll_seq"));
+		return dao.PollHitCount(seq);
+	}
 
 }

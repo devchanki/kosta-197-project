@@ -8,7 +8,7 @@
 	<cache />
 	
 	<insert id="PollInsert" parameterType="Poll">
-		insert into poll values(poll_seq.nextval,#{question},sysdate,sysdate,0,#{contents})
+		insert into poll values(poll_seq.nextval,#{question},sysdate,to_date(sysdate+7),0,#{contents})
 	</insert>
 	
 <!-- 	<insert id="PollOption" parameterType="Option">
@@ -48,5 +48,9 @@
 			on ps.member_seq = mb.member_seq
 			where pl.poll_seq = #{seq}
 	</select>
+	
+	<update id="PollHitCount" parameterType="int">
+		update poll set hitcount = hitcount+1 where poll_seq = #{seq}
+	</update>
 
 </mapper>

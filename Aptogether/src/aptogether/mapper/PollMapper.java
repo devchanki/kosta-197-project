@@ -16,4 +16,5 @@ public interface PollMapper {
 	List<Option> OptionList(int seq);
 	Integer PollSelectInsert(PollSelect pollselect);
 	List<Detail> PollDetailList(int seq);
+	int PollHitCount(int seq);
 }

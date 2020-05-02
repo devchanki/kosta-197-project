@@ -1,18 +1,11 @@
 {
-    "title": "SB Admin",
-    "name": "startbootstrap-sb-admin",
-    "version": "6.0.0",
+    "title": "SB Admin 2",
+    "name": "startbootstrap-sb-admin-2",
+    "version": "4.0.7",
     "scripts": {
-        "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
-        "build:assets": "node scripts/build-assets.js",
-        "build:pug": "node scripts/build-pug.js",
-        "build:scripts": "node scripts/build-scripts.js",
-        "build:scss": "node scripts/build-scss.js",
-        "clean": "node scripts/clean.js",
-        "start": "npm run build && node scripts/start.js",
-        "start:debug": "npm run build && node scripts/start-debug.js"
+        "start": "node_modules/.bin/gulp watch"
     },
-    "description": "A free admin dashboard template based on Bootstrap 4, created by Start Bootstrap.",
+    "description": "An open source Bootstrap 4 admin theme.",
     "keywords": [
         "css",
         "sass",
@@ -21,12 +14,11 @@
         "theme",
         "template",
         "admin",
-        "app",
-        "dashboard"
+        "app"
     ],
-    "homepage": "https://startbootstrap.com/templates/sb-admin",
+    "homepage": "https://startbootstrap.com/template-overviews/sb-admin-2",
     "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-sb-admin/issues",
+        "url": "https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/issues",
         "email": "feedback@startbootstrap.com"
     },
     "license": "MIT",
@@ -36,20 +28,27 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-sb-admin.git"
+        "url": "https://github.com/BlackrockDigital/startbootstrap-sb-admin-2.git"
     },
     "dependencies": {
-        "bootstrap": "4.4.1"
+        "@fortawesome/fontawesome-free": "5.10.2",
+        "bootstrap": "4.3.1",
+        "chart.js": "2.8.0",
+        "datatables.net-bs4": "1.10.19",
+        "jquery": "3.4.1",
+        "jquery.easing": "^1.4.1"
     },
     "devDependencies": {
-        "autoprefixer": "9.7.4",
         "browser-sync": "2.26.7",
-        "chokidar": "3.3.1",
-        "concurrently": "5.0.2",
-        "postcss": "7.0.26",
-        "prettier": "1.19.1",
-        "pug": "2.0.4",
-        "sass": "1.25.0",
-        "shelljs": "0.8.3"
+        "del": "5.1.0",
+        "gulp": "4.0.2",
+        "gulp-autoprefixer": "7.0.0",
+        "gulp-clean-css": "4.2.0",
+        "gulp-header": "2.0.9",
+        "gulp-plumber": "^1.2.1",
+        "gulp-rename": "1.4.0",
+        "gulp-sass": "4.0.2",
+        "gulp-uglify": "3.0.2",
+        "merge-stream": "2.0.0"
     }
 }

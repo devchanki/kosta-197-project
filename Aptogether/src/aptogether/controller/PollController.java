@@ -75,6 +75,7 @@ public class PollController extends HttpServlet {
 
 				JSONArray arr = new JSONArray();
 				List<Option> info = service.OptionListService(request);
+				service.PollHitcountService(request);
 				for (Option op : info) {
 					JSONObject obj = new JSONObject();
 					obj.put("option_seq", op.getOption_seq());
