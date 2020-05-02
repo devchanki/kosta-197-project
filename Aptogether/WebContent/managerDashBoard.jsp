@@ -447,6 +447,26 @@
 					<!-- Content Row -->
 
 					<div class="row">
+					
+					  <div class="col-xl-6">
+					    <div class="card mb-4">
+					      <div class="card-body">
+					        <h5 class="card-title">관리비 청구하기</h5>
+					        <p class="card-text">입주민의 동·호수를 조회 후 관리비 청구등록을 합니다.</p>
+					        <button class="btn btn-primary" id="checkMQ">입주민 조회</button>
+					      </div>
+					    </div>
+					  </div>
+					  <div class="col-xl-6">
+					    <div class="card mb-4">
+					      <div class="card-body">
+					        <h5 class="card-title">Special title treatment</h5>
+					        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					        <a href="#" class="btn btn-primary">Go somewhere</a>
+					      </div>
+					    </div>
+					  </div>						
+					
 
 						<!-- Area Chart -->
 						<div class="col-xl-8 col-lg-7">
@@ -748,6 +768,64 @@
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fas fa-angle-up"></i>
 	</a>
+	
+	<!-- 입주민번호 찾기 모달폼1 -->
+	<div class="modal" id="findMQ-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">[AparTogether] 입주민번호 등록</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group row">
+						<label for="dong" class="col-sm-2 col-form-label">동</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dong" name="dong" placeholder="101">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="ho" class="col-sm-2 col-form-label">호</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="ho" name="ho" placeholder="1101">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="find_MQ" class="btn btn-primary">찾기</button>
+						<button type="button" id="cancle_MQ" class="btn btn-secondary" data-dismiss="modal">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 입주민번호 찾기 모달폼2 -->
+	<div class="modal" id="findMQ-modal2" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">[AparTogether] 입주민번호 등록</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="" method="post">
+			     <div class="modal-body">
+			          <div class="form-group">
+			            <label for="MQinfo" class="col-form-label">입력하신 정보가 맞습니까?</label>
+			            <input type="text" class="form-control" id="MQinfo" disabled="disabled">
+			          </div>
+			      </div>
+					<div class="modal-footer">
+						<button type="button" id="find_MQ2" class="btn btn-primary"><a id="moveMFR" >이동</a></button>
+						<button type="button" id="cancle_MQ2" class="btn btn-secondary" data-dismiss="modal">취소</button>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
 
 	<!-- Logout Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
@@ -785,6 +863,7 @@
 	<script src="/Aptogether/vendor/chart.js/Chart.min.js"></script>
 
 	<!-- Page level custom scripts -->
+	<script src="/Aptogether/dist/js/findMemberSeq.js"></script>
 	<script src="/Aptogether/js/demo/chart-area-demo.js"></script>
 	<script src="/Aptogether/js/demo/chart-pie-demo.js"></script>
 	<script src="/Aptogether/vendor/datatables/jquery.dataTables.min.js"></script>

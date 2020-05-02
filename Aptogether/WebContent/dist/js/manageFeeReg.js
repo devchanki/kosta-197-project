@@ -11,7 +11,6 @@ var pay_date = $('#pay_date');
 
 
 
-
 $(function() {
 	
 	//숫자 세자리 수 마다 콤마 붙는 정규표현식 함수
@@ -26,7 +25,7 @@ $(function() {
 			type : "GET",
 			dataType : "text",
 			data: {
-				"member_seq" : member_seq_init,
+				"member_seq" : member_seq_init
 			},
 			success : function(response) {
 				console.log(response);
@@ -53,8 +52,6 @@ $(function() {
 							}
 						});
 				}
-	
-	
 	
 	
 	$("#manage_fee_register").on('click', function() {

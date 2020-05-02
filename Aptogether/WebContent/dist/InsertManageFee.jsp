@@ -202,7 +202,6 @@
         	$(function() {
         		$('#member_seq').val( <%= request.getParameter("member_seq") %>);
         	});
-        	
         </script>
         <script src="js/manageFeeReg.js"></script> 
     </body>

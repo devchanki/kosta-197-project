@@ -27,7 +27,7 @@ public class ManageFeeController extends HttpServlet {
 	public ManageFeeController() {
 		super();
 	}
-
+	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
@@ -36,7 +36,6 @@ public class ManageFeeController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 		System.out.println(command);
-		
 		
 		
 		if (command.equals("findMemberSeq")) {
@@ -56,7 +55,7 @@ public class ManageFeeController extends HttpServlet {
 
 			JSONObject obj = new JSONObject();
 			JSONArray arr = new JSONArray();
-
+			
 			obj.put("member_seq", m.getMember_seq());
 			obj.put("dong", m.getDong());
 			obj.put("ho", m.getHo());
@@ -68,7 +67,7 @@ public class ManageFeeController extends HttpServlet {
 		} else if (command.equals("registerManageFee")) {
 			response.setCharacterEncoding("utf-8");
 			ManageFeeService service = ManageFeeService.getInstance();
-
+			
 			String member_seq = request.getParameter("member_seq");
 			String general_fee = request.getParameter("general_fee");
 			String security_fee = request.getParameter("security_fee");
@@ -112,7 +111,6 @@ public class ManageFeeController extends HttpServlet {
 			try {
 				
 				List<ManageFee> list = service.listManageFeeService(member);
-						
 
 				JSONObject obj = new JSONObject();
 				JSONArray arr = new JSONArray();
