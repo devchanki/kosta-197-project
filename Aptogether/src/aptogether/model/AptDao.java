@@ -58,6 +58,7 @@ public static AptDao dao = new AptDao();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("error");
+			e.printStackTrace();
 		}finally {
 			sqlSession.close();
 		}

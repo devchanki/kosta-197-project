@@ -64,7 +64,7 @@ public class aptInfoController extends HttpServlet {
 			DocumentBuilder builder;
 			Document doc = null;
 			int responseCode = con.getResponseCode();
-			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf-8"));
 			String inputLine;
 			String responseString = new String();
 			
@@ -119,7 +119,7 @@ public class aptInfoController extends HttpServlet {
 			DocumentBuilder builder;
 			Document doc = null;
 			int responseCode = con.getResponseCode();
-			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(),"utf-8"));
 			String inputLine;
 			String responseString = new String();
 			
@@ -129,7 +129,7 @@ public class aptInfoController extends HttpServlet {
 			in.close();
 			
 			System.out.println(responseCode);
-			System.out.println(response);
+			System.out.println(responseString);
 			
 			InputSource is = new InputSource(new StringReader(responseString));
 	        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -230,30 +230,23 @@ public class aptInfoController extends HttpServlet {
 		
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		try {
 			doProcess(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		try {
 			doProcess(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

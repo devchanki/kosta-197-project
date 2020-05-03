@@ -33,6 +33,14 @@ public class Member implements Serializable {
 		this.dong = dong;
 		this.ho = ho;
 	}
+	
+	public Member(int apt_seq, int member_seq) {
+		super();
+		this.apt_seq = apt_seq;
+		this.member_seq = member_seq;
+	}
+	
+	
 
 	public int getMember_seq() {
 		return member_seq;
@@ -106,4 +114,9 @@ public class Member implements Serializable {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Member [member_seq=" + member_seq + ", id=" + id + ", password=" + password + ", apt_seq=" + apt_seq
+				+ ", dong=" + dong + ", ho=" + ho + ", admit=" + admit + ", type=" + type + ", name=" + name + "]";
+	}
 }

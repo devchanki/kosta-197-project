@@ -35,15 +35,18 @@ public class SigninAction implements Action {
 		if (resultMember == null) {
 			session.invalidate();
 			forward.setRedirect(true);
-			forward.setUrl("/Aptogether/dist/signin.jsp");
+			forward.setUrl("/Aptogether/signin.html");
 		} else {
 			session.setAttribute("member", resultMember);
 			request.setAttribute("member", resultMember);
-			forward.setRedirect(false);
-			forward.setUrl("/dist/userDashboard.jsp");
+			if(resultMember.getType() == 1) {
+				forward.setRedirect(true);
+				forward.setUrl("/Aptogether/member/userLogin.do");
+			}else if(resultMember.getType() == 0) {
+				forward.setRedirect(true);
+				forward.setUrl("/Aptogether/member/signinAdmin.do");
+			}
 		}
-
 		return forward;
 	}
-
 }

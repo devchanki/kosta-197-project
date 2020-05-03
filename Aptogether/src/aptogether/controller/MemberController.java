@@ -1,6 +1,7 @@
 package aptogether.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import aptogether.action.Action;
 import aptogether.action.ActionForward;
+import aptogether.action.AdminMainAction;
 import aptogether.action.JoinAction;
+import aptogether.action.LogoutAction;
 import aptogether.action.SigninAction;
 import aptogether.action.SignupAction;
+import aptogether.action.UserLoginAction;
+import aptogether.service.MemberService;
 
 /**
  * Servlet implementation class MemberController
@@ -33,15 +38,15 @@ public class MemberController extends HttpServlet {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String url = request.getRequestURI();
 		String[] requestStringArray = url.split("/");
+		Action action = null;
 		ActionForward forward = null;
 		String requestString = requestStringArray[requestStringArray.length - 1];
-		System.out.println(requestString);
 		if (requestString.equals("join.do")) {
 			System.out.println("in");
-			Action action = new SignupAction();
+			action = new SignupAction();
 			forward = action.execute(request, response);
 		} else if (requestString.equals("joinPage.do")) {
-			Action action = new JoinAction();
+			action = new JoinAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -49,13 +54,53 @@ public class MemberController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if (requestString.equals("signin.do")) {
-			Action action = new SigninAction();
+			action = new SigninAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
+		} else if (requestString.equals("logout.do")) {
+			System.out.println("forward");
+			action = new LogoutAction();
+			System.out.println("forward1");
+			try {
+				forward = action.execute(request, response);
+				System.out.println("forward");
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		} else if(requestString.equals("signinAdmin.do")) {
+			action = new AdminMainAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		} else if(requestString.equals("userLogin.do")) {
+			action = new UserLoginAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(requestString.equals("admitUser.do")) {
+			System.out.println("admit");
+			MemberService service = MemberService.getService();
+			int seq = Integer.parseInt(request.getParameter("seq"));
+			System.out.println(seq);
+			int result = service.admitService(seq);
+			PrintWriter out = response.getWriter();
+			if(result > 0) {
+				out.write("success");
+			}else {
+				out.write("false");
+			}
+			out.flush();
 		}
 		
     	if(forward != null) {
@@ -66,13 +111,8 @@ public class MemberController extends HttpServlet {
     			dispatcher.forward(request, response);
     		}
     	}
-
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -84,10 +124,6 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub

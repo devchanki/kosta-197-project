@@ -22,11 +22,12 @@ public class SignupAction implements Action {
 		String name = request.getParameter("name");
 		
 		Member member = new Member(id, password, apt_seq, dong, ho, Integer.parseInt(type), name);
+		System.out.println(member);
 		int re = service.signupService(member);
 		
 		if(re == 1) {
 			action.setRedirect(true);
-			action.setUrl("/Aptogether/dist/index.jsp");
+			action.setUrl("/Aptogether/signin.html");
 		}else {
 			action.setRedirect(true);
 			action.setUrl("/Aptogether/dist/404.html");

@@ -13,8 +13,10 @@
 		<typeAlias type="aptogether.model.PollSelect" alias="PollSelect"/>
 		<typeAlias type="aptogether.model.Member" alias="Member"/>
 		<typeAlias type="aptogether.model.Detail" alias="Detail"/>
+		<typeAlias type="aptogether.model.Market_Product"
+			alias="Market_Product" />
 	</typeAliases>
-	
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC"/>
@@ -25,12 +27,13 @@
 			</dataSource>
 		</environment>		
 	</environments>
-	
+
 	<mappers>
 		<mapper resource="aptogether/mapper/Poll.xml"/>
 		<mapper resource="aptogether/mapper/Apt.xml"/>
 		<mapper resource="aptogether/mapper/Member.xml"/>
 		<mapper resource="aptogether/mapper/ManageFee.xml"/>
+		<mapper resource="aptogether/mapper/Market_Product.xml" />
 	</mappers>
-	
+
 </configuration>
