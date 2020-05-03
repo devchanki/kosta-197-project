@@ -362,7 +362,7 @@
 					<div class="flex-column">
 						<!-- 투표생성 모달 열기 -->
 						<div class="mb-4 margin-auto max-width-card">
-							<button type="button" class="margin-auto btn btn-primary btn-lg"
+							<button type="button" class="margin-auto btn custom-br btn-lg"
 								data-toggle="modal" data-target="#poll_modal">생성조지기</button>
 						</div>
 
@@ -370,20 +370,22 @@
 
 						<!-- pollList 출력 -->
 						<c:forEach var="poll" items="${list}">
-							<div class="card bg-gradient-primary mb-4 margin-auto max-width-card">
+							<div class="card custom-br mb-4 margin-auto max-width-card">
 
 								<div class="card-body text-white">
 									<h5 class="card-title">${poll.question }</h5>
 									<p class="small text-white">contents</p>
 
 								</div>
-								<div class="card-footer small text-white bg-gradient-primary">
+								<div class="card-footer small text-white custom-br">
 									<img id="poll_hitcount" src="/Aptogether/eye.png"> 조회수 :
-									${poll.hitcount} <span class="margin-left-span"><fmt:parseDate
+									${poll.hitcount} <span class="margin-left-span">
+									<fmt:parseDate
 											var="date" value="${poll.end_date}"
-											pattern="yyyy-MM-dd HH:mm:ss" /> <fmt:formatDate
+											pattern="yyyy-MM-dd HH:mm:ss" /> 
+											<fmt:formatDate
 											value="${date }" pattern="yyyy년 MM월 dd일 마감" />
-										<button class="bg-gradient-primary text-white btn btn-outline-light"
+										<button class="custom-br text-white btn btn-outline-light"
 											onclick="location.href='/Aptogether/poll/PollDetailListAction.do?seq=${poll.poll_seq }'">
 											상세보기</button></span>
 								</div>
@@ -408,7 +410,7 @@
 										</div>
 
 										<button type="button" class="close" data-dismiss="modal"
-											aria-label="Close">
+											onclick="deloption()" aria-label="Close">
 											<span aria-hidden="true">×</span>
 										</button>
 									</div>
@@ -436,11 +438,10 @@
 										</div>
 
 
-
 										<div class="modal-footer">
 											<input type="submit" class="btn btn-outline-info" value="저장">
 											<button id="close" type="button" class="btn btn-outline-dark"
-												data-dismiss="modal" onclick="deloption()">취소</button>
+												onclick="deloption()" data-dismiss="modal">취소</button>
 										</div>
 									</div>
 								</div>
