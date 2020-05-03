@@ -3,3 +3,11 @@
 # api 키 모음
 /src/aptogether/security/*
 .tern-project
+
+
+.project/
+.metadata/
+.setting/*
+
+.classpath
+.project
