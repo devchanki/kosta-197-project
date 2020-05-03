@@ -23,7 +23,6 @@ public class CompListModel {
 		this.endPage = endPage;
 	}
 
-
 	public List<Board> getList() {
 		return list;
 	}

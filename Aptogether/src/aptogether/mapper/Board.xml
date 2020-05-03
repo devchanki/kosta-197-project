@@ -4,8 +4,8 @@
 <mapper namespace = "aptogether.mapper.BoardMapper">
 	
 	<insert id = "insertBoard" parameterType = "board">
-		insert into comp_board values ( #{Title},#{Email}, #{Tel}, #{Content},
-		#{Fname,jdbcType = VARCHAR}, sysdate, compboard_seq.nextval)
+		insert into COMP_BOARD values ( #{title},#{email}, #{tel}, #{content},
+		#{fname, jdbcType=VARCHAR}, sysdate, compboard_seq.nextval)
 	</insert>
 	
 	<select id="listBoard" parameterType="Search" resultType="Board">
@@ -19,10 +19,7 @@
          </if>	
       order by seq desc
    </select>
-	
-	
-	
-	
+
 	
 	<select id="countBoard" resultType="int" parameterType="Search">
 	select count(*) from comp_board

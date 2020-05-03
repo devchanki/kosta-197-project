@@ -58,7 +58,6 @@ public class BoardDao {
 		
 		try {
 			list = sqlsession.getMapper(BoardMapper.class).listBoard(search,new RowBounds(startrow, 4));
-			//list = sqlSession.selectList("kosta.mapper.BoardMapper.listBoard");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -85,7 +84,7 @@ public class BoardDao {
 	
 	
 	public void deleteBoard(int seq) {
-		System.out.println("»èÁ¦");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½");
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
 			System.out.println("delete SEQ: "  + seq);

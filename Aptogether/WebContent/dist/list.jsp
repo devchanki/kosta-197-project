@@ -22,7 +22,7 @@ request.setCharacterEncoding("utf-8");
 try {
 String driver="oracle.jdbc.driver.OracleDriver";  
 Class.forName(driver);  
-String url="jdbc:oracle:thin:@localhost:1521:XE";  
+String url="jdbc:oracle:thin:@localhost:1522:myoracle";  
 String userName="koapt";  
 String passWord="1234"; 
 Connection con = DriverManager.getConnection(url , userName , passWord);
@@ -35,8 +35,10 @@ while(rs.next()){
     String s = rs.getString("no_comp");
     String n1 = rs.getString("Title");
     String n2 = rs.getString("email");
-    String n3 = rs.getString("Process");
-    out.write(s+" "+n1+" "+n2+" "+n3+"<br/>"); 
+    String n3 = rs.getString("Tel");
+    String n4 = rs.getString("Content");
+    String n5 = rs.getString("Fname");
+    out.write(s+" "+n1+" "+n2+" "+n3+" "+n4+" "+n5+"<br/>"); 
 }
 con.close();
 st.close();

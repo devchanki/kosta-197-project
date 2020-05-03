@@ -27,19 +27,18 @@
 			</div>
 		</div>
 		<div id="quick2box">
-			<a class="quick2" href="../apto/compWrite.do"> 
+			<a class="quick2" href="../apto/compWrite.do" style="text-decoration : none"> 
 			<img src="./img/quick2up.png">
 				<dl>
 					<dt>민원작성</dt>
 				</dl> 
 				</a> 
-				<span class="quick2down"> 
+				<a class ="quick2down" href="../apto/Compboard.do" style="text-decoration: none"> 
 				<img src="./img/quick2down.png">
 				<dl>
-					<dt>상품정보</dt>
-
+					<dt>나의 민원</dt>
 				</dl>
-			</span>
+			</a>
 		</div>
 	</div>
 

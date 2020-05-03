@@ -16,24 +16,26 @@
 	text-align: center;
 	align-items: center;
 	padding-left: 38px;
+	
 }
 	#quickline1{
 	width: 1160px;
 	min-height: 175px;
-	padding: 40px 0 40px 0;
+	
 	margin: 0 auto;
 	background-color: #fff;
-	padding-left:30%;
-	margin-top: 40px;
+	padding-left:15%;
+	margin-top: 70px;
 	
 	}
 	#quickline2{
 	width: 1160px;
 	min-height: 175px;
-	padding: 40px 0 40px 0;
+	padding: 70px 0 40px 0;
 	margin: 0 auto;
 	background-color: #fff;
-	padding-left:30%;
+	padding-left:15%;
+	
 	}
 
 .quick1{
@@ -54,7 +56,7 @@
 .quick1 a{
 	display: block;
 	color: #222;
-	cursor: pointer;
+	
 }
 
 .quick1 img{
@@ -63,24 +65,26 @@
 	left: 0;
 	width: 150px;
 	height: 130px;
+	cursor: pointer;
 
 }
 .quick1 dl{
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	cursor: pointer;
 
 }
 .quick1 dt{
 	font-size: 18px;
 	text-align: center;
 	font-weight: bold;
-	padding-top: 10px;
+	padding-top: 14px;
 }
 .quick2 a{
 	display: block;
 	color: #222;
-	cursor: pointer;
+	
 }
 #modal {
 	background-color: #FFFFF;
@@ -108,18 +112,39 @@
 	left: 0;
 	width: 150px;
 	height: 130px;
+	cursor: pointer;
 
 }
 .quick2 dl{
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	cursor: pointer;
 
 }
 .quick2 dt{
 	font-size: 18px;
 	text-align: center;
 	font-weight: bold;
-	padding-top: 10px;	
+	padding-top: 14px;	
 }
+}
+ 
+span .fileadd{
+	text-align: justify;
+	display: inline-block;
+}
+.card{
+  padding:15px 30px;
+  background-color: #f1f1f1;
+}
+.has-float-label input:focus,
+.has-float-label textarea:focus, 
+.has-float-label select:focus{
+  border-color: #2CA8B3;
+  box-shadow: none;
+}
+.has-float-label .form-control:placeholder-shown:not(:focus) + * {
+  font-size: 100%;
+  margin-top: 4px; 
 }

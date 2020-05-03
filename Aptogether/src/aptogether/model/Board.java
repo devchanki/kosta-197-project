@@ -3,21 +3,63 @@ package aptogether.model;
 import java.io.Serializable;
 
 public class Board implements Serializable{
+	private String title;
+	private String email;
+	private String tel;
+	private String content;
+	private String fname;
+	private String compdate;
 	private int seq;
-	private String Title;
-	private String Email;
-	private String Tel;
-	private String Content;
-	private String Fname;
-	private String Compdate;
-	
+
 	public Board() {}
-	
-	
 
+	public String getTitle() {
+		return title;
+	}
 
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	public String getCompdate() {
+		return compdate;
+	}
+
+	public void setCompdate(String compdate) {
+		this.compdate = compdate;
+	}
 
 	public int getSeq() {
 		return seq;
@@ -27,86 +69,10 @@ public class Board implements Serializable{
 		this.seq = seq;
 	}
 
-
-
-
-
-	public String getTitle() {
-		return Title;
-	}
-
-
-
-	public void setTitle(String title) {
-		Title = title;
-	}
-
-
-
-	public String getEmail() {
-		return Email;
-	}
-
-
-
-	public void setEmail(String email) {
-		Email = email;
-	}
-
-
-
-	public String getTel() {
-		return Tel;
-	}
-
-
-
-	public void setTel(String tel) {
-		Tel = tel;
-	}
-
-
-
-	public String getContent() {
-		return Content;
-	}
-
-
-
-	public void setContent(String content) {
-		Content = content;
-	}
-
-
-
-	public String getFname() {
-		return Fname;
-	}
-
-
-
-	public void setFname(String fname) {
-		Fname = fname;
-	}
-
-
-
-	public String getCompdate() {
-		return Compdate;
-	}
-
-
-
-	public void setCompdate(String compdate) {
-		Compdate = compdate;
-	}
-
-
-
 	@Override
 	public String toString() {
-		return "Board [Title=" + Title + ", Email=" + Email + ", Tel=" + Tel + ", Content=" + Content + ", Fname="
-				+ Fname + ", Compdate=" + Compdate + "]";
+		return "Board [title=" + title + ", email=" + email + ", tel=" + tel + ", content=" + content + ", fname="
+				+ fname + ", compdate=" + compdate + ", seq=" + seq + "]";
 	}
 	
-}
+}	

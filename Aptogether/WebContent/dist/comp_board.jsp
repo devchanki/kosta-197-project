@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    
-<!DOCTYPE html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html> 	
 <html lang="ko">
 <head>
 
@@ -43,16 +43,25 @@
     <div id = "contenttext">
     <p>
     	제목: ${aaa.title }<br>
-		내용: ${aaa.content }	
+		내용: ${aaa.content }	 <br>
+		<a href="download.jsp?filename=${aaa.fname }">${aaa.fname }</a>
     </p>
     </div>
 	
 	<div id = "buttonArea">
 	<button class="button"> <a href="CompDelete.do?seq=${ aaa.seq }">문의 취소</a></button>
 	</div>
-
+		
+	<%-- <c:forEach var="reply" items="${replys}">
+   <tr>
+   <td>${reply.r_contents }</td>
+   <td>${reply.r_regdate }</td>
+   </tr>
+   </c:forEach> --%>
+   
      </div>
        </c:forEach>
+       
      </div>
      </div>
      
@@ -77,6 +86,9 @@
     <c:if test="${listModel.endPage<listModel.totalPageCount }">
    <a href="Compboard.do?pageNum=${listModel.endPage+1}">[이후]</a>
    </c:if>
+  	
+   <button type = "button" id = "compwrite"><a href="../apto/compWrite.do">민원작성</a></button>
+  
    </div>
 </body>
 

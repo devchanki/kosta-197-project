@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="./css/comp_select.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://cdn.rawgit.com/tonystar/bootstrap-float-label/v4.0.2/bootstrap-float-label.min.css"/>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./vendor/modernizr.custom.min.js"></script>
 <script src="./vendor/jquery-1.10.2.min.js"></script>
 <script src="./vendor/jquery-ui-1.10.3.custom.min.js"></script>
@@ -21,58 +24,71 @@
 	<div id="quickmain">
 	<div id="modal">
     <div class="row">
-        <div class="col-md-12">
-            <div class="well well-sm">
-                <form action = "../apto/insertAction.do" method="post" class="form-horizontal">
-                    <fieldset>
-                        <legend class="text-center header">Contact us</legend>
-						<div class="mustdo">상세 내용작성(*는 필수 입력 사항입니다.)</div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="createtitle">
-                                <input id="Title" name="Title" type="text" placeholder="*제목" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="createemail">
-                                <input id="Email" name="Email" type="text" placeholder="이메일" class="form-control">
-                            </div>
-                        </div>
+            <div class="col-lg-6 offset-lg-3 col-sm-6 offset-sm-3 col-12">   
+            
+                <form class="card w-100 card-block bg-faded" action = "../apto/insertAction.do" method="post" class="form-horizontal"
+                enctype="multipart/form-data">
+                      <legend class="m-b-1 text-center text-info"> <strong> Contact us </strong></legend>
+                      <div class="form-group input-group">
+                        <span class="has-float-label">
+                           <input id="Title" name="Title" type="text" placeholder="*제목" class="form-control">
+                          <label for="first">제목</label>
+                        </span>
+                      </div>
+                      
+                      <div class="form-group input-group">
+                        <span class="has-float-label">
+                            <input id="Email" name="Email" type="text" placeholder="이메일" class="form-control">
+                          <label for="email">이메일</label>
+                        </span>
+                      </div>
+                      <div class="form-group input-group">
+                        <span class="has-float-label">
+                          <input id="Tel" name="Tel" type="text" placeholder="연락처" class="form-control">
+                          <label for="contact">연락처</label>
+                        </span>
+                      </div>
+                      <div class="form-group input-group">
+                        <span class="has-float-label">
+                         <textarea class="form-control" id="Content" name="Content" placeholder="*상세 내용을 작성해주세요." rows="7"></textarea>
+                          <label for="message">내용</label>
+                        </span>
+                      </div>
+                       <div class="form-group input-group">
+                        <span class="has-float-label">
+                          <input id="Fname" name="Fname" type="file" placeholder="파일" class="form-control">
+                          <label for="contact">파일 첨부</label>
+                        </span>
+                      </div>
+                      
+                     <div class="form-content">
+                     	
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="createtel">
-                                <input id="Tel" name="Tel" type="text" placeholder="연락처" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="createcontent">
-                                <textarea class="form-control" id="Content" name="Content" placeholder="*상세 내용을 작성해주세요." rows="7"></textarea>
-                            </div>
-                        </div>
 
-                        <div class="form-content">
                             <div class="col-md-12 text-center">
-                            	<button type="button" >파일 첨부</button>
+                            	
+                            	<input type="button" id="cancel" value="취소"> 
+                            	
                                 <button type="submit" class="btn btn-primary btn-lg"
                            >전 송</button>
                             </div>
                         </div>
-                    </fieldset>
+                        
                 </form>
-            </div>
-        </div>
+        </div>	
     </div>
-</div>
+    </div>
+
+
+
 			<div id="quickline1"> <span class="quick1">
 			<a style="text-decoration:none"> <img src="./img/noise.png">
 						<dl>
 						<dt>층간소음</dt>
 					</dl>
 					</a>	
-			</span> <span class="quick1"> 
+			</span>
+			 <span class="quick1"> 
 			<img src="./img/parking.png"></a>
 					<dl>
 						<dt>주차문제</dt>
@@ -102,7 +118,7 @@
 /* function click_button(var a) {
 	$("#modal").toggle();
 } */
-var matches = document.querySelectorAll("span.quick1, span.quick2");
+var matches = document.querySelectorAll("span.quick1, span.quick2, #cancel");
 	for(var i = 0; i < matches.length; i++){
 		matches[i].onclick = function(){
 			$("#modal").toggle();

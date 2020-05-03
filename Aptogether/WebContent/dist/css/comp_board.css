@@ -1,5 +1,8 @@
 @charset "EUC-KR";
 
+#pageArea {
+	
+}
 #maintitle{
 	font-size: 44px;
 	text-align: center;
@@ -26,6 +29,21 @@
      display: inline-block;
     margin-top: 32px;
 
+}
+#compwrite{
+	position: absolute;
+    right:480px;
+    width:100px;
+    background-color: #808080;
+    border: none;
+    color:#ffffff;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
 }
 .button a {
 	text-decoration: none;

@@ -1,14 +1,17 @@
 package aptogether.model;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import aptogether.model.Board;
 import aptogether.model.CompListModel;
 import aptogether.model.Search;
-
 
 public class BoardService {
 	private static BoardService service = new BoardService();
@@ -22,22 +25,48 @@ public class BoardService {
 	
 	
 	public int insertBoardService(HttpServletRequest request) throws Exception {
+		String uploadPath = request.getRealPath("upload");
 		request.setCharacterEncoding("utf-8");
-
+		int size=20*1024*1024;
+		MultipartRequest multi=
+				new MultipartRequest(request,uploadPath,size,
+						"utf-8",new DefaultFileRenamePolicy());
+		
 		Board board = new Board();
 	
-		board.setTitle(request.getParameter("Title"));
-		board.setContent(request.getParameter("Content"));
-		board.setTel(request.getParameter("Tel"));
-		board.setEmail(request.getParameter("Email"));
-
+		board.setTitle(multi.getParameter("Title"));
+		board.setContent(multi.getParameter("Content"));
+		board.setTel(multi.getParameter("Tel"));
+		board.setEmail(multi.getParameter("Email"));
+		board.setFname(multi.getParameter("Fname"));
 		
+		if(multi.getFilesystemName("Fname")!=null) {
+			String fname=(String)multi.getFilesystemName("Fname");
+			board.setFname(fname);
+	
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½(gif, jpg) => aa.gif, aa.jpg
+			String pattern = fname.substring(fname.indexOf(".") + 1); //gif
+			String head = fname.substring(0, fname.indexOf(".")); //aa
+			
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+			String imagePath = uploadPath + "\\" + fname;
+			File src = new File(imagePath);
+			
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+			String thumPath = uploadPath + "\\" + head + "_small" + pattern;
+			File dest = new File(thumPath);
+			
+			if(pattern.equals("gif") || pattern.equals("jpg")) {
+				ImageUtil.resize(src, dest, 100, ImageUtil.RATIO);
+			}
+			
+		}
 		return dao.insertBoard(board);
 	}
 	public void deleteBoardService(HttpServletRequest request) throws Exception {
 	
 		
-		System.out.println("»èÁ¦");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½");
 		request.setCharacterEncoding("utf-8");
 		String x= request.getParameter("seq");
 		System.out.println(x);
@@ -52,13 +81,13 @@ public class BoardService {
 		HttpSession session=request.getSession();
 		
 		int totalCount = dao.countBoard(search);
-		// ÃÑÆäÀÌÁö¼ö
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		int totalPageCount = totalCount / PAGE_SIZE;
 		if (totalCount % PAGE_SIZE > 0) {
 			totalPageCount++;
 		}
 
-		// ÇöÀçÆäÀÌÁö
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String pageNum = request.getParameter("pageNum");
 		if (pageNum == null) {
 			pageNum = "1";
@@ -72,7 +101,7 @@ public class BoardService {
 			endPage = totalPageCount;
 		}
 		// startRow
-		// startRow=(ÇöÀçÆäÀÌÁö-1)*ÆäÀÌÁö´ç ±Û°¹¼ö
+		// startRow=(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-1)*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½ï¿½ï¿½
 		int startRow = (requestPage - 1) * PAGE_SIZE;
 
 		List<Board> list = dao.listBoard(search, startRow);
