@@ -24,6 +24,19 @@ public class UserLoginAction implements Action{
 		
 		List<ManageFee> list = service.listManageFeePartService(member, 6);
 		request.setAttribute("list", list);
+		ManageFee last = null;
+		ManageFee beforeLast = null;
+		if (list != null && list.size() >= 2) {
+			last = list.get(list.size() - 1);
+			beforeLast = list.get(list.size() - 2);
+
+		} else if (list != null && list.size() == 1) {
+			last = list.get(0);
+			System.out.println(last);
+
+		}
+		request.setAttribute("last",last);
+		request.setAttribute("beforeLast", beforeLast);
 		
 		
 		forward.setRedirect(false);
