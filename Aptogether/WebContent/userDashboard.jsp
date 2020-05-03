@@ -55,7 +55,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<%@ include file="menu.jsp" %>
+		<%@ include file="userMenu.jsp" %>
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
