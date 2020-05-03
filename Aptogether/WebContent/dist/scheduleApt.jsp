@@ -350,8 +350,8 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie
-									Luna</span> <img class="img-profile rounded-circle"
+								class="mr-2 d-none d-lg-inline text-gray-600 small">${member.name} 님
+									</span> <img class="img-profile rounded-circle"
 								src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
 						</a> <!-- Dropdown - User Information -->
 							<div
@@ -468,7 +468,7 @@
 												<div class="col-12">
 													<label class="col-4" for="edit-start">시작</label> 
 													<input
-														class="inputModal" type="text" name="edit-start"
+														class="inputModal" type="datetime-local" name="edit-start"
 														id="edit-start">
 												</div>
 											</div>
@@ -476,7 +476,7 @@
 											<div class="container-fluid">
 												<div class="col-12">
 													<label class="col-4" for="edit-end">끝</label> <input
-														class="inputModal" type="text" name="edit-end"
+														class="inputModal" type="datetime-local" name="edit-end"
 														id="edit-end">
 												</div>
 											</div>
@@ -608,13 +608,13 @@
 	<script
 		src="/Aptogether/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 	<script src="/Aptogether/js/demo/datatables-demo.js"></script> -->
+	<script src="vendor/js/bootstrap-datetimepicker.min.js"></script>
 
 	<script src="/Aptogether/js/scripts.js"></script>
 	<script src="vendor/js/moment.min.js"></script>
 	<script src="vendor/js/fullcalendar.min.js"></script>
 	<script src="vendor/js/ko.js"></script>
 	<script src="vendor/js/select2.min.js"></script>
-	<script src="vendor/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/addEvent.js"></script>
 	<script src="js/editEvent.js"></script>
