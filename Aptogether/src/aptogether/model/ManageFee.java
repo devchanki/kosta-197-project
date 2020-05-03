@@ -121,6 +121,10 @@ public class ManageFee implements Serializable {
 	public void setPay_date(String pay_date) {
 		this.pay_date = pay_date;
 	}
+	
+	public int getTotalValue() {
+		return general_fee + security_fee + cleaning_fee + fumigation_fee + lift_maintenance_fee + electricity_fee + water_fee + heating_fee;
+	}
 
 
 	@Override

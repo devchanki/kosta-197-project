@@ -2,11 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% 
-	ManageFee a = (ManageFee)request.getAttribute("last");
-	System.out.println(a);  
+	List<ManageFee> listReverse = (List<ManageFee>) request.getAttribute("list");
+	Collections.reverse(listReverse);
+	request.setAttribute("reverseFee", listReverse);
+
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,7 +32,19 @@
 
 <!-- Custom styles for this template-->
 <link href="/Aptogether/css/sb-admin-2.min.css" rel="stylesheet">
-
+<script type="text/javascript">
+	var data = [];
+	var label = [];
+	<c:forEach items="${reverseFee}" var="fee">
+		console.log("${fee}");
+		data.push(${fee.getTotalValue()});
+		console.log("${fee.pay_date}");
+		var tmpDate = new Date("${fee.pay_date}");
+		console.log(tmpDate);
+		console.log(tmpDate.getFullYear());
+		label.push(tmpDate.getFullYear() + "-" + (tmpDate.getMonth()+1));
+	</c:forEach>
+</script>
 </head>
 
 <body id="page-top">
@@ -460,7 +477,8 @@
 									<div class="card mb-3">
 										<div class="row no-gutters">
 											<div class="col-md-4">
-												<img src="/Aptogether/css/image/receipt.png" class="card-img" alt="관리비">
+												<img src="/Aptogether/css/image/receipt.png"
+													class="card-img" alt="관리비">
 											</div>
 											<div class="col-md-8">
 												<div class="card-body">
@@ -478,23 +496,24 @@
 														</c:when>
 
 														<c:otherwise>
-															<h5 class="card-title">${ last.getPay_date()}
-																월 관리비 고지서
+
+															<h5 class="card-title">
+																<fmt:parseDate var="date" value="${last.pay_date}"
+																	pattern="yyyy-MM-dd HH:mm:ss" />
+																<fmt:formatDate value="${date }" pattern="yyyy년 MM월 관리비 " />
 															</h5>
 															<h3 class="card-text">
-																<b id="thisMonthFee"> ${ last.getGeneral_fee() + last.getSecurity_fee() + last.getCleaning_fee()
-							+ last.getFumigation_fee() + last.getLift_maintenance_fee() + last.getElectricity_fee()
-							+ last.getWater_fee() + last.getHeating_fee()}원
+																<b id="thisMonthFee"> ${ last.getTotalValue() }원
 																</b>
 															</h3>
 															<p class="card-text">
-														<small class="text-muted">전월대비</small>
-													</p>
+																<small class="text-muted">전월대비</small>
+															</p>
 														</c:otherwise>
 
 													</c:choose>
 
-												
+
 												</div>
 											</div>
 										</div>
@@ -522,20 +541,20 @@
 										<div id="collapseOne" class="collapse show"
 											aria-labelledby="headingOne" data-parent="#accordionExample">
 											<div class="card-body">
-											<c:choose>
-												<c:when test="${empty last }">
+												<c:choose>
+													<c:when test="${empty last }">
 													현재 부과된 관리비가 존재하지 않습니다. 
 												</c:when>
-												<c:otherwise>
-												<ul class="list-group list-group-flush">
-													<li class="list-group-item">당월부과액</li>
-													<li class="list-group-item">미납액</li>
-													<li class="list-group-item">미납연체료</li>
-													<li class="list-group-item">납기내금액</li>
-													<li class="list-group-item">납기후연체료</li>
-												</ul>
-												</c:otherwise>
-											</c:choose>
+													<c:otherwise>
+														<ul class="list-group list-group-flush">
+															<li class="list-group-item">당월부과액</li>
+															<li class="list-group-item">미납액</li>
+															<li class="list-group-item">미납연체료</li>
+															<li class="list-group-item">납기내금액</li>
+															<li class="list-group-item">납기후연체료</li>
+														</ul>
+													</c:otherwise>
+												</c:choose>
 
 											</div>
 										</div>
@@ -553,109 +572,109 @@
 											aria-labelledby="headingTwo" data-parent="#accordionExample">
 											<div class="card-body">
 												<table class="table">
-												<c:choose>
-													<c:when test="${not empty beforeLast}">
-													<thead>
-														<tr>
-															<th scope="row">항목</th>
-															<th scope="row">전월</th>
-															<th scope="row">당월</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>일반관리비</td>
-															<td>${ beforeLast.getGeneral_fee() }원</td>
-															<td>${ last.getGeneral_fee() }원</td>
-														</tr>
-														<tr>
-															<td>경비비</td>
-															<td>${ beforeLast.getSecurity_fee()}원</td>
-															<td>${ last.getSecurity_fee()}원</td>
-														</tr>
-														<tr>
-															<td>청소비</td>
-															<td>${ beforeLast.getCleaning_fee() }원</td>
-															<td>${ last.getCleaning_fee() }원</td>
-														</tr>
-														<tr>
-															<td>소독비</td>
-															<td>${beforeLast.getFumigation_fee()}원</td>
-															<td>${last.getFumigation_fee()}원</td>
-														</tr>
-														<tr>
-															<td>승강비유지비</td>
-															<td>${beforeLast.getLift_maintenance_fee()}원</td>
-															<td>${last.getLift_maintenance_fee()}원</td>
-														</tr>
-														<tr>
-															<td>전기세</td>
-															<td>${beforeLast.getElectricity_fee()}원</td>
-															<td>${last.getElectricity_fee()}원</td>
-														</tr>
-														<tr>
-															<td>수도세</td>
-															<td>${beforeLast.getWater_fee()}원</td>
-															<td>${last.getWater_fee()}원</td>
-														</tr>
-														<tr>
-															<td>난방비</td>
-															<td>${beforeLast.getHeating_fee()}원</td>
-															<td>${last.getHeating_fee()}원</td>
-														</tr>
-													</tbody>
-													
-													</c:when>
-													
-													<c:when test="${ not empty last and empty beforeLast}">
-													<thead>
-														<tr>
-															<th scope="row">항목</th>
-															<th scope="row">당월</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>일반관리비</td>
-															<td>${last.getGeneral_fee()}원</td>
-														</tr>
-														<tr>
-															<td>경비비</td>
-															<td>${last.getSecurity_fee()}원</td>
-														</tr>
-														<tr>
-															<td>청소비</td>
-															<td>${last.getCleaning_fee()}원</td>
-														</tr>
-														<tr>
-															<td>소독비</td>
-															<td>${last.getFumigation_fee()}원</td>
-														</tr>
-														<tr>
-															<td>승강비유지비</td>
-															<td>${last.getLift_maintenance_fee()}원</td>
-														</tr>
-														<tr>
-															<td>전기세</td>
-															<td>${last.getElectricity_fee()}원</td>
-														</tr>
-														<tr>
-															<td>수도세</td>
-															<td>${last.getWater_fee()}원</td>
-														</tr>
-														<tr>
-															<td>난방비</td>
-															<td>${last.getHeating_fee()}원</td>
-														</tr>
-													</tbody>
-													</c:when> 
-													
-													<c:otherwise>
+													<c:choose>
+														<c:when test="${not empty beforeLast}">
+															<thead>
+																<tr>
+																	<th scope="row">항목</th>
+																	<th scope="row">전월</th>
+																	<th scope="row">당월</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td>일반관리비</td>
+																	<td>${ beforeLast.getGeneral_fee() }원</td>
+																	<td>${ last.getGeneral_fee() }원</td>
+																</tr>
+																<tr>
+																	<td>경비비</td>
+																	<td>${ beforeLast.getSecurity_fee()}원</td>
+																	<td>${ last.getSecurity_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>청소비</td>
+																	<td>${ beforeLast.getCleaning_fee() }원</td>
+																	<td>${ last.getCleaning_fee() }원</td>
+																</tr>
+																<tr>
+																	<td>소독비</td>
+																	<td>${beforeLast.getFumigation_fee()}원</td>
+																	<td>${last.getFumigation_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>승강비유지비</td>
+																	<td>${beforeLast.getLift_maintenance_fee()}원</td>
+																	<td>${last.getLift_maintenance_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>전기세</td>
+																	<td>${beforeLast.getElectricity_fee()}원</td>
+																	<td>${last.getElectricity_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>수도세</td>
+																	<td>${beforeLast.getWater_fee()}원</td>
+																	<td>${last.getWater_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>난방비</td>
+																	<td>${beforeLast.getHeating_fee()}원</td>
+																	<td>${last.getHeating_fee()}원</td>
+																</tr>
+															</tbody>
+
+														</c:when>
+
+														<c:when test="${ not empty last and empty beforeLast}">
+															<thead>
+																<tr>
+																	<th scope="row">항목</th>
+																	<th scope="row">당월</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td>일반관리비</td>
+																	<td>${last.getGeneral_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>경비비</td>
+																	<td>${last.getSecurity_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>청소비</td>
+																	<td>${last.getCleaning_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>소독비</td>
+																	<td>${last.getFumigation_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>승강비유지비</td>
+																	<td>${last.getLift_maintenance_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>전기세</td>
+																	<td>${last.getElectricity_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>수도세</td>
+																	<td>${last.getWater_fee()}원</td>
+																</tr>
+																<tr>
+																	<td>난방비</td>
+																	<td>${last.getHeating_fee()}원</td>
+																</tr>
+															</tbody>
+														</c:when>
+
+														<c:otherwise>
 													
 														관리비 데이터가 존재하지 않습니다.
 													
 													</c:otherwise>
-													
+
 													</c:choose>
 
 												</table>
@@ -694,20 +713,6 @@
 					</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					<!-- Content Row -->
 
 					<div class="row">
@@ -718,8 +723,7 @@
 								<!-- Card Header - Dropdown -->
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">Earnings
-										Overview</h6>
+									<h6 class="m-0 font-weight-bold text-primary">관리비 추이 </h6>
 									<div class="dropdown no-arrow">
 										<a class="dropdown-toggle" href="#" role="button"
 											id="dropdownMenuLink" data-toggle="dropdown"
