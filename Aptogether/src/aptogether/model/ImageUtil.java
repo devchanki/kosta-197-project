@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.io.File;
 import java.io.InputStream;
 import java.io.FileInputStream;
+<<<<<<< HEAD
 import java.io.IOException;
 
 public class ImageUtil {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "aptogether.mapper.BoardMapper">
+	
+	<insert id = "insertBoard" parameterType = "board">
+		insert into COMP_BOARD values ( #{title},#{email}, #{tel}, #{content},
+		#{fname, jdbcType=VARCHAR}, sysdate, compboard_seq.nextval)
+	</insert>
+	
+	<select id="listBoard" parameterType="Search" resultType="Board">
+	select * from comp_board 
+         <if test="area != null">
+            <where>
+               <foreach collection="area" item="item" open="(" separator="OR" close=")">
+                  ${item} LIKE #{searchKey}
+               </foreach>
+            </where>
+         </if>	
+      order by seq desc
+   </select>
+
+	
+	<select id="countBoard" resultType="int" parameterType="Search">
+	select count(*) from comp_board
+	 <if test="area != null">
+            <where>
+               <!-- title LIKE %aa% OR writer LIKE %aa% -->
+               <foreach collection="area" item="item" open="(" separator="OR" close=")">
+                  ${item} LIKE #{searchKey}
+               </foreach>
+            </where>
+         </if>
+      order by seq desc
+	</select>
+	
+	<delete id = "deleteBoard" parameterType="int">
+	delete from comp_board where seq = #{seq} 
+	</delete>
+
+</mapper>

@@ -1,0 +1,150 @@
+@charset "EUC-KR";
+
+#maintitle{
+	font-size: 44px;
+	text-align: center;
+	height:70px;
+	font-weight:bold;
+	color: #C0C0C0;
+	margin-top: 40px;
+	
+}
+
+	#quickmain{
+	min-width:100%;
+	min-height:100%;
+	text-align: center;
+	align-items: center;
+	padding-left: 38px;
+	
+}
+	#quickline1{
+	width: 1160px;
+	min-height: 175px;
+	
+	margin: 0 auto;
+	background-color: #fff;
+	padding-left:15%;
+	margin-top: 70px;
+	
+	}
+	#quickline2{
+	width: 1160px;
+	min-height: 175px;
+	padding: 70px 0 40px 0;
+	margin: 0 auto;
+	background-color: #fff;
+	padding-left:15%;
+	
+	}
+
+.quick1{
+	position: relative;
+	float: left;
+	min-height: 182px;
+	width: 269px;
+	display: inline-block;
+	
+}
+.quick2{
+	position: relative;
+	float: left;
+	min-height: 182px;
+	width: 269px;	
+	display: inline-block;
+}
+.quick1 a{
+	display: block;
+	color: #222;
+	
+}
+
+.quick1 img{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 130px;
+	cursor: pointer;
+
+}
+.quick1 dl{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	cursor: pointer;
+
+}
+.quick1 dt{
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	padding-top: 14px;
+}
+.quick2 a{
+	display: block;
+	color: #222;
+	
+}
+#modal {
+	background-color: #FFFFF;
+	position:absolute;
+ 	 width:52%;
+  	height:70%;
+ 	 z-index:1;
+ 	 background:rgba(0, 0, 0, 0.5);
+ 	 display: inline-block;
+ 	 text-align: center;
+ 	margin: 0 auto;
+ 	left: 24%;
+ 	display: none;
+}
+.mustdo{
+	color: #F0FFFF;
+}
+
+.form-content{
+	height: 60px;
+}
+.quick2 img{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 130px;
+	cursor: pointer;
+
+}
+.quick2 dl{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	cursor: pointer;
+
+}
+.quick2 dt{
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	padding-top: 14px;	
+}
+}
+ 
+span .fileadd{
+	text-align: justify;
+	display: inline-block;
+}
+.card{
+  padding:15px 30px;
+  background-color: #f1f1f1;
+}
+.has-float-label input:focus,
+.has-float-label textarea:focus, 
+.has-float-label select:focus{
+  border-color: #2CA8B3;
+  box-shadow: none;
+}
+.has-float-label .form-control:placeholder-shown:not(:focus) + * {
+  font-size: 100%;
+  margin-top: 4px; 
+}

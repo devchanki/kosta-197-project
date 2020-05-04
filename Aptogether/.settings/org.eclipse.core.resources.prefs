@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//WebContent/CreateApt.html=UTF-8
 encoding//WebContent/userDashboard.jsp=UTF-8
 encoding/<project>=UTF-8
+=======
+encoding//WebContent/dist/css/comp_board.css=UTF-8
+>>>>>>> refs/remotes/origin/jsk

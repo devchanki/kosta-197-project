@@ -14,6 +14,8 @@
 		<typeAlias type="aptogether.model.Marketreply"
 			alias="Marketreply" />
 		<typeAlias type="aptogether.model.Schedule" alias="Schedule" />
+				<typeAlias type="aptogether.model.Board" alias="Board"/>
+		<typeAlias type="aptogether.model.Search" alias="Search"/>
 	</typeAliases>
 
 
@@ -33,6 +35,7 @@
 		<mapper resource="aptogether/mapper/ManageFee.xml" />
 		<mapper resource="aptogether/mapper/schedule.xml" />
 		<mapper resource="aptogether/mapper/Market_Product.xml" />
+		<mapper resource="aptogether/mapper/Board.xml"/>
 	</mappers>
 
 </configuration>
