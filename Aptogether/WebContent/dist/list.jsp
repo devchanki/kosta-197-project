@@ -359,7 +359,7 @@ text-align:center;
 					<c:forEach var="board" items="${listModel.list}">
 					<div class="col mb-4">
 					<a href="detailaction.do?seq=${board.seq}">
-							<div class="card market-list">
+								<div class="card market-list">
 								<c:if test="${board.fname != null }">
 									<c:set var="head"
 										value="${fn:substring(board.fname, 
@@ -369,7 +369,7 @@ text-align:center;
 						fn:length(head) +1, fn:length(board.fname)) }"></c:set>
 									<%-- <img src="/MVC/WebContent/upload/${head}_small.${pattern}"> --%>
 									<c:choose>
-										<c:when test="${pattern == 'jpg' || pattern == 'gif'|| pattern == 'png'}">
+											<c:when test="${pattern == 'jpg' || pattern == 'gif'|| pattern == 'png'}">
 											<img src="/Aptogether/upload/${head}.${pattern}"
 												class="card-img-top">
 
