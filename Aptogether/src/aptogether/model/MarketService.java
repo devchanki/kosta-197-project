@@ -22,6 +22,7 @@ public class MarketService {
 	public int insertMarketService(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		String uploadPath = request.getServletContext().getRealPath("/upload");
+		System.out.println(uploadPath);
 		int size = 20 * 1024 * 1024;// 20mb
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8",
 				new DefaultFileRenamePolicy());
@@ -54,7 +55,7 @@ public class MarketService {
 			String thumPath = uploadPath + "\\" + head + "_small." + pattern;
 			File dest = new File(thumPath);
 
-			if (pattern.equals("gif") || pattern.equals("jpg")) {
+			if (pattern.equals("gif") || pattern.equals("jpg")|| pattern.equals("png")) {
 				ImageUtil.resize(src, dest, 100, ImageUtil.RATIO);
 			}
 
