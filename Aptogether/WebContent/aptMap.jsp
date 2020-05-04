@@ -26,6 +26,7 @@
 <!-- Custom styles for this template-->
 <link href="/Aptogether/css/sb-admin-2.min.css" rel="stylesheet">
   <style>
+  .width{width: 100%;}
 .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap {position:relative;width:100%;height:500px;}
 #category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
@@ -71,7 +72,7 @@
 
 			<!-- Content Row -->
 			<div class="row">
-					<div class="col-xl-6">
+					<div class="col-xl-12">
 						<div class="map_wrap">
 							<div id="map"
 								style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>

@@ -37,7 +37,7 @@
 			data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Custom Components:</h6>
-				<a class="collapse-item" href="buttons.html">Buttons</a> <a
+				<a class="collapse-item" href="/Aptogether/scheduleApt.jsp">우리아파트 일정보기</a> <a
 					class="collapse-item" href="cards.html">Cards</a>
 			</div>
 		</div></li>
