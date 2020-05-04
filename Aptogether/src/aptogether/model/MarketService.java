@@ -10,9 +10,6 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class MarketService {
-	// ¼­ºñ½º°¡ ¾ø¾îÁö¸é ActionºÎºĞÀÌ º¹ÀâÇØÁö°ÔµÈ´Ù
-	// ¼­ºñ½º¿¡¼­ ¿©·¯°³ÀÇ Äõ¸®¸¦ µ¿½Ã¿¡ ½ÇÇà½ÃÅ°±âÀ§ÇØ dao¸¦ ¿©·¯°³!
-	// °Ô½ÃÆÇ¿¡ ±Û¸¸º¸´Â°Ô¾Æ´Ï¶ó ´ñ±ÛµµºÁ¾ßÇÏ°í Á¶È¸¼öµµ Áõ°¡½ÃÄÑ¾ßÇÏ°í.. ¿©·¯°³ÀÇ Äõ¸®°¡ µ¹¾Æ¾ßÇÏ´Ï±î¿ä!
 	private static MarketService service = new MarketService();
 	private static MarketDao2 dao;
 	private static final int PAGE_SIZE = 9;
@@ -24,11 +21,8 @@ public class MarketService {
 
 	public int insertMarketService(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
-		// ÆÄÀÏ ¾÷·Îµå (°æ·Î,ÆÄÀÏÅ©±â, ÀÎÄÚµù, ÆÄÀÏÀÌ¸§ ÁßÃ¸ Á¤Ã¥)
 		String uploadPath = request.getServletContext().getRealPath("/upload");
-
-		System.out.println("¸®¾ó¾÷·ÎµåÆĞ¶ß" + uploadPath);
-		// ÁÙÀÌ ±×¾îÁö´Â°Ç »ç¿ëºñ±ÇÀåÀÏ»Ó »ç¿ëÀº °¡´ÉÇÏ´Ù
+		System.out.println(uploadPath);
 		int size = 20 * 1024 * 1024;// 20mb
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8",
 				new DefaultFileRenamePolicy());
@@ -43,25 +37,25 @@ public class MarketService {
 		/* market.setFname(multi.getParameter("fname")); */
 		market.setFname("");
 
-		// ÆÄÀÏ¾÷·Îµå½Ã db(ÆÄÀÏÀÌ¸§ÀúÀå)
+
 		if (multi.getFilesystemName("fname") != null) {
-			String fname = (String) multi.getFilesystemName("fname");
+			String fname = multi.getFilesystemName("fname");
 			market.setFname(fname);
 
-			// ½æ³×ÀÏ ÀÌ¹ÌÁö(gif,jpg) =>aa.gif, aa.jpg
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½(gif,jpg) =>aa.gif, aa.jpg
 			String pattern = fname.substring(fname.indexOf(".") + 1);// gif
 			String head = fname.substring(0, fname.indexOf("."));// aa
 
-			// ¿øº» file°´Ã¼
-			String imagePath = uploadPath + "\\" + fname;
+			// ï¿½ï¿½ï¿½ï¿½ fileï¿½ï¿½Ã¼
+			String imagePath = uploadPath + "/" + fname;
 			System.out.println(imagePath);
 			File src = new File(imagePath);
 
-			// ½æ³×ÀÏ file°´Ã¼
-			String thumPath = uploadPath + "\\" + head + "_small." + pattern;
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ fileï¿½ï¿½Ã¼
+			String thumPath = uploadPath + "/" + head + "_small." + pattern;
 			File dest = new File(thumPath);
 
-			if (pattern.equals("gif") || pattern.equals("jpg")) {
+			if (pattern.equals("gif") || pattern.equals("jpg")|| pattern.equals("png")) {
 				ImageUtil.resize(src, dest, 100, ImageUtil.RATIO);
 			}
 
@@ -75,13 +69,13 @@ public class MarketService {
 	public ListModel listMarketService(HttpServletRequest request) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
 		int totalCount = dao.countMarket();
-		// ÃÑÆäÀÌÁö¼ö
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		int totalPageCount = totalCount / PAGE_SIZE;
 		if (totalCount % PAGE_SIZE > 0) {
 			totalPageCount++;
 		}
 
-		// ÇöÀçÆäÀÌÁö
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String pageNum = request.getParameter("pageNum");
 		if (pageNum == null) {
 			pageNum = "1";
@@ -89,7 +83,7 @@ public class MarketService {
 
 		int requestPage = Integer.parseInt(pageNum);
 		// startpage
-		// startpage=ÇöÀçÆäÀÌÁö-(ÇöÀçÆäÀÌÁö-1)%5 --> ÀÌ Ä£±¸´Â °ø½ÄÀÔ´Ï´Ù.
+		// startpage=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-1)%5 --> ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 		int startPage = requestPage - (requestPage - 1) % 5;
 
 		// endpage
@@ -98,7 +92,7 @@ public class MarketService {
 			endPage = totalPageCount;
 		}
 		// startRow
-		// startRow=(ÇöÀçÆäÀÌÁö-1)*ÆäÀÌÁö´ç ±Û°¹¼ö
+		// startRow=(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-1)*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½ï¿½ï¿½
 		int startRow = (requestPage - 1) * PAGE_SIZE;
 
 		List<Market_Product> list = dao.listMarket(startRow);
@@ -118,6 +112,16 @@ public class MarketService {
 	public int updateMarketService(Market_Product product) {
 		// TODO Auto-generated method stub
 		return dao.updatemarketproduct(product);
+	}
+
+	public int insertReplyService(Marketreply reply) {
+		return dao.insertmarketreply(reply);
+	
+	}
+
+	public List<Marketreply> listmarketreply(int seq) {
+		// TODO Auto-generated method stub
+		return dao.listmarketreply(seq);
 	}
 
 }

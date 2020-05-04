@@ -7,4 +7,5 @@ import aptogether.model.AptInfo;
 public interface AptMapper {
 	List<AptInfo> showApt(String keyword);
 	int insertApt(AptInfo apt);
+	AptInfo aptInfo(int seq);
 }

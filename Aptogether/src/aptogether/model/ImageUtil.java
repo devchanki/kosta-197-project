@@ -7,7 +7,6 @@ import java.awt.Graphics2D;
 import java.io.File;
 import java.io.InputStream;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class ImageUtil {
@@ -51,10 +50,10 @@ public class ImageUtil {
             destHeight = srcHeight;
         } else if (width == RATIO) {
             double ratio = ((double)destHeight) / ((double)srcHeight);
-            destWidth = (int)((double)srcWidth * ratio);
+            destWidth = (int)(srcWidth * ratio);
         } else if (height == RATIO) {
             double ratio = ((double)destWidth) / ((double)srcWidth);
-            destHeight = (int)((double)srcHeight * ratio);
+            destHeight = (int)(srcHeight * ratio);
         }
         
         BufferedImage destImg = new BufferedImage(

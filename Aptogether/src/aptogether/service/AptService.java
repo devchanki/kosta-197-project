@@ -21,5 +21,9 @@ public class AptService {
 	public List<AptInfo> showAptService(String keyword) {
 		return dao.showApt(keyword);
 	}
+	
+	public AptInfo showAptInfo(int seq) {
+		return dao.showAptInfo(seq);
+	}
 
 }

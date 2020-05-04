@@ -15,6 +15,7 @@ import aptogether.action.Deleteaction;
 import aptogether.action.Detailaction;
 import aptogether.action.Insertaction;
 import aptogether.action.Insertform;
+import aptogether.action.Insertreplyaction;
 import aptogether.action.Listaction;
 import aptogether.action.Updateaction;
 import aptogether.action.Updateform;
@@ -30,9 +31,9 @@ public class MarketController extends HttpServlet {
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public void doMarket(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String requestURI = request.getRequestURI(); // 현재 uri를 구해주는 메소드
-		String contextPath = request.getContextPath(); // 컨텍스트의 경로를 찾아주는 메소드
-		String command = requestURI.substring(contextPath.length() + 8); // insertFrom.do를 뽑기위한 작업입니다.
+		String requestURI = request.getRequestURI(); 
+		String contextPath = request.getContextPath(); 
+		String command = requestURI.substring(contextPath.length() + 8); 
 		System.out.println(command);
 
 		Action action = null;
@@ -93,26 +94,16 @@ public class MarketController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("insertReplyAction.do")) {
+			action = new Insertreplyaction();
+			try {
+				forward = action.execute(request, response);
+				System.out.println();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-		/*
-		 * else if (command.equals("listAction.do")) {
-		 * System.out.println("listaction작동"); action = new ListAction(); try { forward
-		 * = action.execute(request, response); } catch (Exception e) {
-		 * e.printStackTrace(); } } else if (command.equals("detailAction.do")) {
-		 * System.out.println("디테일 액션작동"); action = new DetailAction(); try { forward =
-		 * action.execute(request, response); } catch (Exception e) {
-		 * e.printStackTrace(); } } else if (command.equals("deleteAction.do")) { action
-		 * = new DeleteAction(); try { forward = action.execute(request, response); }
-		 * catch (Exception e) { e.printStackTrace(); } } else if
-		 * (command.equals("updateAction.do")) { action = new UpdateAction(); try {
-		 * forward = action.execute(request, response); } catch (Exception e) {
-		 * e.printStackTrace(); } } else if (command.equals("realupdateAction.do")) {
-		 * action = new RealUpdateAction(); try { forward = action.execute(request,
-		 * response); } catch (Exception e) { e.printStackTrace(); } } else if
-		 * (command.equals("insertReplyAction.do")) { action = new InsertReplyAction();
-		 * try { forward = action.execute(request, response); } catch (Exception e) {
-		 * e.printStackTrace(); } }
-		 */
+		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
@@ -135,6 +126,7 @@ public class MarketController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -150,6 +142,7 @@ public class MarketController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub

@@ -21,11 +21,16 @@ public class Listaction implements Action {
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		request.setAttribute("listModel",listModel);
 		
 		forward.setRedirect(false);
-		forward.setUrl("/dist/list.jsp");
+		forward.setUrl("/list.jsp");
 		return forward;
 	}
 

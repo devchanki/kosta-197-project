@@ -62,7 +62,20 @@ public static AptDao dao = new AptDao();
 		}finally {
 			sqlSession.close();
 		}
-		return list;
-				
+		return list;		
+	}
+	public AptInfo showAptInfo(int seq) {
+		SqlSession sqlSession = getSessionFactory().openSession();
+		AptInfo apt = null;
+		try {
+			apt = sqlSession.getMapper(AptMapper.class).aptInfo(seq);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("error");
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return apt;
 	}
 }

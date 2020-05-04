@@ -11,7 +11,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import aptogether.mapper.MarketMapper;
 
-//dao´Â ¸Þ¼ÒµåÇÏ³ª´ç Äõ¸®ÇÏ³ª!!! service´Â Äõ¸®¸¦ ¿©·¯°³ ½ÇÇàÇÏ±â À§ÇØ¼­!!
 public class MarketDao2 {
 	private static MarketDao2 dao = new MarketDao2();
 
@@ -62,7 +61,7 @@ public class MarketDao2 {
 	 * (Exception e) { e.printStackTrace(); }finally { sqlSession.close(); } return
 	 * re; }
 	 * 
-	 * public void deleteBoard(int seq) { System.out.println("ÀÎ»ý"); SqlSession
+	 * public void deleteBoard(int seq) { System.out.println("ï¿½Î»ï¿½"); SqlSession
 	 * sqlSession = getSqlSessionFactory().openSession(); try {
 	 * System.out.println("delete SEQ: " + seq);
 	 * sqlSession.getMapper(BoardMapper.class).deleteBoard(seq);
@@ -219,6 +218,45 @@ public class MarketDao2 {
 		}
 
 		return re;
+	}
+
+	public int insertmarketreply(Marketreply reply) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+
+		try {
+			re = sqlSession.getMapper(MarketMapper.class).insertmarketreply(reply);
+			if (re > 0) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+
+		return re;
+	}
+
+	public List<Marketreply> listmarketreply(int seq) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		List<Marketreply> list = null;
+		try {
+			list = sqlSession.getMapper(MarketMapper.class).listmarketreply(seq);
+			//list = sqlSession.selectList("kosta.mapper.BoardMapper.listBoard");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return list;
 	}
 
 }

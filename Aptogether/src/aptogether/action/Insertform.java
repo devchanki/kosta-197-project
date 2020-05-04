@@ -18,7 +18,7 @@ public class Insertform implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(true);
-		forward.setUrl("/Aptogether/dist/insert_form.jsp");
+		forward.setUrl("/Aptogether/insertForm.jsp");
 		///dist/Market
 		return forward;
 	}

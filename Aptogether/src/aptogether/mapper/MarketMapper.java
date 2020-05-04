@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.RowBounds;
 
 import aptogether.model.Market_Product;
+import aptogether.model.Marketreply;
 
 public interface MarketMapper {
 
@@ -20,5 +21,9 @@ public interface MarketMapper {
 	int deletemarketproduct(int seq);
 
 	int updatemarketproduct(Market_Product product);
+
+	int insertmarketreply(Marketreply reply);
+
+	List<Marketreply> listmarketreply(int seq);
 
 }

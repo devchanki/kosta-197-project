@@ -87,13 +87,13 @@
 		</div></li>
 
 	<!-- Nav Item - Charts -->
-	<li class="nav-item"><a class="nav-link" href="charts.html"> <i
-			class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
+	<li class="nav-item"><a class="nav-link" href="/Aptogether/map/mapform.do"> <i
+			class="fas fa-fw fa-chart-area"></i> <span>아파트 지도보기</span>
 	</a></li>
 
 	<!-- Nav Item - Tables -->
-	<li class="nav-item"><a class="nav-link" href="tables.html"> <i
-			class="fas fa-fw fa-table"></i> <span>Tables</span>
+	<li class="nav-item"><a class="nav-link" href="/Aptogether/Market/listaction.do"> <i
+			class="fas fa-fw fa-table"></i> <span>아파트 중고장터</span>
 	</a></li>
 
 	<!-- Divider -->

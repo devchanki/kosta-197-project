@@ -2,10 +2,6 @@ package aptogether.model;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.ibatis.annotations.Param;
-
 
 public class ManageFeeService {
 	private static ManageFeeService service = new ManageFeeService();

@@ -65,6 +65,17 @@
         update Market_Product set writer=#{writer}, product_name=#{product_name}, price=#{price}, fname=#{fname}, contents=#{contents}, 
         isSale=#{isSale} where seq=#{seq}
         </update>
+        
+        <insert id="insertmarketreply" parameterType="Marketreply">
+         insert into marketreply
+	 values(market_reply_seq.nextval,#{r_writer},#{r_contents}
+	 ,sysdate,#{seq})
+        
+        </insert>
+        
+        <select id="listmarketreply" parameterType="int" resultType="Marketreply">
+        select * from marketreply where seq=#{seq}
+        </select>
 </mapper>
 
 

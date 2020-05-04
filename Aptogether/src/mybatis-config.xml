@@ -12,6 +12,7 @@
 			alias="ManageFee" />
 		<typeAlias type="aptogether.model.Market_Product"
 			alias="Market_Product" />
+			<typeAlias type="aptogether.model.Marketreply" alias="Marketreply"/>
 	</typeAliases>
 
 

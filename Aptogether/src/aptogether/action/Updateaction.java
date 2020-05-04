@@ -2,6 +2,7 @@ package aptogether.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,11 +20,16 @@ public class Updateaction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		MarketService service = MarketService.getInstance();
-
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String uploadPath = request.getServletContext().getRealPath("/upload");
 
-		System.out.println("¸®¾ó¾÷·ÎµåÆÐ¶ß" + uploadPath);
-		// ÁÙÀÌ ±×¾îÁö´Â°Ç »ç¿ëºñ±ÇÀåÀÏ»Ó »ç¿ëÀº °¡´ÉÇÏ´Ù
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½Ð¶ï¿½" + uploadPath);
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
 		int size = 20 * 1024 * 1024;// 20mb
 		
 		MultipartRequest multi;
@@ -37,19 +43,19 @@ public class Updateaction implements Action {
 			product.setPrice(Integer.parseInt(multi.getParameter("price")));
 			product.setIsSale(multi.getParameter("isSale"));
 			if (multi.getFilesystemName("fname") != null) {
-				String fname = (String) multi.getFilesystemName("fname");
+				String fname = multi.getFilesystemName("fname");
 				product.setFname(fname);
 
-				// ½æ³×ÀÏ ÀÌ¹ÌÁö(gif,jpg) =>aa.gif, aa.jpg
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½(gif,jpg) =>aa.gif, aa.jpg
 				String pattern = fname.substring(fname.indexOf(".") + 1);// gif
 				String head = fname.substring(0, fname.indexOf("."));// aa
 
-				// ¿øº» file°´Ã¼
+				// ï¿½ï¿½ï¿½ï¿½ fileï¿½ï¿½Ã¼
 				String imagePath = uploadPath + "\\" + fname;
 				System.out.println(imagePath);
 				File src = new File(imagePath);
 
-				// ½æ³×ÀÏ file°´Ã¼
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ fileï¿½ï¿½Ã¼
 				String thumPath = uploadPath + "\\" + head + "_small." + pattern;
 				File dest = new File(thumPath);
 
