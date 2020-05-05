@@ -19,7 +19,7 @@ public class PollSelectInsertAction implements Action {
 		service.PollSelectInsertService(pollselect);
 		
 		forward.setRedirect(true);
-		forward.setUrl("/Aptogether/poll/PollListAction.do");
+		forward.setUrl("/Aptogether/poll/PollListviewAction.do");
 		
 		return forward;
 	}

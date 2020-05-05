@@ -11,7 +11,7 @@ import aptogether.model.Option;
 import aptogether.model.Poll;
 import aptogether.model.PollService;
 
-public class PollListAction implements Action {
+public class PollListviewAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -21,13 +21,12 @@ public class PollListAction implements Action {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
 		
-		
 		List<Poll> list = service.PollListService(request, member);
 		request.setAttribute("list", list);
 		
 		
 		forward.setRedirect(false);
-		forward.setUrl("/vendor/pollList.jsp");
+		forward.setUrl("/vendor/pollListview.jsp");
 		
 		return forward;
 	}

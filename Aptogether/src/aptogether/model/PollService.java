@@ -17,8 +17,8 @@ public class PollService {
 		return dao.PollInsert(poll, option);
 	}
 	
-	public List<Poll> PollListService(HttpServletRequest request) {
-		return dao.PollList();
+	public List<Poll> PollListService(HttpServletRequest request, Member member) {
+		return dao.PollList(member);
 	}
 	
 	public List<Option> OptionListService(HttpServletRequest request){

@@ -10,6 +10,7 @@ public class Poll implements Serializable{
 	private String end_date;
 	private int hitcount;
 	private String contents;
+	private int apt_seq;
 	
 	public Poll() {}
 
@@ -61,6 +62,14 @@ public class Poll implements Serializable{
 
 	public void setContents(String contents) {
 		this.contents = contents;
+	}
+
+	public int getApt_seq() {
+		return apt_seq;
+	}
+
+	public void setApt_seq(int apt_seq) {
+		this.apt_seq = apt_seq;
 	}
 	
 }

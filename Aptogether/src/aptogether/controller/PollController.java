@@ -19,6 +19,7 @@ import aptogether.action.ActionForward;
 import aptogether.action.PollDetailListAction;
 import aptogether.action.PollInsertAction;
 import aptogether.action.PollListAction;
+import aptogether.action.PollListviewAction;
 import aptogether.action.PollSelectInsertAction;
 import aptogether.model.Option;
 import aptogether.model.PollService;
@@ -48,6 +49,13 @@ public class PollController extends HttpServlet {
 			}
 		} else if (command.equals("PollListAction.do")) {
 			action = new PollListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("PollListviewAction.do")) {
+			action = new PollListviewAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

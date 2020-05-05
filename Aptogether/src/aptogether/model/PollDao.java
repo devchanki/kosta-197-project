@@ -51,13 +51,13 @@ public class PollDao {
 		return re;
 	}
 
-	public List<Poll> PollList() {
+	public List<Poll> PollList(Member member) {
 		SqlSession sqlsession = getSqlSessionFactory().openSession();
 		List<Poll> list = null;
 		
 
 		try {
-			list = sqlsession.getMapper(PollMapper.class).PollList();
+			list = sqlsession.getMapper(PollMapper.class).PollList(member);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -12,7 +12,7 @@ import aptogether.model.Detail;
 public interface PollMapper {
 	int PollInsert(Poll poll);
 	int PollOption(List<Option> option);
-	List<Poll> PollList();
+	List<Poll> PollList(Member member);
 	List<Option> OptionList(int seq);
 	Integer PollSelectInsert(PollSelect pollselect);
 	List<Detail> PollDetailList(int seq);
