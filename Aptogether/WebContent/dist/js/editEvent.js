@@ -120,7 +120,7 @@ $('#deleteEvent').on('click', function () {
     //삭제시
     $.ajax({
         type: "get",
-        url: "/Aptogether/schedule/deleteSchedule",
+        url: "/Aptogether/schedule/deleteScheduleAPT",
         data: {
         		"id": editId.val(),
         		"apt_Seq": editAptSeq.val()

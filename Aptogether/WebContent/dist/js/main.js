@@ -15,10 +15,6 @@ function getDisplayEventDate(event) {
   return displayEventDate;
 }
 
-
- 
-  
-
 function filtering(event) {
 	if($("#dong_toggle").prop('checked')){
 		 return (sessionDong == event.dong) ? true : false;
@@ -27,8 +23,6 @@ function filtering(event) {
 		 return true;
 	 }
 }
-
-
 
 function calDateWhenResize(event) {
 
@@ -164,23 +158,23 @@ var calendar = $('#calendar').fullCalendar({
   events: function (start, end, timezone, callback) {
     $.ajax({
       type: "get",
-      url: "/Aptogether/schedule/listScheduleAPT_Dong",
+      url: "/Aptogether/schedule/listScheduleAPT",
       data: {
         
       },
       success: function (response) {
     	  console.log(response);
     	  response = JSON.parse(response);
-        var fixedDate = response.map(function (array) {
-        	console.log(array);
-        	console.log(array.end);
-          if (array.allDay && array.start !== array.end) {
-     	  console.log(array.end)
-            array.end = moment(array.end).format('YYYY-MM-DD HH:mm');
-          }
-          return array;
-        })
-        callback(fixedDate);
+//        var fixedDate = response.map(function (array) {
+//        	console.log(array);
+//        	console.log(array.end);
+//          if (array.allDay && array.start !== array.end) {
+//     	  console.log(array.end)
+//            array.end = moment(array.end).format('YYYY-MM-DD HH:mm');
+//          }
+//          return array;
+//        })
+        callback(response);
       }
     });
   },
@@ -344,7 +338,6 @@ var calendar = $('#calendar').fullCalendar({
   },
   eventLimitClick: 'week', //popover
   navLinks: true,
-  defaultDate: moment('2020-04'), //실제 사용시 삭제
   timeFormat: 'HH:mm',
   defaultTimedEventDuration: '01:00:00',
   editable: true,

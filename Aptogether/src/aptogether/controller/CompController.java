@@ -1,8 +1,6 @@
 package aptogether.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,8 +16,6 @@ import aptogether.action.CompDelete;
 import aptogether.action.CompMain;
 import aptogether.action.CompWrite;
 import aptogether.action.WriteForm;
-import aptogether.model.BoardService;
-import aptogether.model.Showcomp;
 import aptogether.action.InsertCompAction;
 
 @WebServlet("/apto/*")
@@ -93,7 +89,6 @@ public class CompController extends HttpServlet {
 			}
 		}
 	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doProcess(request, response);

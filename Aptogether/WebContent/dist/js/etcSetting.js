@@ -15,9 +15,7 @@ $("#type_filter").select2({
 });
 
 //datetimepicker
-$("#edit-start, #edit-end").datetimepicker({
-    format: 'YYYY-MM-DD HH:mm'
-});
+
 
 function get_calendar_height() {
     return $(window).height() - 30;

@@ -163,6 +163,7 @@ public class scheduleController extends HttpServlet {
 					JSONArray arr = new JSONArray();
 					
 					for (Schedule s : list) {
+						System.out.println(s);
 						JSONObject tmp = new JSONObject();
 						tmp.put("_id", s.getSchedule_Seq());
 						tmp.put("contents", s.getContents());

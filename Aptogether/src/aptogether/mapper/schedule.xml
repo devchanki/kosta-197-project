@@ -23,10 +23,12 @@ delete from schedule where schedule_Seq=#{schedule_Seq}
 </delete>
 
 <select id="listScheduleAPT" resultType="Schedule" parameterType="Integer" >
-select sc.* from schedule sc left join member me on sc.apt_seq = me.apt_seq where me.apt_seq = #{apt_seq}
+<!-- select sc.* from schedule sc left join member me on sc.apt_seq = me.apt_seq where me.apt_seq = #{apt_seq} -->
+select * from schedule where apt_seq = #{apt_seq}
 </select>
 
 <select id="listScheduleAPT_Dong" resultType="Schedule" parameterType="Member" >
-select sc.* from schedule sc left join member me on sc.apt_seq = me.apt_seq where me.apt_seq = #{apt_seq} and me.dong = #{dong}
+<!-- select sc.* from schedule sc left join member me on sc.apt_seq = me.apt_seq where me.apt_seq = #{apt_seq} and me.dong = #{dong} -->
+select * from schedule where apt_seq = #{apt_seq} and dong = #{dong}
 </select>
 </mapper>

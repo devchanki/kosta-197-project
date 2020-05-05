@@ -117,7 +117,7 @@ public class ScheduleDao {
 
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<Schedule> list = null;
-
+		System.out.println("listDao");
 		try {
 			list = sqlSession.getMapper(scheduleMapper.class).listScheduleAPT(apt_Seq);
 
@@ -134,7 +134,7 @@ public class ScheduleDao {
 
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<Schedule> list = null;
-
+		System.out.println("dong dao");
 		try {
 			list = sqlSession.getMapper(scheduleMapper.class).listScheduleAPT_Dong(member);
 

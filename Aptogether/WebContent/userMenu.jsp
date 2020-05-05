@@ -37,14 +37,15 @@
 			data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">민원</h6>
-				<a class="collapse-item" href="/Aptogether/scheduleApt.jsp">우리아파트 일정보기</a> 
 				<a class="collapse-item" href="/Aptogether/apto/Compboard.do">내 민원 보기</a>
 				<a class="collapse-item" href="/Aptogether/compSelect.jsp">민원 등록하기</a>
 			</div>
 		</div></li>
-
+		<li class="nav-item"><a class="nav-link" href="/Aptogether/scheduleApt.jsp"> <i
+			class="fas fa-fw fa-chart-area"></i> <span>아파트 일정 보기</span>
+	</a></li>
 	<!-- Nav Item - Utilities Collapse Menu -->
-	<li class="nav-item"><a class="nav-link collapsed" href="#"
+<!-- 	<li class="nav-item"><a class="nav-link collapsed" href="#"
 		data-toggle="collapse" data-target="#collapseUtilities"
 		aria-expanded="true" aria-controls="collapseUtilities"> <i
 			class="fas fa-fw fa-wrench"></i> <span>Utilities</span>
@@ -58,7 +59,7 @@
 					class="collapse-item" href="utilities-animation.html">Animations</a>
 				<a class="collapse-item" href="utilities-other.html">Other</a>
 			</div>
-		</div></li>
+		</div></li> -->
 
 	<!-- Divider -->
 	<hr class="sidebar-divider">
@@ -67,7 +68,7 @@
 	<div class="sidebar-heading">우리아파트 편의정보</div>
 
 	<!-- Nav Item - Pages Collapse Menu -->
-	<li class="nav-item"><a class="nav-link collapsed" href="#"
+<!-- 	<li class="nav-item"><a class="nav-link collapsed" href="#"
 		data-toggle="collapse" data-target="#collapsePages"
 		aria-expanded="true" aria-controls="collapsePages"> <i
 			class="fas fa-fw fa-folder"></i> <span>Pages</span>
@@ -85,7 +86,7 @@
 				<a class="collapse-item" href="404.html">404 Page</a> <a
 					class="collapse-item" href="blank.html">Blank Page</a>
 			</div>
-		</div></li>
+		</div></li> -->
 
 	<!-- Nav Item - Charts -->
 	<li class="nav-item"><a class="nav-link" href="/Aptogether/map/mapform.do"> <i
