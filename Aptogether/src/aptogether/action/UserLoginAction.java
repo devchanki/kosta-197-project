@@ -25,9 +25,18 @@ public class UserLoginAction implements Action{
 		request.setAttribute("list", list);
 		ManageFee last = null;
 		ManageFee beforeLast = null;
+		ManageFee thirdLast = null;
+		ManageFee fourthLast = null;
+		ManageFee fifthLast = null;
+		ManageFee sixthLast = null;
+		
 		if (list != null && list.size() >= 2) {
-			last = list.get(list.size() - 1);
-			beforeLast = list.get(list.size() - 2);
+			last = list.get(0);
+			beforeLast = list.get(1);
+			thirdLast = list.get(2);
+			fourthLast = list.get(3);
+			fifthLast = list.get(4);
+			sixthLast = list.get(5);
 
 		} else if (list != null && list.size() == 1) {
 			last = list.get(0);
@@ -36,6 +45,10 @@ public class UserLoginAction implements Action{
 		}
 		request.setAttribute("last",last);
 		request.setAttribute("beforeLast", beforeLast);
+		request.setAttribute("thirdLast", thirdLast);
+		request.setAttribute("fourthLast", fourthLast);
+		request.setAttribute("fifthLast", fifthLast);
+		request.setAttribute("sixthLast", sixthLast);
 		
 		
 		forward.setRedirect(false);

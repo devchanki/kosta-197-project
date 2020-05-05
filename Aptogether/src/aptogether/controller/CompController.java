@@ -21,7 +21,7 @@ import aptogether.action.CompWrite;
 import aptogether.action.WriteForm;
 import aptogether.model.BoardService;
 import aptogether.model.Showcomp;
-import aptogether.action.InsertAction;
+
 
 @WebServlet("/apto/*")
 public class CompController extends HttpServlet{
@@ -61,13 +61,13 @@ public class CompController extends HttpServlet{
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	} else if(command.equals("insertAction.do")) {
-		action=new InsertAction();
-		try {
-			forward=action.execute(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//	} else if(command.equals("insertAction.do")) {
+//		action=new InsertAction();
+//		try {
+//			forward=action.execute(request, response);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	} else if (command.equals("Compboard.do")) {
 		action = new CompBoard();
 		try {
