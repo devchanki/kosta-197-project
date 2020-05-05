@@ -13,19 +13,21 @@
 		<typeAlias type="aptogether.model.Schedule" alias="Schedule" />
 		<typeAlias type="aptogether.model.Board" alias="Board" />
 		<typeAlias type="aptogether.model.Search" alias="Search" />
-		<typeAlias type="aptogether.model.Board" alias="Board" />
-		<typeAlias type="aptogether.model.Search" alias="Search" />
+		<typeAlias type="aptogether.model.Poll" alias="Poll"/>
+		<typeAlias type="aptogether.model.Option" alias="Option"/>
+		<typeAlias type="aptogether.model.PollSelect" alias="PollSelect"/>
+		<typeAlias type="aptogether.model.Detail" alias="Detail"/>
 	</typeAliases>
-
 
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC" />
+			<transactionManager type="JDBC"/>
 			<dataSource type="JNDI">
 				<property name="data_source"
-					value="java:comp/env/jdbc/oracle" />
+					value="java:comp/env/jdbc/oracle"/>
+
 			</dataSource>
-		</environment>
+		</environment>		
 	</environments>
 
 	<mappers>
@@ -35,6 +37,7 @@
 		<mapper resource="aptogether/mapper/schedule.xml" />
 		<mapper resource="aptogether/mapper/Market_Product.xml" />
 		<mapper resource="aptogether/mapper/Board.xml" />
+		<mapper resource="aptogether/mapper/Poll.xml"/>
 	</mappers>
 
 </configuration>

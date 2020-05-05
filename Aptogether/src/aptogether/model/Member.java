@@ -119,7 +119,4 @@ public class Member implements Serializable {
 		return "Member [member_seq=" + member_seq + ", id=" + id + ", password=" + password + ", apt_seq=" + apt_seq
 				+ ", dong=" + dong + ", ho=" + ho + ", admit=" + admit + ", type=" + type + ", name=" + name + "]";
 	}
-	
-	
-
 }
