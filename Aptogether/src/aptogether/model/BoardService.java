@@ -44,16 +44,15 @@ public class BoardService {
 			String fname=(String)multi.getFilesystemName("Fname");
 			board.setFname(fname);
 	
-			//����� �̹���(gif, jpg) => aa.gif, aa.jpg
 			String pattern = fname.substring(fname.indexOf(".") + 1); //gif
 			String head = fname.substring(0, fname.indexOf(".")); //aa
 			
-			//���� ���� ��ü
-			String imagePath = uploadPath + "\\" + fname;
+
+			String imagePath = uploadPath + "/" + fname;
 			File src = new File(imagePath);
 			
-			//����� ���� ��ü
-			String thumPath = uploadPath + "\\" + head + "_small" + pattern;
+
+			String thumPath = uploadPath + "/" + head + "_small" + pattern;
 			File dest = new File(thumPath);
 			
 			if(pattern.equals("gif") || pattern.equals("jpg")) {

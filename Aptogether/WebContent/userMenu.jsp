@@ -31,14 +31,15 @@
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item"><a class="nav-link collapsed" href="#"
 		data-toggle="collapse" data-target="#menuControl" aria-expanded="true"
-		aria-controls="menuControl"> <i class="fas fa-fw fa-cog"></i> <span>Components</span>
+		aria-controls="menuControl"> <i class="fas fa-fw fa-cog"></i> <span>민원</span>
 	</a>
 		<div id="menuControl" class="collapse" aria-labelledby="headingTwo"
 			data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Custom Components:</h6>
-				<a class="collapse-item" href="/Aptogether/scheduleApt.jsp">우리아파트 일정보기</a> <a
-					class="collapse-item" href="cards.html">Cards</a>
+				<h6 class="collapse-header">민원</h6>
+				<a class="collapse-item" href="/Aptogether/scheduleApt.jsp">우리아파트 일정보기</a> 
+				<a class="collapse-item" href="/Aptogether/apto/Compboard.do">내 민원 보기</a>
+				<a class="collapse-item" href="/Aptogether/compSelect.jsp">민원 등록하기</a>
 			</div>
 		</div></li>
 

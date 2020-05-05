@@ -1,131 +1,108 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="no-js" lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" href="./css/comp_select.css">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
- <link rel="stylesheet" href="https://cdn.rawgit.com/tonystar/bootstrap-float-label/v4.0.2/bootstrap-float-label.min.css"/>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./vendor/modernizr.custom.min.js"></script>
-<script src="./vendor/jquery-1.10.2.min.js"></script>
-<script src="./vendor/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="./js/imagebox.js"></script>
-<script>
-
-</script>
-</head>
-<body>
-	<div id = "maintitle">πŒø¯¿ª º±≈√«ÿ¡÷ººø‰.</div>
-	<hr align="center" style="border: solid 5px #3300FF; width: 30%;">
-	
-	<div id="quickmain">
-	<div id="modal">
-    <div class="row">
-            <div class="col-lg-6 offset-lg-3 col-sm-6 offset-sm-3 col-12">   
-            
-                <form class="card w-100 card-block bg-faded" action = "../apto/insertAction.do" method="post" class="form-horizontal"
-                enctype="multipart/form-data">
-                      <legend class="m-b-1 text-center text-info"> <strong> Contact us </strong></legend>
-                      <div class="form-group input-group">
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link rel="stylesheet" href="./css/comp_select.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.rawgit.com/tonystar/bootstrap-float-label/v4.0.2/bootstrap-float-label.min.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="./vendor/modernizr.custom.min.js"></script>
+      <script src="./vendor/jquery-1.10.2.min.js"></script>
+      <script src="./vendor/jquery-ui-1.10.3.custom.min.js"></script>
+      <script src="./js/imagebox.js"></script>
+      <script></script>
+   </head>
+   <body>
+           <div id="modal">
+            <div class="row">
+               <div class="col-lg-6 offset-lg-3 col-sm-6 offset-sm-3 col-12">
+                  <form class="card w-100 card-block bg-faded" action = "../apto/insertAction.do" method="post" class="form-horizontal"
+                     enctype="multipart/form-data">
+                     <legend class="m-b-1 text-center text-info"> <strong> Contact us </strong></legend>
+                     <div class="form-group input-group">
                         <span class="has-float-label">
-                           <input id="Title" name="Title" type="text" placeholder="*¡¶∏Ò" class="form-control">
-                          <label for="first">¡¶∏Ò</label>
+                        <input id="Title" name="Title" type="text" placeholder="*Ï†úÎ™©" class="form-control">
+                        <label for="first">Ï†úÎ™©</label>
                         </span>
-                      </div>
-                      
-                      <div class="form-group input-group">
+                     </div>
+                     <div class="form-group input-group">
                         <span class="has-float-label">
-                            <input id="Email" name="Email" type="text" placeholder="¿Ã∏ﬁ¿œ" class="form-control">
-                          <label for="email">¿Ã∏ﬁ¿œ</label>
+                        <input id="Email" name="Email" type="text" placeholder="Ïù¥Î©îÏùº" class="form-control">
+                        <label for="email">Ïù¥Î©îÏùº</label>
                         </span>
-                      </div>
-                      <div class="form-group input-group">
+                     </div>
+                     <div class="form-group input-group">
                         <span class="has-float-label">
-                          <input id="Tel" name="Tel" type="text" placeholder="ø¨∂Ù√≥" class="form-control">
-                          <label for="contact">ø¨∂Ù√≥</label>
+                        <input id="Tel" name="Tel" type="text" placeholder="Ïó∞ÎùΩÏ≤ò" class="form-control">
+                        <label for="contact">Ïó∞ÎùΩÏ≤ò</label>
                         </span>
-                      </div>
-                      <div class="form-group input-group">
+                     </div>
+                     <div class="form-group input-group">
                         <span class="has-float-label">
-                         <textarea class="form-control" id="Content" name="Content" placeholder="*ªÛºº ≥ªøÎ¿ª ¿€º∫«ÿ¡÷ººø‰." rows="7"></textarea>
-                          <label for="message">≥ªøÎ</label>
+                        <textarea class="form-control" id="Content" name="Content" placeholder="*ÏÉÅÏÑ∏ ÎÇ¥Ïö©ÏùÑ ÏûëÏÑ±Ìï¥Ï£ºÏÑ∏Ïöî." rows="7"></textarea>
+                        <label for="message">ÎÇ¥Ïö©</label>
                         </span>
-                      </div>
-                       <div class="form-group input-group">
+                     </div>
+                     <div class="form-group input-group">
                         <span class="has-float-label">
-                          <input id="Fname" name="Fname" type="file" placeholder="∆ƒ¿œ" class="form-control">
-                          <label for="contact">∆ƒ¿œ √∑∫Œ</label>
+                        <input id="Fname" name="Fname" type="file" placeholder="ÌååÏùº" class="form-control">
+                        <label for="contact">ÌååÏùº Ï≤®Î∂Ä</label>
                         </span>
-                      </div>
-                      
+                     </div>
                      <div class="form-content">
-                     	
-
-
-                            <div class="col-md-12 text-center">
-                            	
-                            	<input type="button" id="cancel" value="√Îº“"> 
-                            	
-                                <button type="submit" class="btn btn-primary btn-lg"
-                           >¿¸ º€</button>
-                            </div>
+                        <div class="col-md-12 text-center">
+                           <input type="button" class="btn btn-primary btn-lg" id="cancel" value="Ï∑®ÏÜå"> 
+                           <input type="submit" class="btn btn-primary btn-lg" value="ÏûëÏÑ±ÌïòÍ∏∞"/>
                         </div>
-                        
-                </form>
-        </div>	
-    </div>
-    </div>
-
-
-
-			<div id="quickline1"> <span class="quick1">
-			<a style="text-decoration:none"> <img src="./img/noise.png">
-						<dl>
-						<dt>√˛∞£º“¿Ω</dt>
-					</dl>
-					</a>	
-			</span>
-			 <span class="quick1"> 
-			<img src="./img/parking.png"></a>
-					<dl>
-						<dt>¡÷¬˜πÆ¡¶</dt>
-						
-					</dl>
-			</span>
-			</div>
-			<div id="quickline2"> 
-			<span class="quick2">
-			 <a style="text-decoration:none">
-			<img src="./img/trash.png"></a>
-					<dl>
-						<dt>æ≤∑π±‚ π´¥‹≈ı±‚</dt>
-					</dl>
-			</span> <span class="quick2">
-			<img src="./img/choice.png">
-						<dt>±‚≈∏</dt>
-					
-					</dl>
-			</span>
-			</div>
-		</div>
-	
-	
-
-<script>
-/* function click_button(var a) {
-	$("#modal").toggle();
-} */
-var matches = document.querySelectorAll("span.quick1, span.quick2, #cancel");
-	for(var i = 0; i < matches.length; i++){
-		matches[i].onclick = function(){
-			$("#modal").toggle();
-		}
-	}
-
-</script>
-
-</body>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      <div id = "maintitle">ÎØºÏõêÏùÑ ÏÑ†ÌÉùÌï¥Ï£ºÏÑ∏Ïöî.</div>
+      <hr align="center" style="border: solid 5px #3300FF; width: 30%;">
+      <div id="quickmain">
+         <div class="quickline1 container-fluid">
+            <div class="quick1 ">
+               <a>
+                  <img src="./img/noise.png">
+                  <dl>
+                     <dt>Ï∏µÍ∞ÑÏÜåÏùå</dt>
+                  </dl>
+               </a>
+            </div>
+            <div class="quick1">
+               <img src="./img/parking.png"></a>
+               <dl>
+                  <dt>Ï£ºÏ∞®Î¨∏Ï†ú</dt>
+               </dl>
+            </div>
+         </div>
+         <div class="quickline2 container-fluid">
+            <div class="quick2">
+               <a style="text-decoration:none">
+               <img src="./img/trash.png"></a>
+               <dl>
+                  <dt>Ïì∞Î†àÍ∏∞ Î¨¥Îã®Ìà¨Í∏∞</dt>
+               </dl>
+            </div>
+            <div class="quick2">
+               <img src="./img/choice.png">
+               <dt>Í∏∞ÌÉÄ</dt>
+               </dl>
+            </div>
+         </div>
+      </div>
+      <script>
+         var matches = document.querySelectorAll("div.quick1, div.quick2, #cancel");
+         	for(var i = 0; i < matches.length; i++){
+         		matches[i].onclick = function(){
+         			$("#modal").toggle();
+         		}
+         	}
+      </script>
+   </body>
 </html>

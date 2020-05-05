@@ -10,8 +10,7 @@ public class CompWrite implements Action {
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(true);
-		forward.setUrl("/Aptogether/dist/comp_select.jsp");
+		forward.setUrl("/Aptogether/compSelect.jsp");
 		return forward;
-	}
-	
+	}	
 }

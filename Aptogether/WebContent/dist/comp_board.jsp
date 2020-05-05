@@ -87,8 +87,9 @@
    <a href="Compboard.do?pageNum=${listModel.endPage+1}">[이후]</a>
    </c:if>
   	
-   <button type = "button" id = "compwrite"><a href="../apto/compWrite.do">민원작성</a></button>
-  
+   <button type = "button" id = "compwrite">
+   <a href="../apto/compWrite.do">민원작성</a>
+   </button>
    </div>
 </body>
 
