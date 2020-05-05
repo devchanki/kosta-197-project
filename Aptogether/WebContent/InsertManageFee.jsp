@@ -431,7 +431,7 @@
 									<button class="btn btn-primary" id="manage_fee_register">관리비 등록</button>
 									<hr>
 									<div>
-										<table class="table table-bordered fee-table"></table>
+										<table class="table table-bordered fee-table" width="100%" cellspacing="0"></table>
 									</div>
 								</div>
 							</div>

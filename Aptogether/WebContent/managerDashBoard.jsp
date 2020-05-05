@@ -454,19 +454,10 @@
 											<th>이름</th>
 											<th>동</th>
 											<th>호</th>
-											<th>가입일</th>
+											<th>이메일</th>
 											<th>승인</th>
 										</tr>
 									</thead>
-									<tfoot>
-										<tr>
-											<th>이름</th>
-											<th>동</th>
-											<th>호</th>
-											<th>아이디</th>
-											<th>승인</th>
-										</tr>
-									</tfoot>
 									<tbody>
 										<c:forEach var="user" items="${waiting}">
 											<tr>
