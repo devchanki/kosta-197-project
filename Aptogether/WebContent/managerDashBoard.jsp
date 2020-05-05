@@ -819,7 +819,7 @@
 			          </div>
 			      </div>
 					<div class="modal-footer">
-						<button type="button" id="find_MQ2" class="btn btn-primary"><a id="moveMFR" >이동</a></button>
+						<button type="button" id="find_MQ2" class="btn btn-primary"><a id="moveMFR"  style="color: #f8f9fc; text-decoration: none;">이동</a></button>
 						<button type="button" id="cancle_MQ2" class="btn btn-secondary" data-dismiss="modal">취소</button>
 					</div>
 				</form>
@@ -859,13 +859,8 @@
 	<!-- Custom scripts for all pages-->
 	<script src="/Aptogether/js/sb-admin-2.min.js"></script>
 
-	<!-- Page level plugins -->
-	<script src="/Aptogether/vendor/chart.js/Chart.min.js"></script>
-
 	<!-- Page level custom scripts -->
 	<script src="/Aptogether/dist/js/findMemberSeq.js"></script>
-	<script src="/Aptogether/js/demo/chart-area-demo.js"></script>
-	<script src="/Aptogether/js/demo/chart-pie-demo.js"></script>
 	<script src="/Aptogether/vendor/datatables/jquery.dataTables.min.js"></script>
 	<script src="/Aptogether/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 	<script src="/Aptogether/js/demo/datatables-demo.js"></script>
