@@ -31,12 +31,11 @@ $(function() {
 				console.log(response);
 				data = JSON.parse(response);
 				console.log(response);
-				 $('.fee-table').html('<tr><td>입주민번호</td><td>청구일자</td><td>일반관리비</td><td>경비비</td><td>청소비</td><td>소독비</td><td>승강기유지비</td><td>전기세</td><td>수도세</td><td>난방비</td><td>합계</td></tr>');
+				 $('.fee-table').html('<tr><td></td><td>일반관리비</td><td>경비비</td><td>청소비</td><td>소독비</td><td>승강기유지비</td><td>전기세</td><td>수도세</td><td>난방비</td><td>합계</td></tr>');
 				for (var i = 0; i < data.length; i++) {
 					$('.fee-table').append(
 									'<tr>'
-										+'<td>'+ data[i].member_seq +'</td>'
-										+'<td>'+ moment(data[i].pay_date).format('YYYY-MM') + '</td>'
+										+'<td>'+ moment(data[i].pay_date).format('YYYY년 MM월 관리비')+'<br>'+'<small>'+moment(data[i].pay_date).format('납부기한 : YYYY년 MM월 DD일 까지') + '</small>'+ '</td>'
 										+'<td>'+ AmountCommas(data[i].general_fee) + '원'+ '</td>'
 										+'<td>'+ AmountCommas(data[i].security_fee) + '원'+ '</td>'
 										+'<td>'+ AmountCommas(data[i].cleaning_fee) + '원'+ '</td>'

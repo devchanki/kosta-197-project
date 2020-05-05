@@ -22,7 +22,6 @@ $(function() {
 								$('#findMQ-modal2').modal('show');
 								MQinfo.val("입주민번호 " + response.member_seq + "　"+response.dong +"동  "+ response.ho+"호");
 								$('#moveMFR').attr("href", "/Aptogether/InsertManageFee.jsp?member_seq=" + response.member_seq);
-										
 						}
 					});
 					$("#findMQ-modal").modal('hide');

@@ -90,95 +90,6 @@
 							class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 					</div>
 
-					<!-- Content Row -->
-					<div class="row">
-
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings
-												(Monthly)</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-calendar fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-success shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings
-												(Annual)</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-info shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-											<div class="row no-gutters align-items-center">
-												<div class="col-auto">
-													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-												</div>
-												<div class="col">
-													<div class="progress progress-sm mr-2">
-														<div class="progress-bar bg-info" role="progressbar"
-															style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-															aria-valuemax="100"></div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Pending Requests Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending
-												Requests</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-comments fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 
 
 					<!-- Content Row -->
@@ -189,66 +100,56 @@
 						<div class="col-xl-7 col-lg-7">
 							<div class="card shadow mb-4">
 								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+								<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 									<h6 class="m-0 font-weight-bold text-primary">관리비 추이 </h6>
 								</div>
 								
 								
-						<!-- Card Body1 -->		
-								<div class="card-body">
-									<div class="card mb-3">
-										<div class="row no-gutters">
-											<div class="col-md-4">
-												<img src="/Aptogether/css/image/receipt.png" class="card-img" alt="관리비">
-											</div>
-											<div class="col-md-8">
-												<div class="card-body">
-													<c:choose>
-														<c:when test="${last eq null}">
-															<h5 class="card-title">고지된 관리비가 없습니다.</h5>
-															<h3 class="card-text">
-																<b id="thisMonthFee"> 현재 관리비가 존재하지 않습니다. </b>
-															</h3>
-														</c:when>
-														<c:otherwise>
-															<h5 class="card-title">
-																<fmt:parseDate var="date" value="${last.pay_date}"
-																	pattern="yyyy-MM-dd HH:mm:ss" />
-																<fmt:formatDate value="${date }" pattern="yyyy년 MM월 관리비 " />
-															</h5>
-															<h3 class="card-text">
-																<b> ${ last.getTotalValue()}원</b>
-															</h3>
-															<p class="card-text">
-																<small class="text-muted">전월대비
-																	<c:choose>
-																		<c:when test="${last.getTotalValue() gt beforeLast.getTotalValue()}">
-																			<img src="/Aptogether/css/image/up.png" alt="up" 
-																			style="width: 20px;height: 20px;padding-bottom: 3px;">
-																			${last.getTotalValue() - beforeLast.getTotalValue()}원 증가
-																		</c:when>
-																		<c:when test="${last.getTotalValue() lt beforeLast.getTotalValue()}">
-																			<img src="/Aptogether/css/image/down.png" alt="down"
-																			style="width: 20px;height: 20px;padding-bottom: 3px;">
-																	${beforeLast.getTotalValue() - last.getTotalValue()}원 감소
-																		</c:when>
-																		<c:when test="${last.getTotalValue() eq beforeLast.getTotalValue()}">
-																			<img src="/Aptogether/css/image/equal.png" alt="down"
-																			style="width: 20px;height: 20px;padding-bottom: 3px;">
-																		관리비 부과액이 같습니다(증감액 0원)
-																		</c:when>
-																	</c:choose>
-																</small>
-															</p>
-														</c:otherwise>
-													</c:choose>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
+						<!-- Card Body1 -->
+						<div class="card" style="margin: 30px 115px 20px 115px;" align="center">
+						  <div class="card-body">
+						  <img src="/Aptogether/css/image/receipt.png" alt="관리비" style="width: 100px; height: 100px; float: left;">
+						    <c:choose>
+								<c:when test="${last eq null}">
+									<h5 class="card-title">고지된 관리비가 없습니다.</h5>
+									<h3 class="card-text">
+										<b id="thisMonthFee"> 현재 관리비가 존재하지 않습니다. </b>
+									</h3>
+								</c:when>
+								<c:otherwise>
+									<h5 class="card-title">
+										<fmt:parseDate var="date" value="${last.pay_date}"
+											pattern="yyyy-MM-dd HH:mm:ss" />
+										<fmt:formatDate value="${date }" pattern="yyyy년 MM월 관리비 " />
+									</h5>
+									<h3 class="card-text">
+										<b> ${ last.getTotalValue()}원</b>
+									</h3>
+									<p class="card-text">
+										<small class="text-muted">전월대비
+											<c:choose>
+												<c:when test="${last.getTotalValue() gt beforeLast.getTotalValue()}">
+													<img src="/Aptogether/css/image/up.png" alt="up" 
+													style="width: 20px;height: 20px;padding-bottom: 3px;">
+													${last.getTotalValue() - beforeLast.getTotalValue()}원 증가
+												</c:when>
+												<c:when test="${last.getTotalValue() lt beforeLast.getTotalValue()}">
+													<img src="/Aptogether/css/image/down.png" alt="down"
+													style="width: 20px;height: 20px;padding-bottom: 3px;">
+											${beforeLast.getTotalValue() - last.getTotalValue()}원 감소
+												</c:when>
+												<c:when test="${last.getTotalValue() eq beforeLast.getTotalValue()}">
+													<img src="/Aptogether/css/image/equal.png" alt="down"
+													style="width: 20px;height: 20px;padding-bottom: 3px;">
+												관리비 부과액이 같습니다(증감액 0원)
+												</c:when>
+											</c:choose>
+										</small>
+									</p>
+								</c:otherwise>
+							</c:choose>
+						  </div>
+						</div>
 								<!-- Card Body2 -->
 								<div class="card-body">
 									<div class="chart-area">
@@ -1171,7 +1072,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2019</span>
+						<span>Copyright &copy; Your Website 2020</span>
 					</div>
 				</div>
 			</footer>
