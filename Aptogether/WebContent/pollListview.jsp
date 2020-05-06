@@ -4,6 +4,7 @@
 <%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -19,97 +20,93 @@
 <!-- Custom fonts for this template-->
 <link href="/Aptogether/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
+
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="/Aptogether/css/sb-admin-2.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/Aptogether/css/comp_select.css">
+<link href="/Aptogether/css/sb-admin-2.css" rel="stylesheet">
+<link href="/Aptogether/css/Poll.css" rel="stylesheet">
 <body id="page-top">
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<%@ include file="userMenu.jsp"%>
+		<%@ include file="/userMenu.jsp"%>
 		<!-- Begin Page Content -->
 		<div class="container-fluid">
 
 			<!-- Page Heading -->
 			<div
 				class="d-sm-flex align-items-center justify-content-between mb-4">
-				<h3 class="h3 mb-0 text-gray-800">민원 목록 입니다.</h3>
+				<h1 class="h3 mb-0 text-gray-800">투표참여</h1>
 			</div>
 
 			<!-- Content Row -->
-			<div class="row">
-				<div class="col-xl-12">
-					<div id="maintitle">나의 민원</div>
-					<hr align="center" style="border: solid 2px #CCCCCC; width: 65%;">
+			<div class="flex-column">
 
-
-					<div id="comptable">
-						<div id="accordion">
-							<c:forEach var="aaa" items="${listModel.list}">
-								<div id="accotitle">${aaa.title }</div>
-								<div class="accocontent">
-									<div id="contenttext">
-										<p>
-											제목: ${aaa.title }<br> 내용: ${aaa.content } <br> <a
-												href="download.jsp?filename=${aaa.fname }">${aaa.fname }</a>
-										</p>
-									</div>
-
-									<div id="buttonArea">
-										<button class="button">
-											<a href="CompDelete.do?seq=${ aaa.seq }">문의 취소</a>
-										</button>
-									</div>
-								</div>
-							</c:forEach>
-
+				<!-- pollList 출력 -->
+				<c:forEach var="poll" items="${list}">
+					<div class="card custom-bg mb-4 margin-auto max-width-card"
+						data-toggle="modal" data-target="#option_modal"
+						onclick="showData(${poll.poll_seq} , '${poll.question}', '${poll.contents }'  )">
+						<div class="card-body text-white">
+							<h5 class="card-title">${poll.question }</h5>
+							<p class="small text-white">
+								<c:set var="contents" value="${poll.contents }" />
+								${fn:substring(contents,0,20)}...
+							</p>
+						</div>
+						<div class="card-footer custom-bg small text-white">
+							<img id="poll_hitcount" src="/Aptogether/eye.png"> 조회수 :
+							${poll.hitcount} <span class="margin-left-span"><fmt:parseDate
+									var="date" value="${poll.end_date}"
+									pattern="yyyy-MM-dd HH:mm:ss" /> <fmt:formatDate
+									value="${date }" pattern="yyyy년 MM월 dd일 마감" /> </span>
 						</div>
 					</div>
+				</c:forEach>
+			</div>
 
-
-					<div id="pageArea" style="text-align:center;">
-						<c:if test="${listModel.startPage>5}">
-							<a href="Compboard.do?pageNum=${listModel.startPage-1}">[이전]</a>
-						</c:if>
-
-						<c:forEach var="pageNo" begin="${listModel.startPage }"
-							end="${listModel.endPage }">
-							<c:choose>
-								<c:when test="${listModel.requestPage== pageNo}">
-									<a href="Compboard.do?pageNum=${pageNo}">[<b>${pageNo}</b>]
-									</a>
-								</c:when>
-								<c:otherwise>
-									<a href="Compboard.do?pageNum=${pageNo}">[${pageNo}]</a>
-								</c:otherwise>
-							</c:choose>
-
-						</c:forEach>
-
-						<c:if test="${listModel.endPage<listModel.totalPageCount }">
-							<a href="Compboard.do?pageNum=${listModel.endPage+1}">[이후]</a>
-						</c:if>
-
-						<button type="button" id="compwrite">
-							<a href="../apto/compWrite.do">민원작성</a>
-						</button>
-					</div>
+			<!-- 투표선택 모달 시작 -->
+			<div class="modal fade" id="option_modal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<form action="/Aptogether/poll/PollSelectInsertAction.do">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="myModalLabel"></h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<h5 id="myModalContents"></h5>
+							</div>
+							<div class="modal-body">
+								<div class="option_modal_body"></div>
+								<div class="modal-footer">
+									<input type="submit" class="btn btn-outline-info" value="저장">
+									<button id="d" type="button" class="btn btn-outline-dark"
+										data-dismiss="modal">취소</button>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
+			<!-- 투표선택 모달 끝 -->
 		</div>
 		<!-- End of Main Content -->
-		<jsp:include page="/footer.jsp"></jsp:include>
+		
 		<!-- End of Footer -->
 
 	</div>
 	<!-- End of Content Wrapper -->
-
+	<jsp:include page="/footer.jsp"></jsp:include>
 	</div>
 	<!-- End of Page Wrapper -->
 
@@ -155,9 +152,7 @@
 
 	<!-- Page level custom scripts -->
 	<script src="/Aptogether/js/moment.min.js"></script>
-	<script>
-
-	</script>
+<script src="/Aptogether/js/poll.js"></script>
 </body>
 
 

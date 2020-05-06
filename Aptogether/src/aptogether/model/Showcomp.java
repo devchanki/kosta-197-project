@@ -8,7 +8,7 @@ public class Showcomp implements Serializable{
 	private String title;
 	private String email;
 	private String tel;
-	private String content;
+	private String contents;
 	private String fname;
 	private String process;
 	
@@ -20,7 +20,7 @@ public class Showcomp implements Serializable{
 		this.title = title;
 		this.email = email;
 		this.tel = tel;
-		this.content = content;
+		this.contents = content;
 		this.fname = fname;
 		this.process = process;
 	}
@@ -57,12 +57,12 @@ public class Showcomp implements Serializable{
 		this.tel = tel;
 	}
 
-	public String getContent() {
-		return content;
+	public String getContents() {
+		return contents;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setContents(String content) {
+		this.contents = content;
 	}
 
 	public String getFname() {
@@ -84,7 +84,7 @@ public class Showcomp implements Serializable{
 	@Override
 	public String toString() {
 		return "Showcomp [no_comp=" + no_comp + ", title=" + title + ", email=" + email + ", tel=" + tel + ", content="
-				+ content + ", fname=" + fname + ", process=" + process + "]";
+				+ contents + ", fname=" + fname + ", process=" + process + "]";
 	}
 	
 	

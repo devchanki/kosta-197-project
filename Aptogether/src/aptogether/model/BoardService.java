@@ -35,7 +35,7 @@ public class BoardService {
 		Board board = new Board();
 	
 		board.setTitle(multi.getParameter("Title"));
-		board.setContent(multi.getParameter("Content"));
+		board.setContents(multi.getParameter("Content"));
 		board.setTel(multi.getParameter("Tel"));
 		board.setEmail(multi.getParameter("Email"));
 		board.setFname(multi.getParameter("Fname"));

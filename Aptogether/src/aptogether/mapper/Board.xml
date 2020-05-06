@@ -4,7 +4,7 @@
 <mapper namespace = "aptogether.mapper.BoardMapper">
 	
 	<insert id = "insertBoard" parameterType = "board">
-		insert into COMP_BOARD values ( #{title},#{email}, #{tel}, #{content},
+		insert into COMP_BOARD values ( #{title},#{email}, #{tel}, #{contents},
 		#{fname, jdbcType=VARCHAR}, sysdate, compboard_seq.nextval)
 	</insert>
 	

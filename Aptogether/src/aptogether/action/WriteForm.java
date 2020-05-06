@@ -10,7 +10,7 @@ public class WriteForm implements Action {
 		ActionForward forward = new ActionForward();
 			
 		forward.setRedirect(false);
-		forward.setUrl("/dist/comp_complete.jsp");
+		forward.setUrl("/compFinish.jsp");
 		return forward;
 	}
 	

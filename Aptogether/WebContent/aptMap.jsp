@@ -95,12 +95,12 @@
 			</div>
 		</div>
 		<!-- End of Main Content -->
-		<jsp:include page="/footer.jsp"></jsp:include>
+		
 		<!-- End of Footer -->
 
 	</div>
 	<!-- End of Content Wrapper -->
-
+	<jsp:include page="/footer.jsp"></jsp:include>
 	</div>
 	<!-- End of Page Wrapper -->
 

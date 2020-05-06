@@ -37,10 +37,14 @@
 
 	<select id="PollSelectInsert" parameterType="PollSelect">
 
-		<if test='member_seq != "1"'>
+insert into poll_select
+			values(poll_select_seq.nextval,#{member_seq},sysdate,#{option_seq})
+
+<!-- 		<if test='member_seq != "1"'>
 			insert into poll_select
 			values(poll_select_seq.nextval,1,sysdate,#{option_seq})
 		</if>
+		 -->
 	</select>
 
 	<select id="PollDetailList" resultType="Detail"

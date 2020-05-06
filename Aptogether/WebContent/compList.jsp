@@ -51,7 +51,7 @@
 								<div class="accocontent">
 									<div id="contenttext">
 										<p>
-											제목: ${aaa.title }<br> 내용: ${aaa.content } <br> <a
+											제목: ${aaa.title }<br> 내용: ${aaa.contents } <br> <a
 												href="download.jsp?filename=${aaa.fname }">${aaa.fname }</a>
 										</p>
 									</div>

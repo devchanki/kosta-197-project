@@ -36,7 +36,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<%@ include file="/menu.jsp" %>
+		<%@ include file="/managerMenu.jsp" %>
 
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
@@ -51,8 +51,8 @@
 					<div class="flex-column">
 						<!-- 투표생성 모달 열기 -->
 						<div class="mb-4 margin-auto max-width-card">
-							<button type="button" class="text-white margin-auto btn custom-bg btn-lg"
-								data-toggle="modal" data-target="#poll_modal">생성조지기</button>
+							<button type="button" class="text-white margin-auto btn custom-bg btn-sm"
+								data-toggle="modal" data-target="#poll_modal">투표 생성하기</button>
 						</div>
 
 
@@ -88,7 +88,7 @@
 					<div class="modal fade" id="poll_modal" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel">
 						<div class="modal-dialog" role="document">
-							<form action="PollInsertAction.do" method="post">
+							<form action="/Aptogether/poll/PollInsertAction.do" method="post">
 								<div class="modal-content">
 									<div class="modal-header">
 										<div class="modal-title" id="myModalLabel">
@@ -147,13 +147,7 @@
 		<!-- End of Main Content -->
 
 		<!-- Footer -->
-		<footer class="sticky-footer bg-white">
-			<div class="container my-auto">
-				<div class="copyright text-center my-auto">
-					<span>Copyright &copy; Your Website 2019</span>
-				</div>
-			</div>
-		</footer>
+		<jsp:include page="/footer.jsp"></jsp:include>
 		<!-- End of Footer -->
 
 	</div>
@@ -176,15 +170,14 @@
 					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
-						<span aria-hidden="true">×</span>
+						<span aria-hidden="true"></span>
 					</button>
 				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
+				<div class="modal-body"> 정말 로그아웃 하시겠습니까? </div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
+					<a class="btn btn-primary" href="/Aptogether/member/logout.do">Logout</a>
 				</div>
 			</div>
 		</div>

@@ -26,7 +26,7 @@ public class PollListviewAction implements Action {
 		
 		
 		forward.setRedirect(false);
-		forward.setUrl("/vendor/pollListview.jsp");
+		forward.setUrl("/pollListview.jsp");
 		
 		return forward;
 	}

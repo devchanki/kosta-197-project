@@ -6,7 +6,7 @@ public class Board implements Serializable{
 	private String title;
 	private String email;
 	private String tel;
-	private String content;
+	private String contents;
 	private String fname;
 	private String compdate;
 	private int seq;
@@ -37,12 +37,12 @@ public class Board implements Serializable{
 		this.tel = tel;
 	}
 
-	public String getContent() {
-		return content;
+	public String getContents() {
+		return contents;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setContents(String content) {
+		this.contents = content;
 	}
 
 	public String getFname() {
@@ -71,7 +71,7 @@ public class Board implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Board [title=" + title + ", email=" + email + ", tel=" + tel + ", content=" + content + ", fname="
+		return "Board [title=" + title + ", email=" + email + ", tel=" + tel + ", content=" + contents + ", fname="
 				+ fname + ", compdate=" + compdate + ", seq=" + seq + "]";
 	}
 	
